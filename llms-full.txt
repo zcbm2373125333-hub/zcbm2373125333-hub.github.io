@@ -1,0 +1,1030 @@
+# StraightGate Finance – full text of all guides (2026-10-23)
+
+
+---
+# How do I calculate a translation quote from a Trados or memoQ analysis with fuzzy-match discounts?
+URL: https://zcbm2373125333-hub.github.io/en/translation-quote-fuzzy-match-cat-analysis/
+Language: en · Updated: 2026-10-20
+
+Short answer: Take the word count of each match band from your CAT analysis (Trados Studio, memoQ, Phrase), multiply it by the percentage of your full rate the client pays for that band , add the bands up to get your weighted words , and multiply by your per-word rate. If the result is below your minimum fee, charge the minimum. The pay percentages are not an industry standard – each agency uses its own grid – so ask for the grid before you accept the job.
+
+
+Worked example (illustrative): A 5,000-word file, full rate $0.10 per word. The analysis and two different agency grids (both grids are made-up examples): Match band Words Agency A pays Weighted (A) Agency B pays Weighted (B) 101% / context match 400 10% 40 0% 0 100% 600 25% 150 0% 0 95–99% 300 50% 150 30% 90 85–94% 500 60% 300 50% 250 75–84% 400 80% 320 70% 280 50–74% 300 100% 300 100% 300 No match 2,500 100% 2,500 100% 2,500 Total 5,000 3,760 3,420 Quote at $0.10 $500.00 at full rate $376.00 $342.00 Discount you give 24.8% 31.6% The same file pays $34 less with Agency B. Before you accept a job, run each client's grid on the real analysis – the per-word rate alone doesn't tell you what the job pays.
+How the CAT tools label the match bands: Exact match with matching context ; Context Match (and PerfectMatch) ; 101% (102% = double context) ; RWS , memoQ | Exact match ; 100% ; 100% ; RWS , memoQ | Fuzzy bands ; 95–99%, 85–94%, 75–84%, 50–74% by default; bands can be edited, split or removed ; 95–99%, 85–94%, 75–84%, 50–74% ; RWS , memoQ | Repetitions ; Reported separately (also cross-file repetitions) ; Reported separately ; RWS , memoQ | Weighted word count ; – ; Built in: a weight from 0% to 100% per match category ; memoQ | Who sets the pay % per band? ; The client (agency grid or PO) ; The client (agency grid or PO) ; –
+Three things that change the final number Minimum fee. On small jobs the weighted quote can fall below your minimum fee. Compare the two and charge the higher one. Character-based source languages. For Chinese or Japanese source text, Trados counts characters, not words ( RWS ). Use a per-character rate in exactly the same formula. What actually reaches you. The quote is not what lands in your account. PayPal, Wise and Payoneer can each take a percentage fee, a fixed fee and a currency-conversion margin, and rates differ by country – see our guide to PayPal fees on international payments and PayPal's fee page . Track the net amount per client, not just the invoice total.
+FAQ:
+Q: Is there a standard fuzzy-match discount grid?
+A: No. Each agency sets its own pay percentages per band, and both Trados and memoQ let the bands themselves be configured. Ask for the grid (it is often in the PO or vendor agreement) before accepting work.
+Q: Should repetitions be paid?
+A: That depends on the client's grid. CAT tools report repetitions as a separate line, so check how your client prices them – many grids treat them like 100% matches, but don't assume.
+Q: How do I quote per character for Japanese or Chinese source text?
+A: Trados counts characters for character-based languages. Put the character counts per band into the same formula and use your per-character rate.
+Q: What if the weighted quote is below my minimum fee?
+A: Charge the minimum fee. Agree on the minimum with each client up front so it is not a surprise on the invoice.
+Q: Can I do this in Google Sheets?
+A: Yes. Our free calculator works in Excel and Google Sheets: type the grid, paste the word counts per band and it shows the weighted words, the quote and the discount you are giving.
+Sources: RWS Trados Studio 2024 – Fuzzy Bands (default 95–99%, 85–94%, 75–84%, 50–74%) <https://docs.rws.com/en-US/trados-studio-2024-sr1-1187677/fuzzy-bands-dialog-345138>; RWS Trados Studio – Report descriptions (Analyze Files; characters counted for Chinese/Japanese) <https://docs.rws.com/trados-studio-2021-sr2-813470/analyze-files-report-651532>; memoQ Documentation – Match rates from translation memories (101%, 100%, 95–99%, fuzzy bands) <https://docs.memoq.com/current/en/Concepts/concepts-match-rates-from-translation-m.html>; memoQ Documentation – Statistics (weighted word counts) <https://docs.memoq.com/current/en/Workspace/statistics.html>; memoQ Documentation – Options: Weighted counts tab <https://docs.memoq.com/current/en/Workspace/options-miscellaneous.html>; PayPal – Merchant fees (United States) <https://www.paypal.com/us/webapps/mpp/merchant-fees>
+Free tool: Free Fuzzy-Match Quote Calculator for Translators (Excel + Google Sheets) <https://straightgate.gumroad.com/l/yhgxo> · Full version: Freelance Translator Toolkit — CAT Fuzzy-Match Quotes, Payment Fees & Overdue Invoices (Excel + Google Sheets) <https://straightgate.gumroad.com/l/gbomet>
+
+
+---
+# 翻訳の見積もりはどう計算する？マッチ率割引・文字単価・ワード単価の計算方法
+URL: https://zcbm2373125333-hub.github.io/ja/honyaku-mitsumori-match-ritsu-keisan/
+Language: ja · Updated: 2026-10-20
+
+Short answer: TradosやmemoQの分析結果から、マッチ率の区分ごとの文字数（英文ならワード数）に、 取引先が決めた支払率 （例：100%マッチは単価の25%）を掛けて合計したものが 換算文字数 です。これに 文字単価（ワード単価） を掛ければ見積金額になり、最低料金を下回るときは最低料金を請求します。支払率は業界共通の決まりではなく取引先ごとに違うので、受注前に割引表を確認しましょう。
+
+
+Worked example (illustrative): 日英翻訳、原文10,000文字、文字単価10円の場合。分析結果と、2社の割引表（どちらも説明用の例）： マッチ率 文字数 A社の支払率 換算（A社） B社の支払率 換算（B社） 101%（コンテキストマッチ） 800 10% 80 0% 0 100% 1,200 25% 300 0% 0 95〜99% 600 50% 300 30% 180 85〜94% 1,000 60% 600 50% 500 75〜84% 800 80% 640 70% 560 50〜74% 600 100% 600 100% 600 マッチなし 5,000 100% 5,000 100% 5,000 合計 10,000 7,520 6,840 見積金額（10円） 割引なしなら100,000円 75,200円 68,400円 割引率 24.8% 31.6% 同じファイルでも、B社では6,800円少なくなります。単価だけを比べず、実際の分析結果に取引先ごとの割引表を当てはめて比べましょう。
+TradosとmemoQのマッチ率の区分: 前後の文脈まで一致 ; コンテキストマッチ（PerfectMatchも別区分） ; 101%（102%＝ダブルコンテキスト） ; RWS ・ memoQ | 原文が完全一致 ; 100% ; 100% ; RWS ・ memoQ | あいまい一致（ファジー） ; 初期設定は95〜99%・85〜94%・75〜84%・50〜74%。区分は変更・分割・削除できる ; 95〜99%・85〜94%・75〜84%・50〜74% ; RWS ・ memoQ | 繰り返し ; 別区分で集計（ファイル間の繰り返しも） ; 別区分で集計 ; RWS ・ memoQ | 換算ワード数（加重） ; – ; 区分ごとに0〜100%の重みを設定して自動計算 ; memoQ | 区分ごとの支払率を決めるのは？ ; 取引先（割引表・発注書） ; 取引先（割引表・発注書） ; –
+文字単価とワード単価 Tradosは、中国語や日本語のような文字ベースの言語では、ワード数ではなく文字数を数えます（ RWS ）。和文英訳なら原文の文字数×文字単価、英文和訳ならワード数×ワード単価で、計算式は同じです。 入金予定日と支払期日の確認 フリーランス法（特定受託事業者に係る取引の適正化等に関する法律）では、従業員を使用する発注事業者（特定業務委託事業者）は、フリーランスの給付を受け取った日から数えて 60日以内のできる限り短い期間内 で報酬の支払期日を定め、その日までに支払う必要があります（ 公正取引委員会 ）。60日を超える期日を定めた場合は、受領日から起算して60日を経過する日が支払期日とみなされます（ 法第4条 ）。再委託の場合には例外があります。 例：10月15日に納品した場合、「月末締め翌月末払い」なら11月30日（約1か月半後）ですが、「月末締め翌々月末払い」なら12月31日で、受領から60日を超えます。取引がこの法律の対象かどうか、支払条件と合わせて確認しておきましょう。 海外の取引先から外貨で受け取った報酬を確定申告用に円換算する方法は、 外貨で受け取った報酬の円換算（TTM） をご覧ください。
+FAQ:
+Q: マッチ率ごとの割引率に業界標準はありますか？
+A: ありません。支払率は取引先ごとに決まっており、TradosやmemoQではマッチ率の区分そのものも設定で変えられます。受注前に割引表（発注書や契約書に記載されていることが多い）を確認しましょう。
+Q: 繰り返しは有料ですか？
+A: 取引先の割引表しだいです。CATツールは繰り返しを別の行で集計するので、どう扱うかを確認しましょう。100%マッチと同じ扱いの割引表も多いですが、決めつけないことが大切です。
+Q: 和文英訳で文字単価のときも同じ計算ですか？
+A: はい。区分ごとの文字数に支払率を掛けて合計し、文字単価を掛けます。Tradosは日本語などの文字ベースの言語では文字数を数えます。
+Q: 見積金額が最低料金を下回ったら？
+A: 最低料金を請求します。取引先ごとに最低料金を事前に決めておくと、請求時にもめません。
+Q: 報酬から振込手数料などを差し引かれたら？
+A: 公正取引委員会は、1か月以上の業務委託で、発注時に決めた報酬から手数料などを差し引いて支払うことは「報酬の減額の禁止」に該当し得ると説明しています。対象となる取引かどうかを含め、公正取引委員会の窓口などで確認できます。
+Q: Googleスプレッドシートで計算できますか？
+A: はい。無料の計算シートはExcelとGoogleスプレッドシートに対応しています。割引表を入れて区分ごとの文字数を貼り付けるだけで、換算文字数・見積金額・割引率がわかります。
+Sources: RWS Trados Studio 2024 – Fuzzy Bands (default 95–99%, 85–94%, 75–84%, 50–74%) <https://docs.rws.com/en-US/trados-studio-2024-sr1-1187677/fuzzy-bands-dialog-345138>; RWS Trados Studio – Report descriptions (Analyze Files; characters counted for Chinese/Japanese) <https://docs.rws.com/trados-studio-2021-sr2-813470/analyze-files-report-651532>; memoQ Documentation – Match rates from translation memories (101%, 100%, 95–99%, fuzzy bands) <https://docs.memoq.com/current/en/Concepts/concepts-match-rates-from-translation-m.html>; memoQ Documentation – Statistics (weighted word counts) <https://docs.memoq.com/current/en/Workspace/statistics.html>; memoQ Documentation – Options: Weighted counts tab <https://docs.memoq.com/current/en/Workspace/options-miscellaneous.html>; 公正取引委員会 – フリーランス法特設サイト（報酬の支払期日・禁止行為） <https://www.jftc.go.jp/freelancelaw_2024/index.html>; 公正取引委員会 – 特定受託事業者に係る取引の適正化等に関する法律（条文） <https://www.jftc.go.jp/fllaw.html>
+Free tool: 【無料】マッチ率別 翻訳見積もり計算シート（Excel・Googleスプレッドシート） <https://straightgate.gumroad.com/l/jekqy> · Full version: フリーランス翻訳者ツールキット｜マッチ率割引の見積もり・受取手数料・未入金管理（Excel・Googleスプレッドシート） <https://straightgate.gumroad.com/l/vaanck>
+
+
+---
+# 海外の報酬（ドル・ユーロ）は確定申告でいくらの円にする？TTMでの換算と記帳のしかた
+URL: https://zcbm2373125333-hub.github.io/ja/gaika-houshu-ttm-enkansan-kakutei-shinkoku/
+Language: ja · Updated: 2026-10-20
+
+Short answer: 所得税基本通達57の3-2により、外貨建ての報酬は その売上を計上すべき日（取引日）のTTM（対顧客直物電信売相場と電信買相場の仲値） で円に換算するのが原則です。事業所得や業務に係る雑所得では、 継続して適用することを条件に 、売上は取引日のTTB（電信買相場）、経費はTTS（電信売相場）で換算することもでき、前月末・当月初のレートや前月の平均相場なども使えます。レートは原則として主に取引している金融機関のものを使います。
+
+
+Worked example (illustrative): フリーランスのデザイナーが、海外の取引先からPayPalで報酬を受け取った例（レート・手数料は説明用の数字）： 日付 取引 外貨 レート 円換算 3月10日 納品・PayPalで受取（売上を計上） $1,000 TTM 158.00円 売上 158,000円 3月10日 PayPalの受取手数料（明細の金額） $40 TTM 158.00円 支払手数料 6,320円 3月10日 ドル残高（帳簿上の円） $960 158.00円 151,680円 4月20日 ドル残高を円に両替（PayPalの両替レート） $960 155.00円 148,800円 為替差損 −2,880円 売上は入金後に円になった金額（148,800円）ではなく158,000円、手数料は6,320円、円に替えたときの差額2,880円は為替差損益として別に扱います。外貨を何回かに分けて受け取って残高に混ざっている場合は、国税庁の質疑応答事例や裁決事例にならい、平均の取得レート（総平均法に準ずる方法）で計算します。
+外貨建ての報酬の円換算ルール（2026年10月20日確認）: 原則 ; 取引を計上すべき日（取引日）のTTM（電信売買相場の仲値） ; 通達57の3-2 | 事業所得・業務に係る雑所得など ; 継続適用を条件に、売上・資産は取引日のTTB、経費・負債は取引日のTTSでもよい ; 通達57の3-2ただし書 | どの銀行のレート？ ; 原則は主たる取引金融機関のもの。合理的なものを継続して使っていれば認められる ; 同（注）1 | 取引日以外のレート ; 継続適用を条件に、前月末・前週末・当月初・当週初のレートや、前月・前週の平均など1か月以内の平均も使える ; 同（注）2 | 土日・祝日などでレートがない日 ; その日より前の最も近い日のレート ; 同（注）3 | 同じ外貨のまま別の銀行の外貨預金へ預け替え ; 質疑応答事例では、為替差益を認識する必要はないとされている ; 国税庁 | 外貨を円に替える・外貨で資産を買う ; 取得時の円換算額との差額（為替差損益）を所得として認識。取得が複数回なら総平均法に準ずる方法 ; 国税庁 ・ 国税不服審判所
+TTMはどこで調べる？ TTMはTTS（電信売相場）とTTB（電信買相場）の仲値です。原則はご自身が主に取引している銀行の相場ですが、例えば三菱UFJ銀行の 外国為替相場一覧表 や、過去の日付・月末・月中平均を調べられる三菱UFJリサーチ&コンサルティングの 外国為替相場 が使えます。どの方法を選んでも、毎年同じ方法を続けることが大切です。 台帳に記録する項目 入金ごとに：計上日、取引先、受取サービス（PayPal・Wise・Payoneerなど）、通貨、請求額、その日のレート、円換算した売上、受取手数料（外貨・円）、円に替えた日と受け取った円。為替差損益の所得区分などは状況によって変わるので、判断に迷うときは税務署や税理士に確認してください。 StraightGateは記帳を助けるツールを作っていますが、税務上の助言は行っていません。
+FAQ:
+Q: 入金日と請求日、どちらのレートを使いますか？
+A: 通達57の3-2は「その取引を計上すべき日」のレートとしています。入金日ではなく、その売上を計上する日のレートです。
+Q: 土日に受け取った場合のレートは？
+A: その日にレートがない場合は、その日より前の最も近い日のレートを使います（通達57の3-2（注）3）。
+Q: 毎回TTMを調べるのは大変です。
+A: 事業所得や業務に係る雑所得では、継続適用を条件に、前月末や当月初のレート、前月の平均相場など1か月以内の平均を使うこともできます。
+Q: PayPalのドル残高を円に替えたら？
+A: 外貨を円に替えた時点で、受け取ったときの円換算額との差額（為替差損益）を所得として認識する必要があります。何回かに分けて受け取ったドルが混ざっている場合は、総平均法に準ずる方法で平均の取得レートを出します。
+Q: 同じドルのまま別の口座に移しただけなら？
+A: 国税庁の質疑応答事例では、外貨預金を同じ外貨のまま別の銀行に預け替えた場合、為替差益を認識する必要はないとされています。それ以外のサービス間の移動は、事実関係によって変わることがあります。
+Sources: 国税庁 – 所得税基本通達 法第57条の3（外貨建取引の換算）関係 57の3-2 <https://www.nta.go.jp/law/tsutatsu/kihon/shotoku/11a/01.htm>; 国税庁 質疑応答事例 – 外貨建預貯金の預入及び払出に係る為替差損益の取扱い <https://www.nta.go.jp/law/shitsugi/shotoku/02/39.htm>; 国税庁 質疑応答事例 – 外貨建預貯金を払い出して貸付用の建物を購入した場合の為替差損益の取扱い <https://www.nta.go.jp/law/shitsugi/shotoku/02/40.htm>; 国税不服審判所 – 平成28年6月2日裁決（外貨預金の為替差益・総平均法に準ずる方法） <https://www.kfs.go.jp/service/JP/103/07/index.html>; 三菱UFJ銀行 – 外国為替相場一覧表（TTS・TTB） <https://www.bk.mufg.jp/ippan/kinri/list_j/kinri/kawase.html>; 三菱UFJリサーチ&コンサルティング – 外国為替相場（過去の相場・月末／月中平均） <https://www.murc-kawasesouba.jp/fx/index.php>
+Free tool: 【無料】外貨報酬台帳（お試し版）｜海外の報酬をTTMで円に換算するエクセル <https://straightgate.gumroad.com/l/pmldca> · Full version: 外貨報酬台帳｜海外の報酬をTTMで円換算する確定申告用エクセル（PayPal・Wise・Payoneer・Stripe対応） <https://straightgate.gumroad.com/l/kltzvy>
+
+
+---
+# ¿Cuánto puedo deducir por propinas y horas extra? Los topes de $25,000 y $12,500 explicados
+URL: https://zcbm2373125333-hub.github.io/es/deduccion-propinas-horas-extra-anexo-1a/
+Language: es · Updated: 2026-10-20
+
+Short answer: En los años fiscales 2025 a 2028 puedes deducir en tu declaración federal hasta $25,000 de propinas calificadas y, si recibes horas extra exigidas por la ley federal (FLSA), solo la parte extra (“la mitad” del tiempo y medio), hasta $12,500 ($25,000 si declaran en conjunta). Las dos se reducen si tu ingreso bruto ajustado modificado (MAGI) pasa de $150,000 ($300,000 en conjunta), se calculan en el Anexo 1-A (Schedule 1-A) del Formulario 1040 y valen aunque tomes la deducción estándar. Es una deducción, no una exención: ese dinero sigue siendo ingreso.
+
+
+Worked example (illustrative): Rosa , mesera, soltera. Su ocupación está en la lista del IRS: Concepto Cálculo Monto Propinas calificadas del año (reportadas a su empleador) – $18,400 Horas extra: 220 horas a tiempo y medio, tarifa regular $16 pago total por horas extra: 220 × $24 = $5,280 – Porción calificada de horas extra (“la mitad”) 220 × $16 × 0.5 $1,760 MAGI $52,000 (menos de $150,000) sin reducción $0 Deducción total $18,400 + $1,760 $20,160 Luis y Ana , casados, declaran en conjunta, MAGI $318,500. Pasan de $300,000 por $18,500 → 18 bloques completos de $1,000 × $100 = $1,800 de reducción en cada deducción. Propinas $9,000 → $7,200. Horas extra calificadas $6,000 → $4,200. Deducción total: $11,400 .
+Las reglas en una tabla (revisadas el 20/10/2026): ¿Qué años? ; Solo los años fiscales 2025 a 2028 ; IRS Pub. 6133 | Tope por propinas ; $25,000 al año; si trabajas por cuenta propia, no más que la ganancia neta del negocio donde recibiste las propinas ; IRS | Tope por horas extra ; $12,500 ($25,000 en declaración conjunta) ; IRS | Reducción por ingresos ; MAGI sobre $150,000 ($300,000 en conjunta): se resta $100 por cada $1,000 completos de exceso, por separado en cada deducción ; Anexo 1-A (borrador) | ¿Quién puede? ; Número de Seguro Social válido para trabajar; si estás casado(a), deben declarar en conjunta ; IRS | ¿Qué propinas cuentan? ; Voluntarias, en efectivo o con tarjeta (incluidas las compartidas), no negociadas y decididas por el cliente, en una ocupación de la lista del IRS ; IRS Pub. 6133 , lista | ¿Qué horas extra cuentan? ; Solo lo que exige la sección 7 de la FLSA por encima de tu tarifa regular; no lo que exige solo la ley estatal o un contrato sindical ; IRS Pub. 6133 | ¿Dónde aparecen? ; W-2 de 2026, casilla 12: código TP (propinas en efectivo reportadas al empleador) y TT (horas extra calificadas); también 1099 y Formulario 4137 ; Instrucciones W-2 , Pub. 6133 | ¿Dónde se reclama? ; Anexo 1-A del Formulario 1040: Parte II (propinas) y Parte III (horas extra) ; IRS Pub. 6133
+Qué anotar durante el año Por turno: fecha, trabajo, propinas en efectivo, con tarjeta, del fondo común, lo que diste a otros (tip-out) y, aparte, los cargos automáticos por servicio. Por talón de pago: tarifa regular, horas extra y cuánto te pagaron por ellas. Al final del año compara tu registro con el W-2 (casilla 12, códigos TP y TT) y con tus 1099. Si no reportaste todas tus propinas a tu empleador, las que declaras directamente en el Formulario 4137 también pueden contar para la deducción (IRS). Esta deducción es del impuesto federal; tu estado puede tener reglas distintas. StraightGate hace herramientas para llevar registros, no asesoría de impuestos. Confirma con el IRS o con un preparador de impuestos.
+FAQ:
+Q: ¿Los cargos automáticos por servicio cuentan como propinas?
+A: No. Según el IRS, la propina calificada debe pagarse de forma voluntaria, no estar sujeta a negociación y ser decidida por el cliente. Un cargo que el negocio agrega automáticamente no cumple eso.
+Q: ¿Las horas extra ya no pagan impuestos?
+A: Siguen sujetas a retención, Seguro Social y Medicare. El IRS aclara que la deducción no excluye las horas extra del ingreso bruto: reduce tu impuesto federal sobre el ingreso al declarar, y solo por la porción calificada.
+Q: Me pagan doble por cada hora extra. ¿Cuánto puedo deducir?
+A: Solo la mitad de tu tarifa regular por hora extra, que es lo que exige la FLSA. Lo que tu empleador paga por encima de eso no cuenta.
+Q: Estoy casado(a) y declaro por separado. ¿Puedo tomarla?
+A: No. Si estás casado(a), deben presentar una declaración conjunta para tomar estas deducciones.
+Q: Trabajo por mi cuenta (1099), por ejemplo en apps de reparto.
+A: El IRS menciona a trabajadores de la economía informal (gig) entre quienes podrían calificar si su ocupación está en la lista. Tu deducción por propinas no puede ser mayor que la ganancia neta de ese negocio.
+Q: Mi W-2 de 2025 no separa las propinas ni las horas extra.
+A: Para 2025 hay una regla de transición: los empleadores no estaban obligados a separarlas. El IRS explica en el Aviso 2025-69 y en las instrucciones del Formulario 1040 cómo calcular los montos. Desde 2026 el W-2 usa los códigos TP y TT.
+Sources: IRS – Cómo aprovechar exención de impuestos sobre propinas y horas extras (26/01/2026) <https://www.irs.gov/es/newsroom/one-big-beautiful-bill-how-to-take-advantage-of-no-tax-on-tips-and-overtime>; IRS – What the “No Tax on Tips” deduction means for you <https://www.irs.gov/newsroom/what-the-no-tax-on-tips-deduction-means-for-you>; IRS Publication 6133 (3-2026) – No tax on tips / No tax on overtime (PDF) <https://www.irs.gov/pub/irs-pdf/p6133.pdf>; IRS FS-2026-01 – Questions and answers about the deduction for qualified overtime compensation <https://www.irs.gov/newsroom/questions-and-answers-about-the-new-deduction-for-qualified-overtime-compensation>; IRS FS-2026-13 – Qualified overtime compensation FAQs (PDF) <https://www.irs.gov/pub/taxpros/fs-2026-13.pdf>; IRS – Draft Schedule 1-A (Form 1040), Additional Deductions (PDF) <https://www.irs.gov/pub/irs-dft/f1040s1a--dft.pdf>; IRS – General Instructions for Forms W-2 and W-3 (2026): box 12 codes TP and TT <https://www.irs.gov/instructions/iw2w3>; IRS – Occupations that customarily and regularly received tips on or before Dec. 31, 2024 <https://www.irs.gov/forms-pubs/occupations-that-customarily-and-regularly-received-tips-on-or-before-dec-31-2024>
+Free tool: Calculadora Gratis de Propinas y Horas Extra: ¿Cuánto Puedes Deducir? (Excel + Google Sheets, en español) <https://straightgate.gumroad.com/l/ardinx> · Full version: Registro de Propinas y Horas Extra 2026: Deducción “Sin Impuestos” (Excel + Google Sheets, en español) <https://straightgate.gumroad.com/l/xzaho>
+
+
+---
+# Will Vinted, eBay or Wallapop report me to the tax office? The DAC7 30-sales / €2,000 rule explained
+URL: https://zcbm2373125333-hub.github.io/en/dac7-reporting-threshold-vinted-ebay/
+Language: en · Updated: 2026-10-19
+
+Short answer: Under the EU's DAC7 rules (Directive 2021/514), a marketplace such as Vinted, eBay, Wallapop, Leboncoin, Subito or Kleinanzeigen must report you to the tax authority if, on that one platform in one calendar year , you make 30 or more sales of goods or receive more than €2,000 . If you stay below both limits on a platform, that platform does not report you – and being reported is not a tax bill in itself.
+
+
+Worked example (illustrative): Anna lives in Germany and clears out her flat in 2026: Vinted: 28 sales, €640 received eBay: 9 sales, €1,450 received Kleinanzeigen: 4 sales paid with “Sicher bezahlen” (€180) plus 6 cash sales on collection In total that is 47 sales and well over €2,000 – but no platform reports her , because each platform counts on its own and none of them reaches 30 sales or €2,000. Cash sales outside the platform's payment system are generally not counted. If she sells two more items on Vinted in December, Vinted reaches 30 sales and reports her by 31 January 2027. If instead she sells one camera on eBay for €600, her eBay total becomes €2,050 and eBay reports her.
+How the main EU marketplaces count towards DAC7: Vinted ; 30 sales or more than €2,000 ; Sales paid through Vinted ; Vinted help | eBay ; 30 sales or more than €2,000 ; Sales paid through eBay ; eBay help | Wallapop (ES) ; 30 sales or more than €2,000 ; Sales paid with Wallapop's wallet (shipping or in person) ; Wallapop help | Leboncoin (FR) ; 30 transactions or €2,000 ; Finalised “transaction sécurisée” sales ; Leboncoin help | Subito (IT) ; 30 sales or more than €2,000 ; TuttoSubito sales only ; Subito help | Kleinanzeigen (DE) ; 30 sales or €2,000 ; “Sicher bezahlen” sales only ; Kleinanzeigen help
+What exactly gets reported? For each reportable seller the platform sends the tax authority your name, address, tax identification number, date of birth, bank or payment account, the number of sales and the amounts paid to you per quarter, and the fees it withheld. The platform must give you the same information. Tax authorities then exchange the data between EU countries ( European Commission ). Is the €2,000 before or after fees? The amount is the “consideration” paid or credited to you, net of fees the platform withholds. Italy's Agenzia delle Entrate states this explicitly in its DAC7 FAQ ( source ). In practice: count what lands in your wallet, not the price shown on the listing. Germany: €2,000 exactly already counts Germany's PStTG excludes sellers with fewer than 30 sales and less than €2,000, so a German seller who receives exactly €2,000 on one platform is reported ( PStTG , BZSt FAQ ).
+FAQ:
+Q: Do my Vinted and eBay sales add up?
+A: No. The 30-sale and €2,000 limits apply to each platform separately. You can sell on five platforms and never be reported, as long as each stays under both limits.
+Q: Does being reported mean I have to pay tax?
+A: No. DAC7 only makes platforms share data. Whether you owe tax depends on your country's rules – selling your own used belongings for less than you paid is generally not taxable in most EU countries, while buying to resell at a profit can be business income. France's tax office says DAC7 changes nothing about existing taxation.
+Q: When will the platform report me?
+A: By 31 January of the following year, for the previous calendar year. The platform will ask you for your tax ID and address first if you are close to or over a limit.
+Q: Do cash sales on collection count?
+A: Generally no. Platforms count sales they process. Kleinanzeigen counts only “Sicher bezahlen”, Subito only TuttoSubito and Wallapop only wallet-paid sales.
+Q: Is the threshold going to change?
+A: Possibly from 2028. On 24 June 2026 the European Commission proposed removing the 30-sale test and raising the amount to €3,000, but it is only a proposal and needs unanimous approval by EU governments. For 2026 and 2027 the 30 / €2,000 rule applies.
+Q: Does DAC7 apply outside the EU (UK, Switzerland)?
+A: DAC7 is EU law. The UK has its own, similar OECD-based platform reporting rules; this page covers EU platforms and EU-resident sellers.
+Sources: Directive (EU) 2021/514 (DAC7) – EUR-Lex <https://eur-lex.europa.eu/eli/dir/2021/514/oj>; European Commission – DAC7 <https://taxation-customs.ec.europa.eu/taxation/tax-transparency-cooperation/administrative-co-operation-and-mutual-assistance/dac7_en>; Plattformen-Steuertransparenzgesetz (PStTG) – gesetze-im-internet.de <https://www.gesetze-im-internet.de/psttg/BJNR273010022.html>; Bundeszentralamt für Steuern – FAQ zum PStTG (PDF) <https://www.bzst.de/SharedDocs/Downloads/DE/Digitale_Plattformbetreiber/FAQ_PStTG.pdf>; Agencia Tributaria – DAC7, preguntas frecuentes para vendedores (modelo 238) <https://sede.agenciatributaria.gob.es/Sede/todas-gestiones/impuestos-tasas/declaraciones-informativas/modelo-238-decl_____informacion-parte-operadores-plataformas/preguntas-frecuentes/dac-7-informacion-vendedores.html>; Agenzia delle Entrate – FAQ gestori di piattaforme (DAC7) <https://www.agenziaentrate.gov.it/portale/faq-gestori-di-piattaforme-imprese>; impots.gouv.fr – Revenus issus de l'économie collaborative / DAC7 <https://www.impots.gouv.fr/particulier/questions/comment-declarer-mes-revenus-issus-de-leconomie-collaborative>; Vinted – DAC7 : ce qu'il faut savoir <https://www.vinted.fr/help/1149-dac7-reporting>; eBay – Directiva DAC7 <https://www.ebay.es/help/selling/selling/directiva-dac7-obligaciones-de-comunicacin-de-informacin-en-materia-de-ventas?id=5394>; Wallapop – ¿Qué es DAC7? <https://ayuda.wallapop.com/hc/es-es/articles/19093732048785>; Leboncoin – Le rapport DAC7 <https://assistance.leboncoin.info/hc/fr/articles/14847662938898-Le-rapport-DAC7>; Subito – Normativa DAC7 <https://assistenza.subito.it/hc/it/articles/10473040694556-Normativa-DAC7>; Kleinanzeigen – Informationen zum PStTG/DAC7 <https://hilfe.kleinanzeigen.de/hc/de/articles/17167379828252>; European Commission proposal COM(2026) 308 (DAC recast), 24 June 2026 – EUR-Lex <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52026PC0308>
+Free tool: Free DAC7 Threshold Checker – Will Vinted or eBay Report You? <https://straightgate.gumroad.com/l/beqykg> · Full version: DAC7 Seller Tracker – Vinted, eBay & EU Marketplace Reporting Threshold + Profit (Excel & Google Sheets) <https://straightgate.gumroad.com/l/emmrk>
+
+
+---
+# Is the DAC7 reporting threshold changing to €3,000 with no 30-sales limit?
+URL: https://zcbm2373125333-hub.github.io/en/dac7-threshold-change-3000-euro-2028/
+Language: en · Updated: 2026-10-19
+
+Short answer: Not yet. On 24 June 2026 the European Commission proposed (COM(2026) 308) to remove the 30-sale test for sellers of goods and raise the amount to €3,000 per platform per year, to apply from 1 January 2028 at the earliest. It needs unanimous approval by EU governments, so for 2026 and 2027 the current rule – 30 sales or more than €2,000 – still applies.
+
+
+Worked example (illustrative): Seller on one platform (one year) Today (30 sales / €2,000) Under the proposal (€3,000 only) 45 small sales, €900 received Reported (≥30 sales) Not reported 20 sales, €2,400 received Reported (>€2,000) Not reported 12 sales, €3,500 received Reported Reported (>€3,000) 25 sales, €1,500 received Not reported Not reported
+Current rule vs. proposal: Sales-count test ; 30 sales of goods ; Removed for goods | Amount test ; More than €2,000 ; More than €3,000 | Counted ; Per platform, per calendar year ; Per platform, per calendar year | Applies ; Since 1 January 2023 ; From 1 January 2028 at the earliest, if adopted | Status ; Law ; Proposal – needs unanimous Council approval
+The Commission's factsheet says the higher threshold would remove reporting obligations for over 10 million private sellers, particularly people selling second-hand goods ( factsheet ). The change sits inside a larger “recast” that merges DAC1–DAC9 into one directive ( EUR-Lex ).
+FAQ:
+Q: Does the €3,000 rule apply to my 2026 sales?
+A: No. 2026 and 2027 sales are reported under the current 30 sales / €2,000 rule.
+Q: Will the proposal definitely pass?
+A: Unknown. Tax directives need unanimous agreement of EU member states, and the text can change during negotiation.
+Q: Does it change rentals or services?
+A: The proposed change targets the sale of goods. Other DAC7 activities (property rentals, personal services, transport) keep their own rules.
+Q: Should I change my spreadsheet now?
+A: Keep tracking both numbers – sales count and amount received – per platform. Our free checker has editable thresholds so you can switch to €3,000 if the law changes.
+Sources: European Commission proposal COM(2026) 308 (DAC recast), 24 June 2026 – EUR-Lex <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52026PC0308>; European Commission – Tax Simplification Package factsheet (June 2026) <https://taxation-customs.ec.europa.eu/document/download/bee8b767-1f9e-44aa-9910-faa8bc31a880_en?filename=190626_Tax+Simplification+Package_Factsheet_.pdf>; Directive (EU) 2021/514 (DAC7) – EUR-Lex <https://eur-lex.europa.eu/eli/dir/2021/514/oj>; European Commission – DAC7 <https://taxation-customs.ec.europa.eu/taxation/tax-transparency-cooperation/administrative-co-operation-and-mutual-assistance/dac7_en>
+Free tool: Free DAC7 Threshold Checker – Will Vinted or eBay Report You? <https://straightgate.gumroad.com/l/beqykg> · Full version: DAC7 Seller Tracker – Vinted, eBay & EU Marketplace Reporting Threshold + Profit (Excel & Google Sheets) <https://straightgate.gumroad.com/l/emmrk>
+
+
+---
+# How much do freelancers actually keep from a $1,000 Upwork or Fiverr job?
+URL: https://zcbm2373125333-hub.github.io/en/upwork-fiverr-fees-what-freelancers-keep/
+Language: en · Updated: 2026-10-19
+
+Short answer: On Fiverr you keep 80% of each completed order, so a $1,000 order pays you $800 before withdrawal or currency costs. On Upwork the Freelancer Service Fee is set per contract between 0% and 15% , so the same $1,000 leaves you between $850 and $1,000 – and converting the money into your own currency typically costs another few percent.
+
+
+Worked example (illustrative): A designer in Spain finishes a $1,000 job and converts the money to euros inside PayPal. Assumptions: Upwork contract fee 10%; PayPal currency conversion spread 3.00% (the rate PayPal's US fee page lists for “all other” conversions – your country's page may differ); withdrawal fees ignored. Step Upwork (10% contract) Fiverr Fiverr + Early Payout Client pays for the work $1,000.00 $1,000.00 $1,000.00 Platform fee −$100.00 −$200.00 −$200.00 Early Payout (1%) – – −$8.00 Currency conversion (3.00%) −$27.00 −$24.00 −$23.76 Value you keep $873.00 $776.00 $768.24 Share of the job price 87.3% 77.6% 76.8%
+Freelance platform and payment fees compared (October 2026): Upwork ; Freelancer Service Fee 0%–15% per contract ; Shown before you send a proposal; locked once the contract starts. Example on Upwork's page: to take home $20/h at a 10% fee, bill $22.22/h. ; Upwork | Fiverr ; 20% of every order (you get 80%, incl. extras and tips) ; 14-day clearing period; optional Early Payout for 1%. Buyers separately pay a 5.5% service fee (+$3.50 on orders under $200). ; Fiverr | PayPal (US fee page) ; Goods & services: 2.99%; +1.50% if the payer is in another country ; Currency conversion spread 3.00% (4.00% for some payment types). Rates differ by country. ; PayPal
+Why the “real” fee is higher than the headline fee Freelancers usually lose money in three places: the marketplace fee, the payment or withdrawal method, and the exchange rate when the money is converted into their home currency. The marketplace fee is the only one most people track. A simple per-payment log of gross amount, each fee and the amount that actually arrived shows your true take-home rate.
+FAQ:
+Q: Is Upwork's fee still a flat 10%?
+A: No. Upwork's help centre now says the Freelancer Service Fee ranges from 0% to 15% per contract. You see the percentage before you submit a proposal or accept an offer, and it doesn't change during the contract.
+Q: Does Fiverr take 20% of tips?
+A: Yes. Fiverr says you earn 80% of the purchase amount, including Gig Extras and tips.
+Q: Who pays Fiverr's 5.5% service fee?
+A: The buyer. It is added at checkout (plus $3.50 on orders under $200) and doesn't reduce the freelancer's 80%.
+Q: How can I reduce currency conversion costs?
+A: Compare the conversion rate you actually receive with the mid-market rate for a few payments. Holding a balance in the client's currency or using a cheaper conversion route can matter more than the platform fee on large invoices.
+Q: Does Upwork refund its fee if I refund the client?
+A: Yes. Upwork returns the Freelancer Service Fee on any amount refunded to the client.
+Sources: Upwork Help – Learn about the Freelancer Service Fee <https://support.upwork.com/hc/en-us/articles/211062538-Freelancer-Service-Fees>; Fiverr Help – Your earnings page (80% of each order, Early Payout 1%) <https://help.fiverr.com/hc/en-us/articles/9234443621137-Your-earnings-page>; Fiverr Help – How Fiverr works for freelancers (14-day clearing) <https://help.fiverr.com/hc/en-us/articles/34069565843985-How-Fiverr-works-for-freelancers>; Fiverr Help – Managing payments and billing (buyer service fee) <https://help.fiverr.com/hc/en-us/articles/37554110679441-Managing-payments-and-billing>; PayPal – Merchant fees (United States) <https://www.paypal.com/us/webapps/mpp/merchant-fees>
+Free tool: Freelancer Fee Calculator — LITE (Free) <https://straightgate.gumroad.com/l/zveoee> · Full version: Global Freelancer Finance Tracker — Multi-Currency Income, Fees & Tax Spreadsheet (Excel + Google Sheets) <https://straightgate.gumroad.com/l/cqvhvv>
+
+
+---
+# What does PayPal charge when a client abroad pays you?
+URL: https://zcbm2373125333-hub.github.io/en/paypal-fees-receiving-international-payments/
+Language: en · Updated: 2026-10-19
+
+Short answer: On PayPal's US fee page, receiving money for goods and services costs 2.99% , and PayPal adds 1.50% when the payer is in another country. If PayPal then converts the money into another currency, it applies a currency conversion spread of 3.00% (4.00% for some payment types) – so an international payment can cost around 7–8% in total before any withdrawal fee.
+
+
+Worked example (illustrative): A US-based freelancer receives €1,000 from a client in Germany as a goods-and-services payment, then converts it to US dollars in PayPal. Step Amount Client pays €1,000.00 Goods & services fee 2.99% −€29.90 International fee 1.50% −€15.00 Balance received €955.10 Conversion spread 3.00% on €955.10 −€28.65 Value after conversion €926.45 (7.4% total cost)
+PayPal fee lines that matter to freelancers (US fee page, October 2026): Send/receive money for goods and services ; 2.99% ; Domestic rate | PayPal Checkout / Guest Checkout ; 3.49% + fixed fee ; Fixed fee depends on currency (e.g. EUR 0.39, USD 0.49) | Invoices paid with PayPal ; 3.49% + fixed fee ; Card payments via invoice: 2.99% + fixed fee | Payer in another country ; +1.50% ; Added to the domestic rate (commercial and invoicing) | Currency conversion spread ; 3.00% ; 4.00% for paying in a different currency, Payouts, some transfers
+PayPal publishes a separate fee page for each country, and rates differ. Check the page for the country your PayPal account is registered in – not the client's – before you price an international job.
+FAQ:
+Q: Is the 1.50% international fee charged on top of 2.99%?
+A: Yes. PayPal says the domestic receiving rate applies plus the additional percentage-based fee for international commercial transactions.
+Q: Can I avoid the 3% conversion spread?
+A: Only by not letting PayPal convert – for example by keeping the balance in that currency or withdrawing through a route that converts at a better rate. Whether that is possible depends on your country and account.
+Q: Do these rates apply in my country?
+A: This page quotes PayPal's United States fee page. PayPal has a fee page for every market; rates and fixed fees differ.
+Sources: PayPal – Merchant fees (United States) <https://www.paypal.com/us/webapps/mpp/merchant-fees>
+Free tool: Freelancer Fee Calculator — LITE (Free) <https://straightgate.gumroad.com/l/zveoee> · Full version: Global Freelancer Finance Tracker — Multi-Currency Income, Fees & Tax Spreadsheet (Excel + Google Sheets) <https://straightgate.gumroad.com/l/cqvhvv>
+
+
+---
+# Preply vs italki vs Cambly: how much do online tutors keep after commission?
+URL: https://zcbm2373125333-hub.github.io/en/preply-italki-cambly-commission-compared/
+Language: en · Updated: 2026-10-19
+
+Short answer: From a $25 one-hour lesson, a tutor keeps $16.75–$20.50 on Preply (commission falls from 33% to 18% as your hours grow, and every first trial with a new student is kept 100% by Preply), $19.75 on italki for a single lesson (21%; packages 15–19%, trials 0%), while Cambly doesn't use your price at all and pays $10.20 per hour of active chat ($0.17 per minute).
+
+
+Worked example (illustrative): A tutor teaches 40 regular hours in one month at $25/hour ($1,000 paid by students). Assumptions: on Preply she already has 60 lifetime hours (25% tier); on italki all lessons are single lessons; on Cambly she has 40 hours of active chat. Withdrawal to PayPal: Preply 2% (max $20); italki has no fee of its own and PayPal's charge (~2%) varies by country. Preply italki Cambly Students pay $1,000.00 $1,000.00 – (fixed pay) Commission −$250.00 (25%) −$210.00 (21%) – Earned $750.00 $790.00 $408.00 (2,400 min × $0.17) PayPal withdrawal (~2%) −$15.00 ≈ −$15.80 depends on method Kept $735.00 ≈ $774.20 ≈ $408
+What you keep from a $25, 60-minute lesson (October 2026): Preply – trial with a new student ; 100% ; $0.00 ; Preply | Preply – 0–20 hours taught ; 33% ; $16.75 ; Preply | Preply – 21–50 hours ; 28% ; $18.00 ; Preply | Preply – 51–200 hours ; 25% ; $18.75 ; Preply | Preply – 201–400 hours ; 22% ; $19.50 ; Preply | Preply – 400+ hours ; 18% ; $20.50 ; Preply | italki – trial lesson ; 0% ; $25.00 ; italki | italki – single lesson ; 21% ; $19.75 ; italki | italki – 5-lesson package ; 19% ; $20.25 ; italki | italki – 10-lesson package ; 17% ; $20.75 ; italki | italki – 15/20-lesson package ; 15% ; $21.25 ; italki | italki – group class ; 30% ; $17.50 ; italki | Verbling ; 15% ; $21.25 ; Verbling | Superprof – paid through Superprof ; 10% ; $22.50 ; Superprof | Cambly (adults) ; fixed pay ; $10.20 per hour of active chat ; Cambly
+FAQ:
+Q: Why does Preply take 100% of the trial lesson?
+A: Preply charges a 100% commission on the first trial lesson with each new student; after that, regular lessons are charged 18–33% depending on your total hours taught on Preply.
+Q: Does italki charge commission on trial lessons?
+A: No. italki charges 0% on trial lessons, 21% on single lessons, 15–19% on packages and 30% on group classes.
+Q: Does Cambly pay for waiting time?
+A: No. Cambly pays $0.17 per minute of active chat for adult students ($0.20 for Cambly Kids); time waiting for calls is unpaid.
+Q: Which platform pays tutors the most?
+A: It depends on your price and how many new students you get. With a high hourly price, italki packages or Verbling keep the largest share; with many new students Preply's 100% trial commission matters; Cambly is fixed pay regardless of experience.
+Q: Are withdrawal fees included?
+A: Not in the per-lesson table. Preply charges e.g. 2% (max $20) to PayPal; italki charges no fee itself, but PayPal, Payoneer and banks do.
+Sources: Preply Help – Preply commission model <https://help.preply.com/en/articles/4171383-preply-commission-model>; Preply Help – How to withdraw your earnings <https://help.preply.com/en/articles/4178971-how-to-withdraw-your-earnings>; italki Help – How does italki charge a commission? <https://support.italki.com/hc/en-us/articles/206352068-How-does-italki-charge-a-commission>; italki Help – How do I get paid and what's the withdrawal fee? <https://support.italki.com/hc/en-us/articles/210002367-How-do-I-get-paid-and-what-s-the-withdrawal-fee>; Cambly – Teach English online (tutor pay) <https://www.cambly.com/english/tutors>; Verbling Help – Teacher commission <https://support.verbling.com/hc/en-us/articles/360007886158>; Superprof – Charges and payments <https://www.superprof.com/blog/charges-payments-superprof/>
+Free tool: How Much Does Preply Really Take? Free Tutor Fee Calculator (Excel + Google Sheets) <https://straightgate.gumroad.com/l/hxppxz> · Full version: Online Tutor Income Tracker — Preply, italki & Cambly Earnings Spreadsheet (Excel + Google Sheets) <https://straightgate.gumroad.com/l/trbxy>
+
+
+---
+# Does Preply really keep 100% of the trial lesson – and what does a new tutor earn?
+URL: https://zcbm2373125333-hub.github.io/en/preply-trial-lesson-commission/
+Language: en · Updated: 2026-10-19
+
+Short answer: Yes. Preply keeps 100% of the first trial lesson with every new student ; after that it charges 33% of your hourly rate for your first 20 hours , falling in steps to 18% after 400 hours. In a new tutor's first month, that can mean keeping less than half of what students paid.
+
+
+Worked example (illustrative): A new tutor charges $20/hour. In her first month she gives 6 one-hour trial lessons (one per new student); 4 students continue and book 14 hours of regular lessons. Her lifetime total is then 20 hours, so the 33% tier applies all month. Students pay in total $400.00 (20 h × $20) Trials: 6 × $20, commission 100% $0.00 to the tutor Regular: 14 × $20 = $280, commission 33% $187.60 to the tutor Kept $187.60 = 46.9% of what students paid Month 2, same price, 20 regular hours and no new trials: her hours 21–40 fall in the 28% tier, so she keeps $288.00 of $400 (72%).
+Preply commission tiers (October 2026): Trial with a new student ; 100% ; $0.00 | 0–20 ; 33% ; $13.40 | 21–50 ; 28% ; $14.40 | 51–200 ; 25% ; $15.00 | 201–400 ; 22% ; $15.60 | 400+ ; 18% ; $16.40
+FAQ:
+Q: Is the trial commission 100% for every trial?
+A: It applies to the first trial lesson with each new student. Lessons after that are charged at your current tier.
+Q: Does the commission ever reach 0% on Preply?
+A: No. The lowest tier is 18%, after 400 hours.
+Q: How can a new tutor reduce the impact?
+A: Track how many trials convert into regular students. A low conversion rate costs more than the commission tier itself, because every unconverted trial earns $0.
+Sources: Preply Help – Preply commission model <https://help.preply.com/en/articles/4171383-preply-commission-model>; Preply Help – How to withdraw your earnings <https://help.preply.com/en/articles/4178971-how-to-withdraw-your-earnings>
+Free tool: How Much Does Preply Really Take? Free Tutor Fee Calculator (Excel + Google Sheets) <https://straightgate.gumroad.com/l/hxppxz> · Full version: Online Tutor Income Tracker — Preply, italki & Cambly Earnings Spreadsheet (Excel + Google Sheets) <https://straightgate.gumroad.com/l/trbxy>
+
+
+---
+# What is my break-even ACOS on Amazon KDP ads?
+URL: https://zcbm2373125333-hub.github.io/en/kdp-break-even-acos/
+Language: en · Updated: 2026-10-19
+
+Short answer: Your break-even ACOS is your royalty per sale divided by the book's list price : below it, Amazon ads make you money; above it, each ad-driven sale loses money (before Kindle Unlimited reads and read-through). Because royalties differ so much, a $4.99 eBook on the 70% option breaks even at about 68% ACOS , while a $12.99 paperback with $3.50 printing breaks even at about 33% .
+
+
+Worked example (illustrative): Three books sold on Amazon.com (no VAT). eBook file size 1 MB (delivery $0.15/MB). Paperback printing cost $3.50 is an assumption – use the figure from your KDP pricing page. Conversion rate for the max-CPC column: 10% of clicks become orders. Book Royalty per sale Break-even ACOS Break-even CPC (10% conv.) eBook $4.99, 70% 0.70 × ($4.99 − $0.15) = $3.39 67.9% $0.34 eBook $2.99, 35% 0.35 × $2.99 = $1.05 35.0% $0.10 Paperback $12.99, 60% 0.60 × $12.99 − $3.50 = $4.29 33.1% $0.43 At a 45% ACOS, the $4.99 eBook still earns about $1.14 per ad-driven sale ($3.39 − 45% × $4.99), while the paperback loses about $1.55 ($4.29 − $5.85).
+Royalty rules used in the formula (KDP, October 2026): eBook, 70% option ; 70% × (list price − VAT − delivery cost); delivery e.g. $0.15/MB on Amazon.com, €0.12/MB on .de/.fr/.es/.it, £0.10/MB on .co.uk ; KDP | eBook, 35% option ; 35% × (list price − VAT); no delivery cost ; KDP | Paperback / hardcover (Amazon.com) ; 60% of list price at $9.99 or more (50% at $9.98 or less), minus printing cost ; KDP | Kindle Unlimited (KENP) ; Monthly share of the KDP Select Global Fund per page read – no fixed rate ; KDP
+FAQ:
+Q: What is a good ACOS for KDP ads?
+A: Any ACOS below your break-even ACOS is profitable on that sale. Compare each campaign with the break-even figure for that specific book and format, not with a generic target.
+Q: Can ACOS above 100% still be profitable?
+A: Yes, for series and Kindle Unlimited books. Amazon's ad sales don't include KU page reads or later books in the series, so read-through can make a high ACOS worthwhile. Add expected read-through profit to the royalty to see it.
+Q: How do I calculate break-even CPC?
+A: Break-even CPC = royalty per sale × conversion rate (orders ÷ clicks). With a $3.39 royalty and 10% conversion, you can pay up to $0.34 per click.
+Q: Why is ACOS based on list price, not royalty?
+A: Amazon Ads reports sales at the customer price. Your profit, however, is the royalty – that's why break-even ACOS equals royalty ÷ price.
+Sources: KDP Help – Digital Book Pricing Page (35% / 70% royalty) <https://kdp.amazon.com/en_US/help/topic/G200634500>; KDP Help – Paperback royalty <https://kdp.amazon.com/en_US/help/topic/G201834330>; KDP Help – KDP Select Global Fund / KENP <https://kdp.amazon.com/en_US/help/topic/G201541130>
+Free tool: Free KDP Ad Break-Even Calculator — Break-Even ACOS, CPC & Max Bid (Excel + Google Sheets) <https://straightgate.gumroad.com/l/cmltrj> · Full version: KDP Author Profit Tracker — Royalties, Amazon Ads & Book Costs Spreadsheet (Excel + Google Sheets) <https://straightgate.gumroad.com/l/aqptcz>
+
+
+---
+# KDP 70% vs 35% eBook royalty: which pays more for my book?
+URL: https://zcbm2373125333-hub.github.io/en/kdp-royalty-70-vs-35-percent/
+Language: en · Updated: 2026-10-20
+
+Short answer: KDP's 70% option pays 70% × (list price − VAT − delivery cost) in eligible territories, while the 35% option pays 35% × (list price − VAT) with no delivery cost. For normal-sized eBooks priced in the 70% range, 70% pays roughly double – but for very large files (lots of images) the delivery cost can make 70% pay less than 35%.
+
+
+Worked example (illustrative): eBook on Amazon.com (no VAT) 70% option 35% option $2.99, 1 MB (delivery $0.15) 0.70 × ($2.99 − $0.15) = $1.99 0.35 × $2.99 = $1.05 $2.99, 10 MB (delivery $1.50) 0.70 × ($2.99 − $1.50) = $1.04 $1.05 $4.99, 1 MB 0.70 × ($4.99 − $0.15) = $3.39 $1.75 $12.99, 1 MB (70% allowed since 7 July 2026) 0.70 × ($12.99 − $0.15) = $8.99 0.35 × $12.99 = $4.55 KDP's own German example: €2.99 incl. 7% VAT, 1 MB, Amazon.de → 0.70 × (€2.99 − €0.20 − €0.12) = €1.87.
+70% vs 35% at a glance: Formula ; 35% × (list price − VAT) ; 70% × (list price − VAT − delivery cost) | Delivery cost ; None ; Per MB, e.g. $0.15 (US), €0.12 (DE/FR/ES/IT), £0.10 (UK) | Where ; All territories ; Listed territories; sales elsewhere earn 35% | List price range (Amazon.com) ; $0.99–$200 (minimum depends on file size) ; $2.99–$12.99 since 7 July 2026 (was $2.99–$9.99); €2.69–€12.99, £1.77–£12.99 | Other conditions ; – ; At least 20% below the print edition's price; Brazil, Japan, Mexico and India also need KDP Select
+FAQ:
+Q: What is the maximum price for the 70% royalty?
+A: Since 7 July 2026 it is $12.99 on Amazon.com (up from $9.99), with equivalent ceilings such as €12.99 and £12.99 in other marketplaces. Existing books are not switched automatically: a book priced $9.99–$12.99 on the 35% option has to be changed to 70% in KDP.
+Q: When does the 35% option pay more?
+A: When delivery cost is large relative to price – roughly when the file is many megabytes and the price is low. Compute both formulas for your file size.
+Q: Does VAT reduce my royalty?
+A: Yes. Both formulas use the price excluding VAT, so EU sales earn less than the headline price suggests.
+Q: What happens if Amazon price-matches my book?
+A: Your royalty is calculated on the lower price Amazon sells at; if a price-match drops the price below the 70% minimum, you earn 35%.
+Sources: KDP Help – Digital Book Pricing Page (35% / 70% royalty) <https://kdp.amazon.com/en_US/help/topic/G200634500>; KDP Help – eBook List Price Requirements (70% band $2.99–$12.99 from 7 July 2026) <https://kdp.amazon.com/en_US/help/topic/G200634560>; KDP Help – Paperback royalty <https://kdp.amazon.com/en_US/help/topic/G201834330>
+Free tool: Free KDP Ad Break-Even Calculator — Break-Even ACOS, CPC & Max Bid (Excel + Google Sheets) <https://straightgate.gumroad.com/l/cmltrj> · Full version: KDP Author Profit Tracker — Royalties, Amazon Ads & Book Costs Spreadsheet (Excel + Google Sheets) <https://straightgate.gumroad.com/l/aqptcz>
+
+
+---
+# Meldet mich Vinted, eBay oder Kleinanzeigen ans Finanzamt? Die DAC7-Grenze von 30 Verkäufen / 2.000 € erklärt
+URL: https://zcbm2373125333-hub.github.io/de/dac7-meldegrenze-vinted-ebay-kleinanzeigen/
+Language: de · Updated: 2026-10-19
+
+Short answer: Nach dem Plattformen-Steuertransparenzgesetz (PStTG, Umsetzung der EU-Richtlinie DAC7) muss eine Plattform wie Vinted, eBay oder Kleinanzeigen dich dem Bundeszentralamt für Steuern melden, wenn du auf dieser einen Plattform im Kalenderjahr 30 oder mehr Verkäufe oder mindestens 2.000 € erreichst. Bleibst du unter beiden Grenzen, meldet dich diese Plattform nicht – und eine Meldung ist noch keine Steuerforderung.
+
+
+Worked example (illustrative): Lena aus Köln mistet 2026 aus: Vinted: 28 Verkäufe, 640 € erhalten eBay: 9 Verkäufe, 1.450 € erhalten Kleinanzeigen: 4 Verkäufe mit „Sicher bezahlen“ (180 €) plus 6 Barverkäufe bei Abholung Zusammen sind das 47 Verkäufe und über 2.000 € – trotzdem meldet keine Plattform sie, weil jede Plattform für sich zählt. Barverkäufe außerhalb der Plattform zählen in der Regel nicht. Verkauft sie im Dezember zwei weitere Artikel auf Vinted , erreicht Vinted 30 Verkäufe und meldet sie bis 31. Januar 2027. Verkauft sie stattdessen eine Kamera für 600 € auf eBay, liegt eBay bei 2.050 € und meldet sie.
+So zählen die Plattformen: Vinted ; 30 Verkäufe oder 2.000 € ; Über Vinted bezahlte Verkäufe ; Vinted | eBay ; 30 Verkäufe oder 2.000 € ; Über eBay bezahlte Verkäufe ; eBay | Kleinanzeigen ; 30 Verkäufe oder 2.000 € ; Nur „Sicher bezahlen“ ; Kleinanzeigen | Etsy ; 30 Verkäufe oder 2.000 € ; Verkäufe über Etsy ; Richtlinie
+Was wird gemeldet? Name, Anschrift, Steuer-ID, Geburtsdatum, Bankverbindung, Anzahl der Verkäufe und die an dich gezahlten Beträge pro Quartal sowie einbehaltene Gebühren. Die Plattform informiert dich vorher und schickt dir dieselben Daten ( BZSt-FAQ ). Genau 2.000 € zählen schon Das PStTG nimmt nur Verkäufer aus, die weniger als 30 Verkäufe und weniger als 2.000 € haben. Wer genau 2.000 € erhält, wird gemeldet ( PStTG ). Muss ich jetzt Steuern zahlen? Nicht automatisch. Wer eigene, gebrauchte Alltagsgegenstände verkauft, erzielt meist keinen steuerpflichtigen Gewinn. Wer gezielt einkauft, um teurer weiterzuverkaufen, kann gewerblich handeln. Die Meldung selbst ändert an der Steuerpflicht nichts ( Finanzverwaltung NRW ).
+FAQ:
+Q: Werden Vinted- und eBay-Verkäufe zusammengezählt?
+A: Nein. Die Grenzen gelten für jede Plattform getrennt.
+Q: Zählt der Betrag vor oder nach Gebühren?
+A: Gezählt wird die Vergütung, die dir gezahlt oder gutgeschrieben wird, abzüglich einbehaltener Gebühren – also deine Auszahlung.
+Q: Wann meldet die Plattform?
+A: Bis 31. Januar des Folgejahres für das vergangene Kalenderjahr an das BZSt.
+Q: Zählen Barverkäufe bei Abholung?
+A: In der Regel nein. Kleinanzeigen zählt zum Beispiel nur Verkäufe mit „Sicher bezahlen“.
+Q: Ändert sich die Grenze bald?
+A: Vielleicht ab 2028: Die EU-Kommission hat am 24.06.2026 vorgeschlagen, die 30-Verkäufe-Grenze zu streichen und die Betragsgrenze auf 3.000 € anzuheben. Das ist nur ein Vorschlag; bis dahin gilt 30 / 2.000 €.
+Sources: Plattformen-Steuertransparenzgesetz (PStTG) – gesetze-im-internet.de <https://www.gesetze-im-internet.de/psttg/BJNR273010022.html>; Bundeszentralamt für Steuern – FAQ zum PStTG (PDF) <https://www.bzst.de/SharedDocs/Downloads/DE/Digitale_Plattformbetreiber/FAQ_PStTG.pdf>; Finanzverwaltung NRW – Plattformen-Steuertransparenzgesetz <https://www.finanzamt.nrw.de/steuerinfos/unternehmen/plattformen-steuertransparenzgesetz>; Directive (EU) 2021/514 (DAC7) – EUR-Lex <https://eur-lex.europa.eu/eli/dir/2021/514/oj>; European Commission – DAC7 <https://taxation-customs.ec.europa.eu/taxation/tax-transparency-cooperation/administrative-co-operation-and-mutual-assistance/dac7_en>; Kleinanzeigen – Informationen zum PStTG/DAC7 <https://hilfe.kleinanzeigen.de/hc/de/articles/17167379828252>; Vinted – DAC7 : ce qu'il faut savoir <https://www.vinted.fr/help/1149-dac7-reporting>; eBay – Directiva DAC7 <https://www.ebay.es/help/selling/selling/directiva-dac7-obligaciones-de-comunicacin-de-informacin-en-materia-de-ventas?id=5394>; European Commission proposal COM(2026) 308 (DAC recast), 24 June 2026 – EUR-Lex <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52026PC0308>
+Free tool: DAC7-Schwellen-Check – Kostenlose Vorlage für Vinted, eBay & Kleinanzeigen <https://straightgate.gumroad.com/l/fpkhie> · Full version: DAC7-Verkaufstracker – Vinted, eBay & Kleinanzeigen Meldegrenze + Gewinn (Excel & Google Sheets) <https://straightgate.gumroad.com/l/ixtvy>
+
+
+---
+# Wie viel bleibt Freelancern von einem 1.000-$-Auftrag auf Upwork oder Fiverr?
+URL: https://zcbm2373125333-hub.github.io/de/freelancer-gebuehren-upwork-fiverr-paypal/
+Language: de · Updated: 2026-10-19
+
+Short answer: Auf Fiverr behältst du 80 % jeder abgeschlossenen Bestellung – von 1.000 $ bleiben 800 $, bevor Auszahlung oder Umrechnung etwas kosten. Auf Upwork liegt die Freelancer Service Fee je nach Vertrag zwischen 0 % und 15 % , es bleiben also 850 bis 1.000 $ – und die Umrechnung in Euro kostet meist noch einige Prozent.
+
+
+Worked example (illustrative): Ein Entwickler in Berlin schließt einen 1.000-$-Auftrag ab und rechnet in PayPal in Euro um. Annahmen: Upwork-Gebühr 10 %; Umrechnungsaufschlag 3,00 % (Wert der US-Gebührenseite von PayPal – die deutsche Seite kann abweichen); Auszahlungsgebühren nicht berücksichtigt. Schritt Upwork (10 %) Fiverr Kunde zahlt 1.000,00 $ 1.000,00 $ Plattformgebühr −100,00 $ −200,00 $ Umrechnung 3,00 % −27,00 $ −24,00 $ Es bleiben 873,00 $ (87,3 %) 776,00 $ (77,6 %)
+Gebühren im Vergleich (Oktober 2026): Upwork ; 0–15 % pro Vertrag ; Vor dem Angebot sichtbar, während des Vertrags fest ; Upwork | Fiverr ; 20 % (du bekommst 80 %, inkl. Extras und Trinkgeld) ; 14 Tage Clearing; Early Payout kostet 1 % ; Fiverr | PayPal (US-Seite) ; Waren & Dienstleistungen 2,99 %; +1,50 % bei Zahler im Ausland ; Umrechnungsaufschlag 3,00 % (teils 4,00 %); Sätze je Land verschieden ; PayPal
+FAQ:
+Q: Ist die Upwork-Gebühr noch pauschal 10 %?
+A: Nein. Laut Upwork liegt sie zwischen 0 % und 15 % pro Vertrag und wird vor dem Angebot angezeigt.
+Q: Nimmt Fiverr auch 20 % vom Trinkgeld?
+A: Ja. Du erhältst 80 % des Kaufbetrags, einschließlich Gig Extras und Trinkgeld.
+Q: Wie senke ich die Umrechnungskosten?
+A: Vergleiche den erhaltenen Kurs mit dem Mittelkurs. Bei großen Rechnungen kostet die Umrechnung oft mehr als gedacht.
+Sources: Upwork Help – Learn about the Freelancer Service Fee <https://support.upwork.com/hc/en-us/articles/211062538-Freelancer-Service-Fees>; Fiverr Help – Your earnings page (80% of each order, Early Payout 1%) <https://help.fiverr.com/hc/en-us/articles/9234443621137-Your-earnings-page>; Fiverr Help – How Fiverr works for freelancers (14-day clearing) <https://help.fiverr.com/hc/en-us/articles/34069565843985-How-Fiverr-works-for-freelancers>; PayPal – Merchant fees (United States) <https://www.paypal.com/us/webapps/mpp/merchant-fees>
+Free tool: Gebührenrechner für Freelancer – Kostenlose Excel-Vorlage <https://straightgate.gumroad.com/l/ajserf> · Full version: Finanzplaner für Freelancer – Excel & Google Sheets Vorlage (Einnahmen, Gebühren, Steuerrücklage) <https://straightgate.gumroad.com/l/frbnn>
+
+
+---
+# ¿Me informará Wallapop, Vinted o eBay a Hacienda? El límite DAC7 de 30 ventas / 2.000 € explicado
+URL: https://zcbm2373125333-hub.github.io/es/dac7-wallapop-vinted-hacienda-limite/
+Language: es · Updated: 2026-10-19
+
+Short answer: Con la directiva europea DAC7, una plataforma como Wallapop, Vinted o eBay debe informar a la Agencia Tributaria (modelo 238) si, en esa misma plataforma y en un año natural , haces 30 ventas o más o cobras más de 2.000 € . Si te quedas por debajo de ambos límites, esa plataforma no te informa – y que te informen no es un impuesto nuevo.
+
+
+Worked example (illustrative): Lucía, de Valencia, vende cosas de casa en 2026: Wallapop: 27 ventas cobradas con el monedero, 820 € Vinted: 15 ventas, 390 € eBay: 3 ventas, 1.100 € Suma 45 ventas y 2.310 €, pero ninguna plataforma la informa : cada una cuenta por separado y ninguna llega a 30 ventas ni pasa de 2.000 €. Si en diciembre vende 3 cosas más en Wallapop , llega a 30 y Wallapop la informa antes del 31 de enero de 2027. Las ventas en mano pagadas en efectivo fuera de la app normalmente no cuentan.
+Cómo cuenta cada plataforma: Wallapop ; 30 ventas o más de 2.000 € ; Ventas cobradas con el monedero Wallapop (envío o en persona) ; Wallapop | Vinted ; 30 ventas o más de 2.000 € ; Ventas pagadas en Vinted ; Vinted | eBay ; 30 ventas o más de 2.000 € ; Ventas pagadas en eBay ; eBay
+¿Qué datos se envían? Nombre, dirección, NIF, fecha de nacimiento, cuenta bancaria, número de ventas e importes cobrados por trimestre y comisiones retenidas. La plataforma te avisa antes y te envía la misma información ( Agencia Tributaria ). ¿Tengo que pagar impuestos? No por el mero hecho de ser informado. Solo tributa la ganancia patrimonial (vender por más de lo que pagaste) o una actividad económica de compraventa ( Wallapop ).
+FAQ:
+Q: ¿Se suman Wallapop y Vinted?
+A: No. Los límites se aplican a cada plataforma por separado.
+Q: ¿Los 2.000 € son antes o después de comisiones?
+A: Cuenta lo que te pagan o abonan, descontadas las comisiones que retiene la plataforma.
+Q: ¿Cuándo informa la plataforma?
+A: Antes del 31 de enero del año siguiente, mediante el modelo 238.
+Q: ¿Va a cambiar el límite?
+A: Puede que desde 2028: el 24/06/2026 la Comisión Europea propuso eliminar el límite de 30 ventas y subir el importe a 3.000 €. Es solo una propuesta; hasta entonces rige 30 / 2.000 €.
+Sources: Agencia Tributaria – DAC7, preguntas frecuentes para vendedores (modelo 238) <https://sede.agenciatributaria.gob.es/Sede/todas-gestiones/impuestos-tasas/declaraciones-informativas/modelo-238-decl_____informacion-parte-operadores-plataformas/preguntas-frecuentes/dac-7-informacion-vendedores.html>; Directive (EU) 2021/514 (DAC7) – EUR-Lex <https://eur-lex.europa.eu/eli/dir/2021/514/oj>; European Commission – DAC7 <https://taxation-customs.ec.europa.eu/taxation/tax-transparency-cooperation/administrative-co-operation-and-mutual-assistance/dac7_en>; Wallapop – ¿Qué es DAC7? <https://ayuda.wallapop.com/hc/es-es/articles/19093732048785>; Vinted – DAC7 <https://www.vinted.es/help/1149-dac7-reporting>; eBay – Directiva DAC7 <https://www.ebay.es/help/selling/selling/directiva-dac7-obligaciones-de-comunicacin-de-informacin-en-materia-de-ventas?id=5394>; European Commission proposal COM(2026) 308 (DAC recast), 24 June 2026 – EUR-Lex <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52026PC0308>
+Free tool: Comprobador DAC7 gratis – ¿te informará Wallapop a Hacienda? <https://straightgate.gumroad.com/l/wkfckm> · Full version: Control de Ventas DAC7 – Límite de Hacienda en Wallapop, Vinted y eBay + beneficio (Excel y Google Sheets) <https://straightgate.gumroad.com/l/xunsm>
+
+
+---
+# ¿Cuánto le queda a un freelancer de un trabajo de 1.000 $ en Upwork o Fiverr?
+URL: https://zcbm2373125333-hub.github.io/es/comisiones-upwork-fiverr-paypal-freelancer/
+Language: es · Updated: 2026-10-19
+
+Short answer: En Fiverr te quedas con el 80 % de cada pedido completado: de 1.000 $ cobras 800 $ antes de retiradas o cambio de divisa. En Upwork la comisión va del 0 % al 15 % según el contrato , así que te quedan entre 850 y 1.000 $ – y pasar el dinero a euros o pesos suele costar unos puntos más.
+
+
+Worked example (illustrative): Una diseñadora en México termina un trabajo de 1.000 $ y convierte el dinero dentro de PayPal. Supuestos: comisión de Upwork 10 %; margen de conversión 3,00 % (dato de la página de tarifas de PayPal EE. UU.; la de tu país puede variar); sin comisiones de retirada. Paso Upwork (10 %) Fiverr El cliente paga 1.000,00 $ 1.000,00 $ Comisión de la plataforma −100,00 $ −200,00 $ Conversión 3,00 % −27,00 $ −24,00 $ Te queda 873,00 $ (87,3 %) 776,00 $ (77,6 %)
+Comisiones comparadas (octubre de 2026): Upwork ; 0 %–15 % por contrato ; Se ve antes de enviar la propuesta y no cambia durante el contrato ; Upwork | Fiverr ; 20 % (cobras el 80 %, incluidos extras y propinas) ; 14 días de liquidación; Early Payout cuesta 1 % ; Fiverr | PayPal (página EE. UU.) ; Bienes y servicios 2,99 %; +1,50 % si el pagador está en otro país ; Margen de conversión 3,00 % (a veces 4,00 %); varía por país ; PayPal
+FAQ:
+Q: ¿La comisión de Upwork sigue siendo un 10 % fijo?
+A: No. Según Upwork va del 0 % al 15 % por contrato y la ves antes de aceptar.
+Q: ¿Fiverr se queda el 20 % de las propinas?
+A: Sí. Recibes el 80 % del importe, incluidas las propinas y los extras.
+Q: ¿Cómo pago menos por el cambio de divisa?
+A: Compara el tipo que recibes con el tipo medio del mercado; en facturas grandes la conversión puede costar más que la propia plataforma.
+Sources: Upwork Help – Learn about the Freelancer Service Fee <https://support.upwork.com/hc/en-us/articles/211062538-Freelancer-Service-Fees>; Fiverr Help – Your earnings page (80% of each order, Early Payout 1%) <https://help.fiverr.com/hc/en-us/articles/9234443621137-Your-earnings-page>; Fiverr Help – How Fiverr works for freelancers (14-day clearing) <https://help.fiverr.com/hc/en-us/articles/34069565843985-How-Fiverr-works-for-freelancers>; PayPal – Merchant fees (United States) <https://www.paypal.com/us/webapps/mpp/merchant-fees>
+Free tool: Calculadora de Comisiones para Freelancers — Plantilla GRATIS <https://straightgate.gumroad.com/l/undbe> · Full version: Control de Finanzas para Freelancers — Plantilla Excel y Google Sheets (multimoneda) <https://straightgate.gumroad.com/l/sfaeoh>
+
+
+---
+# Vinted, Leboncoin ou eBay vont-ils me déclarer au fisc ? Le seuil DAC7 de 30 ventes / 2 000 € expliqué
+URL: https://zcbm2373125333-hub.github.io/fr/dac7-seuil-vinted-leboncoin/
+Language: fr · Updated: 2026-10-19
+
+Short answer: Avec la directive européenne DAC7, une plateforme comme Vinted, Leboncoin ou eBay doit transmettre vos informations à l'administration fiscale si, sur cette même plateforme et au cours d'une année civile , vous réalisez au moins 30 ventes ou 2 000 € de recettes . En dessous des deux seuils, cette plateforme ne vous déclare pas – et être déclaré ne crée aucun impôt nouveau.
+
+
+Worked example (illustrative): Camille, à Lyon, vide ses placards en 2026 : Vinted : 26 ventes, 710 € encaissés Leboncoin (transaction sécurisée) : 8 ventes, 1 350 € eBay : 2 ventes, 240 € Au total 36 ventes et 2 300 €, mais aucune plateforme ne la déclare : chacune compte séparément. Si elle vend 4 articles de plus sur Vinted en décembre, Vinted atteint 30 ventes et la déclare avant le 31 janvier 2027. Une remise en main propre payée en espèces hors plateforme n'est en général pas comptée.
+Comment chaque plateforme compte: Vinted ; 30 ventes ou plus de 2 000 € ; Ventes payées via Vinted ; Vinted | Leboncoin ; 30 transactions ou 2 000 € ; Ventes finalisées en transaction sécurisée ; Leboncoin | eBay ; 30 ventes ou plus de 2 000 € ; Ventes payées via eBay ; eBay
+Dois-je payer des impôts ? Pas du seul fait d'être déclaré. Selon impots.gouv.fr, la vente de biens personnels usagés n'est en général pas imposable (cas particuliers : bijoux, objets d'art ou de collection, biens de plus de 5 000 €), alors que les biens achetés ou fabriqués pour être revendus sont imposables. DAC7 ne change rien à la fiscalité existante ( impots.gouv.fr , Service-Public.fr ).
+FAQ:
+Q: Vinted et Leboncoin s'additionnent-ils ?
+A: Non. Les seuils s'appliquent plateforme par plateforme.
+Q: Les 2 000 € sont-ils avant ou après frais ?
+A: On compte la somme versée ou créditée au vendeur, après les frais retenus par la plateforme.
+Q: Quand la plateforme transmet-elle ?
+A: Au plus tard le 31 janvier de l'année suivante ; elle vous envoie aussi les informations transmises.
+Q: Le seuil va-t-il changer ?
+A: Peut-être en 2028 : le 24/06/2026, la Commission européenne a proposé de supprimer le seuil de 30 ventes et de porter le montant à 3 000 €. Ce n'est qu'une proposition ; d'ici là, 30 / 2 000 € s'appliquent.
+Sources: impots.gouv.fr – Revenus issus de l'économie collaborative / DAC7 <https://www.impots.gouv.fr/particulier/questions/comment-declarer-mes-revenus-issus-de-leconomie-collaborative>; Service-Public.fr – Revenus d'une activité accessoire (plateformes) <https://www.service-public.gouv.fr/particuliers/vosdroits/F31725>; Directive (EU) 2021/514 (DAC7) – EUR-Lex <https://eur-lex.europa.eu/eli/dir/2021/514/oj>; European Commission – DAC7 <https://taxation-customs.ec.europa.eu/taxation/tax-transparency-cooperation/administrative-co-operation-and-mutual-assistance/dac7_en>; Vinted – DAC7 : ce qu'il faut savoir <https://www.vinted.fr/help/1149-dac7-reporting>; Leboncoin – Le rapport DAC7 <https://assistance.leboncoin.info/hc/fr/articles/14847662938898-Le-rapport-DAC7>; eBay – Directiva DAC7 <https://www.ebay.es/help/selling/selling/directiva-dac7-obligaciones-de-comunicacin-de-informacin-en-materia-de-ventas?id=5394>; European Commission proposal COM(2026) 308 (DAC recast), 24 June 2026 – EUR-Lex <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52026PC0308>
+Free tool: Vérificateur de seuil DAC7 gratuit – Vinted va-t-il vous déclarer ? <https://straightgate.gumroad.com/l/rjvvvp> · Full version: Suivi des ventes DAC7 – Seuil fiscal Vinted, Leboncoin & eBay + bénéfice (Excel & Google Sheets) <https://straightgate.gumroad.com/l/umyrtk>
+
+
+---
+# Vinted, Subito o eBay mi segnaleranno all'Agenzia delle Entrate? La soglia DAC7 di 30 vendite / 2.000 € spiegata
+URL: https://zcbm2373125333-hub.github.io/it/dac7-soglia-vinted-subito-ebay/
+Language: it · Updated: 2026-10-19
+
+Short answer: Con la direttiva europea DAC7 (in Italia D.Lgs. 32/2023), una piattaforma come Vinted, Subito o eBay deve comunicare i tuoi dati all'Agenzia delle Entrate se, sulla stessa piattaforma e nello stesso anno solare , fai 30 vendite o più oppure incassi più di 2.000 € . Se resti sotto entrambe le soglie, quella piattaforma non ti segnala – ed essere segnalati non è una nuova tassa.
+
+
+Worked example (illustrative): Marco, a Torino, svuota la cantina nel 2026: Vinted: 24 vendite, 560 € incassati Subito (TuttoSubito): 7 vendite, 1.480 €, più 5 vendite a mano in contanti eBay: 4 vendite, 300 € In tutto 40 vendite e oltre 2.000 €, ma nessuna piattaforma lo segnala : ognuna conta per conto suo e le vendite in contanti fuori da TuttoSubito non contano. Se vende un altro oggetto su Subito per 600 € con TuttoSubito, arriva a 2.080 € e Subito lo segnala entro il 31 gennaio 2027.
+Come conta ogni piattaforma: Vinted ; 30 vendite o più di 2.000 € ; Vendite pagate su Vinted ; Vinted | Subito ; 30 vendite o più di 2.000 € ; Solo vendite con TuttoSubito ; Subito | eBay ; 30 vendite o più di 2.000 € ; Vendite pagate su eBay ; eBay
+Gli importi sono al netto delle commissioni? Sì. L'Agenzia delle Entrate precisa che gli importi dei corrispettivi versati o accreditati ai venditori vanno indicati al netto di spese, commissioni o imposte trattenute dalla piattaforma ( FAQ Agenzia delle Entrate ). Devo pagare le tasse? Non per il solo fatto di essere segnalato. Vendere oggetti personali usati di solito non genera reddito; comprare per rivendere con profitto in modo abituale può essere un'attività commerciale. Nel dubbio, chiedi a un commercialista.
+FAQ:
+Q: Vinted e Subito si sommano?
+A: No. Le soglie valgono per ogni piattaforma separatamente.
+Q: Quando avviene la comunicazione?
+A: Entro il 31 gennaio dell'anno successivo; la piattaforma ti invia gli stessi dati.
+Q: La DAC7 vale anche per vendite solo in Italia?
+A: Sì. L'Agenzia delle Entrate chiarisce che la comunicazione è dovuta indipendentemente dal carattere transfrontaliero delle attività.
+Q: La soglia cambierà?
+A: Forse dal 2028: il 24/06/2026 la Commissione europea ha proposto di eliminare la soglia delle 30 vendite e alzare l'importo a 3.000 €. È solo una proposta; fino ad allora vale 30 / 2.000 €.
+Sources: Agenzia delle Entrate – FAQ gestori di piattaforme (DAC7) <https://www.agenziaentrate.gov.it/portale/faq-gestori-di-piattaforme-imprese>; Directive (EU) 2021/514 (DAC7) – EUR-Lex <https://eur-lex.europa.eu/eli/dir/2021/514/oj>; European Commission – DAC7 <https://taxation-customs.ec.europa.eu/taxation/tax-transparency-cooperation/administrative-co-operation-and-mutual-assistance/dac7_en>; Subito – Normativa DAC7 <https://assistenza.subito.it/hc/it/articles/10473040694556-Normativa-DAC7>; Vinted – DAC7 : ce qu'il faut savoir <https://www.vinted.fr/help/1149-dac7-reporting>; eBay – Directiva DAC7 <https://www.ebay.es/help/selling/selling/directiva-dac7-obligaciones-de-comunicacin-de-informacin-en-materia-de-ventas?id=5394>; European Commission proposal COM(2026) 308 (DAC recast), 24 June 2026 – EUR-Lex <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52026PC0308>
+Free tool: Verifica soglie DAC7 gratis – Vinted ti segnalerà al fisco? <https://straightgate.gumroad.com/l/ipcqn> · Full version: Tracker Vendite DAC7 – Soglia fiscale Vinted, Subito ed eBay + guadagno (Excel e Google Sheets) <https://straightgate.gumroad.com/l/qxwkkg>
+
+
+---
+# Sprzedaję na Vinted lub OLX – czy muszę zapłacić podatek? Reguła pół roku i DAC7
+URL: https://zcbm2373125333-hub.github.io/pl/vinted-olx-podatek-pol-roku-dac7/
+Language: pl · Updated: 2026-10-20
+
+Short answer: Zwykle nie. Platforma zgłasza do skarbówki sprzedawców, którzy w roku wykonali co najmniej 30 transakcji lub otrzymali ponad 2 000 € (DAC7), ale zgłoszenie to nie podatek . Sprzedaż rzeczy z majątku prywatnego po upływie pół roku, licząc od końca miesiąca nabycia , nie podlega PIT. Jeśli sprzedasz wcześniej, dochód (cena − koszty) wykazujesz w PIT-36 – zeznanie składasz nawet przy stracie.
+
+
+Worked example (illustrative): Anna w 2026 r.: Sprzedaż Nabycie Pół roku mija PIT? Vinted: 34 ubrania, 1 200 zł (14.03–20.11) 2022–2024 dawno Nie – ale 34 ≥ 30, więc Vinted ją zgłosi Allegro: konsola 1 900 zł, prowizja 95 zł, 10.05.2026 12.02.2026 za 1 500 zł 31.08.2026 Tak – dochód 305 zł do PIT-36 Ta sama konsola sprzedana 1.09.2026 12.02.2026 31.08.2026 Nie – minęło pół roku Jeden dzień różnicy zmienia wynik. Dlatego warto zapisywać datę zakupu każdej droższej rzeczy.
+Dwie różne zasady: Czy platforma mnie zgłosi? ; ≥ 30 transakcji lub wynagrodzenie > 2 000 € w roku, na każdej platformie osobno ; KAS – DAC7 | Czy zgłoszenie zmienia podatek? ; Nie – zasady opodatkowania sprzedaży używanych rzeczy pozostają niezmienione ; KAS – DAC7 | Kiedy sprzedaż jest wolna od PIT? ; Po upływie pół roku liczonego od końca miesiąca, w którym rzecz stała się Twoja (majątek prywatny) ; podatki.gov.pl | Co, jeśli sprzedam wcześniej? ; Przychód, koszty i dochód/stratę wpisujesz w PIT-36 ; podatki.gov.pl | „30 000 zł” na stronach platform? ; To nie jest próg zwolnienia sprzedaży; na podatki.gov.pl decyduje reguła pół roku (30 000 zł to kwota wolna od podatku w skali) ; podatki.gov.pl
+Co zapisywać Dla każdej sprzedaży: data, platforma, czy zapłata przeszła przez platformę, kwota, prowizja, a dla rzeczy kupionych niedawno – data i cena nabycia. Kupowanie w celu odsprzedaży może być działalnością gospodarczą – wtedy obowiązują inne zasady. StraightGate tworzy narzędzia do prowadzenia ewidencji, nie porady podatkowe. W razie wątpliwości zapytaj urząd skarbowy lub doradcę.
+FAQ:
+Q: Od jakiej kwoty Vinted zgłasza mnie do skarbówki?
+A: Od 30 transakcji albo wynagrodzenia przekraczającego równowartość 2 000 € w roku kalendarzowym – wystarczy jeden z tych progów.
+Q: Czy po zgłoszeniu DAC7 muszę zapłacić podatek?
+A: Nie automatycznie. KAS podaje, że zasady opodatkowania sprzedaży używanych rzeczy się nie zmieniły.
+Q: Jak liczyć pół roku?
+A: Od końca miesiąca, w którym rzecz stała się Twoją własnością. Rzecz kupiona 12 lutego: pół roku mija 31 sierpnia.
+Q: Czy OLX i Vinted liczą się razem?
+A: Do DAC7 każda platforma liczy osobno. Do PIT liczy się każda sprzedaż przed upływem pół roku, niezależnie od platformy.
+Q: Czy sprzedaż za gotówkę liczy się do DAC7?
+A: Platforma raportuje transakcje, za które wynagrodzenie zapłacono lub uznano przez nią; gotówka przy odbiorze zwykle nie jest widoczna dla platformy – ale reguła pół roku dotyczy jej tak samo.
+Sources: podatki.gov.pl – Sprzedaż rzeczy ruchomej (PIT) <https://www.podatki.gov.pl/podatki-osobiste/pit/informacje-podstawowe/co-jest-opodatkowane/zbycie-rzeczy-ruchomej>; Krajowa Administracja Skarbowa – Co warto wiedzieć o dyrektywie DAC7 <https://www.gov.pl/web/kas/co-warto-wiedziec-o-dyrektywie-dac7>
+Free tool: Licznik DAC7 i test „pół roku” 2026 – Vinted, OLX, Allegro: zgłoszenie czy podatek? (Bezpłatny szablon Excel) <https://straightgate.gumroad.com/l/xcvie> · Full version: DAC7 Seller Tracker – Vinted, eBay & EU Marketplace Reporting Threshold + Profit (Excel & Google Sheets) <https://straightgate.gumroad.com/l/emmrk>
+
+
+---
+# Mikor kell adózni a Vinted- vagy Vatera-eladás után? 600 000 Ft, 200 000 Ft és a 6 év
+URL: https://zcbm2373125333-hub.github.io/hu/vinted-eladas-adozas-600-ezer-200-ezer/
+Language: hu · Updated: 2026-10-20
+
+Short answer: Ha egy év alatt a megunt holmik eladásából legfeljebb 600 000 Ft bevétel folyik be, nem kell bevallani és adót sem kell fizetni. 600 000 Ft felett kiszámolod a jövedelmet (bevétel − költség) : 200 000 Ft-ig adómentes , felette 15% szja. Közben a NAV szerint az eladásokról időrendi, ellenőrizhető nyilvántartást kell vezetni, és a bizonylatokkal együtt 6 évig megőrizni. Üzletszerű adás-vételnél más szabályok vannak.
+
+
+Worked example (illustrative): Kata 2026-ban: Eladás Bevétel Költség (vételár + költség) Vinted: ruhák, táska 34 000 Ft 57 400 Ft Vatera: kerékpár 120 000 Ft 94 000 Ft Jófogás: babakocsi 60 000 Ft 180 000 Ft Facebook: gyűjtői figurák 450 000 Ft 180 000 Ft Összesen 664 000 Ft > 600 000 Ft jövedelem: 152 600 Ft ≤ 200 000 Ft Bevétele átlépi a 600 000 Ft-ot, ezért jövedelmet kell számolnia – de az 200 000 Ft alatt van, így adómentes. Ezt csak akkor tudja igazolni, ha megvannak a vételi bizonylatok.
+A szabályok egy táblában: Kell-e bevallani? ; Nem, ha az éves bevétel ≤ 600 000 Ft ; NAV | Hogyan számolom a jövedelmet? ; bevétel − költség (vételár, értéknövelő beruházás, szerzési és eladási kiadás) ; NAV | Mennyi adómentes? ; A jövedelem 200 000 Ft-ig; felette 15% szja, május 20-ig ; NAV | Milyen nyilvántartás kell? ; Időrendben, folyamatosan, ellenőrizhetően; bizonylat + nyilvántartás 6 évig az eladástól ; NAV | Üzletszerű eladás? ; Önálló tevékenység: 15% szja + 13% szocho; a 200 000 Ft-os mentesség nem alkalmazható ; NAV
+Mit érdemes felírni? Minden eladásnál: dátum, platform, tárgy, bevétel, vételár, eladási költség (jutalék, posta), bizonylat helye. A Vinted és más platformok a DAC7 alapján 30 eladás vagy 2 000 € felett jelentenek a NAV-nak – a jelentés nem adókötelezettség. A StraightGate nyilvántartási eszközöket készít, nem adótanácsadást. Kétség esetén kérdezd a NAV-ot vagy adótanácsadót.
+FAQ:
+Q: Mennyi után kell adózni a Vinted-eladásnál?
+A: Ha az éves bevétel 600 000 Ft felett van, és a jövedelem (bevétel − költség) meghaladja a 200 000 Ft-ot. Az alatt nincs adó.
+Q: A 600 000 Ft platformonként számít?
+A: Nem: a megunt holmik eladásából egy év alatt befolyó összes bevételt kell nézni.
+Q: Mennyi ideig kell megőrizni a bizonylatokat?
+A: A NAV szerint a bizonylatot és a nyilvántartást az értékesítéstől számítva hat évig.
+Q: Mennyi az adó?
+A: A 200 000 Ft feletti esetben a jövedelem 15%-a szja, amelyet a következő év május 20-ig az szja-bevallásban kell megfizetni.
+Q: Mi számít üzletszerűnek?
+A: A tartós vagy rendszeres haszonszerzéssel járó adás-vétel. Ilyenkor önálló tevékenység szabályai vonatkoznak rá, és a 200 000 Ft-os mentesség nem alkalmazható.
+Sources: NAV – A megunt holmik eladása <https://nav.gov.hu/Elethelyzetek-adozasa/vagyonugyek/A-megunt-holmik-eladasa>; NAV – Használtcikk értékesítése magánszemélyként <https://nav.gov.hu/ugyfeliranytu/nezzen-utana/tudjon_rola/Hasznaltcikk_ertekesitese_maganszemelykent>
+Free tool: Használtcikk-eladási napló 2026 – Vinted, Vatera, Jófogás: 600 000 Ft / 200 000 Ft ellenőrzés (ingyenes Excel-sablon) <https://straightgate.gumroad.com/l/pypma> · Full version: DAC7 Seller Tracker – Vinted, eBay & EU Marketplace Reporting Threshold + Profit (Excel & Google Sheets) <https://straightgate.gumroad.com/l/emmrk>
+
+
+---
+# Pitääkö Tori- tai Vinted-myynnistä maksaa veroa? 5 000 euron ja 1 000 euron säännöt
+URL: https://zcbm2373125333-hub.github.io/fi/tori-vinted-myynti-verotus-5000-euroa/
+Language: fi · Updated: 2026-10-20
+
+Short answer: Yleensä ei. Oman tai perheen käytössä olleen tavanomaisen koti-irtaimiston myyntivoitot ovat verovapaita, kun ne ovat yhteensä enintään 5 000 € kalenterivuodessa ; jos myyntihinnat ovat alle 5 000 €, myynti on selvästi verovapaata. Muusta omaisuudesta (esim. arvoesineet, sijoituskulta) maksetaan veroa myyntivoitosta, jos myyntihinnat ylittävät 1 000 € vuodessa . Alustan ilmoitus Verohallinnolle ei muuta verotusta.
+
+
+Worked example (illustrative): Mikko vuonna 2026: Myynti Ryhmä Myyntihinta Voitto Vinted: vaatteet ja kengät Koti-irtaimisto 100 € tappio Tori: sohva Koti-irtaimisto 350 € tappio Tori: maastopyörä Koti-irtaimisto 900 € +300 € Huuto.net: keräilykolikot Muu 1 300 € +560 € Koti-irtaimisto: myyntihinnat 1 350 € < 5 000 € → verovapaa. Kolikot: muun omaisuuden myyntihinnat 1 300 € > 1 000 € → 560 € voitto on veronalaista pääomatuloa (30 %).
+Rajat lyhyesti: Koti-irtaimisto ; Myyntivoitot yhteensä enintään 5 000 €/vuosi verovapaita; ylittävästä osasta veroa ; Vero.fi | Jos ostohinnat eivät ole tiedossa ; Myyntihinnat alle 5 000 €/vuosi → selvästi verovapaata ; Vero.fi | Muu omaisuus ; Vero myyntivoitosta, jos myyntihinnat yhteensä yli 1 000 €/vuosi (raja myyntihinnoista) ; Vero.fi | Veroprosentti ; Pääomatulo: 30 % 30 000 €:oon asti, sen yli 34 % ; Vero.fi | Alustan ilmoitus (DAC7) ; Ei muuta verotusta; jatkuva ammattimainen myynti ilmoitetaan erikseen ; Vero.fi
+Mitä kannattaa kirjata? Jokaisesta myynnistä: päivä, alusta, tavara, ryhmä (koti-irtaimisto/muu), myyntihinta, hankintahinta ja myyntikulut. Autot, moottoripyörät ja veneet eivät kuulu koti-irtaimiston 5 000 euron rajaan. Huom. Vero.fi:n kirpputorisivu sanoo "enintään 5 000 euroa", alustasivu "alle 5 000 euroa" – rajatapauksessa tarkista Verohallinnosta. StraightGate tekee kirjanpitotyökaluja, ei veroneuvontaa.
+FAQ:
+Q: Ilmoittaako Vinted myyntini verottajalle?
+A: Kyllä, jos teet alustalla vähintään 30 myyntiä tai myyt yli 2 000 eurolla vuodessa (DAC7). Ilmoitus ei kuitenkaan muuta verotusta.
+Q: Lasketaanko 5 000 € myyntihinnoista vai voitoista?
+A: Voitoista. Mutta jos myyntihinnat ovat yhteensä alle 5 000 €, myynti on selvästi verovapaata, vaikka ostohintoja ei tiedä.
+Q: Mitä on tavanomainen koti-irtaimisto?
+A: Esimerkiksi vaatteet, astiat, huonekalut, kodin elektroniikka ja harrastusvälineet, jotka ovat olleet omassa tai perheen käytössä.
+Q: Lasketaanko 1 000 € voitoista?
+A: Ei, muun omaisuuden 1 000 euron raja lasketaan myyntihinnoista.
+Q: Paljonko veroa maksetaan?
+A: Veronalaisesta myyntivoitosta pääomatulon vero: 30 % 30 000 euroon asti ja 34 % sen ylittävästä osasta.
+Sources: Verohallinto – Kirpputorimyynti ja käytetyn tavaran myynti <https://www.vero.fi/henkiloasiakkaat/verokortti-ja-veroilmoitus/tulot/ansiotulot/kirpputorimyynti/>; Verohallinto – Myynti digitaalisilla alustoilla <https://www.vero.fi/henkiloasiakkaat/verokortti-ja-veroilmoitus/tulot/ansiotulot/myynti-digitaalisilla-alustoilla/>
+Free tool: Tori- ja Vinted-myyntiseuranta 2026 – onko myynti verovapaata? 5 000 € / 1 000 € -rajat (ilmainen Excel-pohja) <https://straightgate.gumroad.com/l/ybmit> · Full version: DAC7 Seller Tracker – Vinted, eBay & EU Marketplace Reporting Threshold + Profit (Excel & Google Sheets) <https://straightgate.gumroad.com/l/emmrk>
+
+
+---
+# 蝦皮、露天網拍什麼時候要辦稅籍登記？月銷售額 10萬與 20萬怎麼算
+URL: https://zcbm2373125333-hub.github.io/zh-tw/shopee-wangpai-baoshui-10wan-20wan/
+Language: zh-tw · Updated: 2026-10-20
+
+Short answer: 以營利為目的在網路賣貨，看的是 當月銷售額 ：自 114 年（2025）1 月 1 日起， 未達 NT$10萬（勞務 NT$5萬） 可暫免辦稅籍登記； 當月一達到就應辦稅籍登記 ，每月未達 NT$20萬 由國稅局按 1% 查定按季發單， 20萬以上 原則使用統一發票、稅率 5%。免登記也要把營利所得併入綜所稅申報。賣自己用過的二手物品、非以營利為目的，原則不在此列。
+
+
+Worked example (illustrative): 小美 2026 年在蝦皮兩個帳號、IG 接單： 月份 貨物（兩個蝦皮帳號合計） 勞務（IG 客製） 狀態 1 月 NT$44,200 NT$12,000 44.2% + 24% = 68% → 未達起徵點 2 月 NT$108,000 0 ≥ 10萬 → 應辦稅籍登記，1% 查定 （若某月） NT$210,000 0 ≥ 20萬 → 原則使用統一發票，5% 2 月達標：最晚 3 月底前補辦稅籍登記，國稅局補徵 2 月 1 日起的營業稅、免罰。賣掉自己用過的舊相機 NT$8,000 不計入。
+門檻一覽（2026-10-20 確認）: 暫免稅籍登記 ; 當月銷售額未達起徵點：貨物 NT$10萬、勞務 NT$5萬（114/1/1 起） ; 稅務入口網 、 財政部 | 達起徵點 ; 應即申請稅籍登記；次月底前補辦者補徵當月 1 日起營業稅、免罰 ; 台財稅字第10904512340號令 | 10萬～20萬 ; 國稅局按銷售額 1% 查定，每年 1、4、7、10 月底前發單 ; 稅務入口網 | 20萬以上 ; 原則使用統一發票，稅率 5%，每 2 個月申報 ; 稅務入口網 | 貨物＋勞務 ; 貨物/10萬 + 勞務/5萬 ≥ 100% 即達起徵點 ; 財政部令（稅務入口網法規頁） | 所得稅 ; 營利所得 = 全年銷售額 × 純益率，併入綜合所得 ; 案例說明
+要記什麼？ 每筆訂單的日期、平台、帳號、商品、貨物或勞務、銷售額；自用二手另外標記。多個帳號、多個平台請一起合計。起徵點的法源是營業稅法第 26 條授權財政部訂定（ 全國法規資料庫 ）。 注意：稅務入口網寫「超過」起徵點要登記，財政部令寫「達」起徵點——剛好 NT$10萬時以「達」為準較保守。StraightGate 提供記帳工具，非稅務建議，請以國稅局核定為準。
+FAQ:
+Q: 蝦皮賣家一個月賣多少要報稅？
+A: 以營利為目的賣貨，當月銷售額達 NT$10萬就要辦稅籍登記並課營業稅；未達可暫免登記，但營利所得仍要併入綜所稅。
+Q: 多個帳號或多個平台要合併算嗎？
+A: 要以同一人的實際銷售合計判斷，建議所有帳號、平台全部記錄在一起。
+Q: 賣自己用過的二手東西要繳稅嗎？
+A: 非以營利為目的出售自用舊物，原則不屬營業行為；若是進貨轉賣就要計入。
+Q: 達到 10萬但未達 20萬要繳多少？
+A: 國稅局按銷售額 1% 查定營業稅，按季寄繳款書，進項稅額可在 10% 範圍內扣抵。
+Q: 免辦稅籍登記還要報所得稅嗎？
+A: 要。營利所得 = 全年銷售額 × 該業別純益率（例：買賣業 6%），併入個人綜合所得總額申報。
+Sources: 財政部稅務入口網 – 境內網路交易應注意事項 <https://www.etax.nat.gov.tw/etwmain/tax-info/network-transaction-taxtation-area/seller/notice>; 財政部稅務入口網 – 境內網路交易案例說明 <https://www.etax.nat.gov.tw/etwmain/tax-info/network-transaction-taxtation-area/seller/case>; 財政部令 台財稅字第10904512340號（網路銷售月銷售額達起徵點應即辦理稅籍登記） <https://law-out.mof.gov.tw/LawContent.aspx?id=GL010768>; 財政部 – 自114年1月1日起調高小規模營業人營業稅起徵點 <https://www.mof.gov.tw/singlehtml/384fb3077bb349ea973e7fc6f13b6974?cntId=4e040848cb7044ce8d2c8540bd628f5f>; 加值型及非加值型營業稅法 第26條（全國法規資料庫） <https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0340080>
+Free tool: 網拍賣家月銷售額追蹤表 2026｜蝦皮、露天、Yahoo、FB 多平台合計，10萬／20萬門檻一眼看（免費 Excel） <https://straightgate.gumroad.com/l/dmqcln> · Full version: DAC7 Seller Tracker – Vinted, eBay & EU Marketplace Reporting Threshold + Profit (Excel & Google Sheets) <https://straightgate.gumroad.com/l/emmrk>
+
+
+---
+# Why is my Upwork fee 15% – and who pays less?
+URL: https://zcbm2373125333-hub.github.io/en/upwork-fee-15-percent-why/
+Language: en · Updated: 2026-10-20
+
+Short answer: Since 1 May 2025 , Upwork sets the Freelancer Service Fee per new contract anywhere from 0% to 15% , based on factors such as client demand for that type of work, so many offers now show 15%. The rate is shown before you send a proposal or accept an offer and is locked for the life of the contract ; to take home a target amount, bill target ÷ (1 − fee) .
+
+
+Worked example (illustrative): A developer wants to take home $20/hour, or $1,700 on a fixed-price job. Withdrawal and currency costs ignored. Contract fee Hourly rate to bill for $20 net Net from a $2,000 fixed job 0% $20.00 $2,000.00 10% $22.22 (Upwork's own example) $1,800.00 15% $23.53 $1,700.00 At 15%, a contract billed at the old 10%-era rate of $22.22 nets $18.89/hour – 5.6% less than planned.
+Who pays what (Upwork help centre, October 2026): New marketplace contract ; Variable, 0–15%, shown before proposal/offer, fixed for the contract ; Upwork | Contracts started before the change ; Unchanged ; Upwork | Any Hire (client met off Upwork or paid conversion fee) ; No Freelancer Service Fee ; Upwork | Direct Contracts (client you brought to Upwork) ; 5% (0% for active Freelancer Plus members) ; Upwork | Upwork Payroll ; No Freelancer Service Fee (paid via staffing firm) ; Upwork | Enterprise clients ; Typically 10%, depends on the enterprise terms ; Upwork
+FAQ:
+Q: Can I negotiate the Upwork fee down?
+A: Not directly. Upwork says it offers no regular discounts, only occasional promotions it will notify you about. You can only change what you bill.
+Q: Does the fee change during a long contract?
+A: No. Once the contract starts the percentage stays fixed for the life of that contract.
+Q: Where do I see the fee?
+A: In the offer or proposal screen before you commit, and later in contract details and transaction summaries.
+Q: Does Upwork refund its fee on refunds?
+A: Yes, Upwork returns the Freelancer Service Fee on amounts refunded to the client.
+Q: Is there also a withdrawal fee?
+A: It depends on the method. Since 1 September 2026, Direct to U.S. Bank withdrawals cost $2.99 each if your tax address is outside the United States (still free with a US tax address). Add that to your gross-up when you withdraw small amounts often.
+Sources: Upwork Help – Learn about the Freelancer Service Fee <https://support.upwork.com/hc/en-us/articles/211062538-Freelancer-Service-Fees>; Upwork Help – Variable Freelancer Service Fee <https://support.upwork.com/hc/en-us/articles/39620058162963-Variable-Freelancer-Service-Fee>; Upwork Help – Direct Contracts (5% fee, 0% with Freelancer Plus) <https://support.upwork.com/hc/en-us/articles/360025040794-Direct-Contracts-bring-a-client-to-Upwork>; Upwork Help – Direct to U.S. Bank: timing and fees ($2.99 for non-US tax addresses from 1 Sep 2026) <https://support.upwork.com/hc/en-us/articles/227022468-Direct-to-U-S-Bank-timing-and-fees-explained>
+Free tool: Free Upwork Fee Calculator — What Does This Job Really Pay? (Excel + Google Sheets) <https://straightgate.gumroad.com/l/diaqo> · Full version: Upwork Fee & Connects ROI Tracker — Real Take-Home After the 0–15% Service Fee (Excel + Google Sheets) <https://straightgate.gumroad.com/l/rztmxo>
+
+
+---
+# Vinted asked me to fill in the DAC7 form – what is the deadline and what if I don't?
+URL: https://zcbm2373125333-hub.github.io/en/vinted-dac7-form-deadline/
+Language: en · Updated: 2026-10-20
+
+Short answer: Vinted asks for the DAC7 form once you complete 30 sales or sell more than €2,000 in a calendar year. According to Vinted's help centre, it is due by early January of the following year or within 60 days of reaching the threshold, whichever is later ; if you miss it, Vinted blocks your Vinted wallet and then your selling until you submit it. Filling it in does not by itself mean you owe tax.
+
+
+Worked example (illustrative): 30th sale on 1 March 2026 → form due by early January 2027. 30th sale on 15 December 2026 → 60 days apply, so the form is due by about 13 February 2027 . Missed deadline → no wallet payouts or wallet payments; one more sale is possible, then selling is switched off. Submitting the form restores access.
+What Vinted says happens at each step: Threshold reached (30 sales or > €2,000 in the calendar year) ; Vinted contacts you; no need to contact Vinted yourself ; Vinted IE | Form deadline ; Early January next year or 60 days after reaching the threshold, whichever is later ; Vinted DE | Form not submitted ; Wallet blocked, then selling disabled after 1 more sale; buying still possible ; Vinted DE | Reporting ; Vinted sends the data in January of the following year and gives you a copy ; Vinted DE
+FAQ:
+Q: Do I have to pay tax after filling in the DAC7 form?
+A: Not because of the form. Vinted states that selling your own personal items is generally not taxed; tax questions depend on your country and whether you buy to resell.
+Q: Does a bundle count as one sale?
+A: Vinted counts completed sales (transactions); check your sales count in the app, since rules for counting can be platform-specific.
+Q: Do sales on other platforms count toward Vinted's 30?
+A: No. DAC7 thresholds apply per platform.
+Q: Are the deadlines the same in every country?
+A: This page quotes Vinted's German help page; check the help page for your country's Vinted site.
+Sources: Vinted – Was ist die DAC7-Richtlinie? (DE) <https://www.vinted.de/help/1308>; Vinted – DAC7: What you need to know (IE) <https://www.vinted.ie/help/1149-dac-7-what-you-need-to-know>; Directive (EU) 2021/514 (DAC7) – EUR-Lex <https://eur-lex.europa.eu/eli/dir/2021/514/oj>; European Commission – DAC7 <https://taxation-customs.ec.europa.eu/taxation/tax-transparency-cooperation/administrative-co-operation-and-mutual-assistance/dac7_en>
+Free tool: Free DAC7 Threshold Checker – Will Vinted or eBay Report You? <https://straightgate.gumroad.com/l/beqykg> · Full version: DAC7 Seller Tracker – Vinted, eBay & EU Marketplace Reporting Threshold + Profit (Excel & Google Sheets) <https://straightgate.gumroad.com/l/emmrk>
+
+
+---
+# Vinted will das DAC7-Formular – bis wann, und was passiert, wenn ich es ignoriere?
+URL: https://zcbm2373125333-hub.github.io/de/vinted-dac7-formular-frist-sperre/
+Language: de · Updated: 2026-10-20
+
+Short answer: Vinted verlangt das DAC7-Formular, sobald du in einem Kalenderjahr 30 Verkäufe abschließt oder über 2.000 € einnimmst . Laut Vinted-Hilfe ist es bis Anfang Januar des Folgejahres oder innerhalb von 60 Tagen nach Erreichen der Grenze fällig – je nachdem, was später ist . Ohne Formular sperrt Vinted den Geldbeutel und danach den Verkauf ; das Formular bedeutet aber nicht automatisch Steuern.
+
+
+Worked example (illustrative): 30. Verkauf am 1. März 2026 → Formular bis Anfang Januar 2027. 30. Verkauf am 15. Dezember 2026 → 60 Tage, also bis ca. 13. Februar 2027 . Frist verpasst → keine Auszahlung, kein Bezahlen mit dem Geldbeutel; noch 1 Verkauf möglich, dann ist Verkaufen deaktiviert. Formular nachreichen hebt die Sperre auf.
+Ablauf laut Vinted: Grenze erreicht (30 Verkäufe oder > 2.000 €) ; Vinted meldet sich bei dir ; Vinted | Frist ; Anfang Januar Folgejahr oder 60 Tage – das Spätere ; Vinted | Kein Formular ; Geldbeutel gesperrt, nach 1 weiteren Verkauf Verkauf deaktiviert ; Vinted | Meldung ; Im Januar des Folgejahres an die Behörden (in DE: BZSt), du bekommst eine Kopie ; Vinted , BZSt
+Muss ich danach Steuern zahlen? Nicht wegen der Meldung. Ob ein Gewinn steuerpflichtig ist, regelt z. B. § 23 EStG (private Veräußerungsgeschäfte) – siehe unseren Ratgeber Vinted-Verkäufe und Steuern .
+FAQ:
+Q: Kann ich das Formular einfach ignorieren?
+A: Dann sperrt Vinted laut Hilfe Geldbeutel und Verkaufsfunktion. Kaufen bleibt möglich.
+Q: Zählen Verkäufe auf eBay und Kleinanzeigen mit?
+A: Nein, die Grenzen gelten pro Plattform.
+Q: Gilt in Deutschland 2.000 € genau schon?
+A: Nach PStTG sind nur Verkäufer mit weniger als 30 Verkäufen und weniger als 2.000 € ausgenommen – genau 2.000 € führen also zur Meldung.
+Sources: Vinted – Was ist die DAC7-Richtlinie? (DE) <https://www.vinted.de/help/1308>; Plattformen-Steuertransparenzgesetz (PStTG) – gesetze-im-internet.de <https://www.gesetze-im-internet.de/psttg/BJNR273010022.html>; Bundeszentralamt für Steuern – FAQ zum PStTG (PDF) <https://www.bzst.de/SharedDocs/Downloads/DE/Digitale_Plattformbetreiber/FAQ_PStTG.pdf>; Directive (EU) 2021/514 (DAC7) – EUR-Lex <https://eur-lex.europa.eu/eli/dir/2021/514/oj>
+Free tool: DAC7-Schwellen-Check – Kostenlose Vorlage für Vinted, eBay & Kleinanzeigen <https://straightgate.gumroad.com/l/fpkhie> · Full version: DAC7-Verkaufstracker – Vinted, eBay & Kleinanzeigen Meldegrenze + Gewinn (Excel & Google Sheets) <https://straightgate.gumroad.com/l/ixtvy>
+
+
+---
+# Muss ich Vinted- oder Kleinanzeigen-Verkäufe versteuern?
+URL: https://zcbm2373125333-hub.github.io/de/vinted-verkaeufe-steuerpflichtig-23-estg/
+Language: de · Updated: 2026-10-20
+
+Short answer: Wer eigene gebrauchte Sachen verkauft, zahlt darauf in aller Regel keine Steuer: Gegenstände des täglichen Gebrauchs sind von § 23 EStG ausgenommen . Bei anderen Wirtschaftsgütern liegt ein privates Veräußerungsgeschäft nur vor, wenn zwischen Kauf und Verkauf nicht mehr als ein Jahr liegt – und auch dann bleibt der Gewinn steuerfrei, wenn der Gesamtgewinn im Jahr unter 1.000 € liegt . Wer gezielt einkauft, um weiterzuverkaufen, kann dagegen gewerblich handeln.
+
+
+Worked example (illustrative): Beispielzahlen 2026: Verkauf Einordnung 35 getragene Kleidungsstücke, 420 € erlöst (Neupreis höher) Alltagsgegenstände → nicht nach § 23 steuerpflichtig (Meldung durch Vinted trotzdem, da ≥ 30 Verkäufe) Sammel-Sneaker im März für 150 € gekauft, im Juli für 400 € verkauft (+250 €), dazu weitere Spekulationsgewinne von 600 € Gesamtgewinn 850 € < 1.000 € → steuerfrei Wie oben, aber weitere Gewinne 750 € → Gesamtgewinn 1.000 € Nicht „weniger als 1.000 €“ → der gesamte Gewinn ist steuerpflichtig (Freigrenze, kein Freibetrag)
+Die Regeln aus § 23 EStG: Frist ; Kauf und Verkauf innerhalb eines Jahres (andere Wirtschaftsgüter) ; § 23 Abs. 1 Nr. 2 EStG | Ausnahme ; Gegenstände des täglichen Gebrauchs ; § 23 Abs. 1 Nr. 2 S. 2 | Freigrenze ; Gesamtgewinn im Kalenderjahr unter 1.000 € → steuerfrei ; § 23 Abs. 3 S. 5 | Verluste ; Nur mit Gewinnen aus privaten Veräußerungsgeschäften verrechenbar ; § 23 Abs. 3 S. 7–8
+FAQ:
+Q: Ist die 1.000-€-Grenze ein Freibetrag?
+A: Nein, eine Freigrenze: Erreicht der Gesamtgewinn 1.000 €, ist der ganze Gewinn steuerpflichtig, nicht nur der Teil darüber.
+Q: Was ist mit Verlusten, weil ich billiger verkaufe als gekauft?
+A: Bei Alltagsgegenständen spielt das keine Rolle. Verluste aus privaten Veräußerungsgeschäften dürfen nur mit entsprechenden Gewinnen verrechnet werden.
+Q: Ab wann bin ich gewerblich?
+A: Das Gesetz nennt keine Stückzahl. Wer planmäßig Ware einkauft, um sie mit Gewinn weiterzuverkaufen, sollte das mit einer Steuerberatung oder dem Finanzamt klären.
+Q: Hat die DAC7-Meldung damit zu tun?
+A: Nur indirekt: Die Meldung (ab 30 Verkäufen oder 2.000 €) informiert das Finanzamt, ändert aber keine Steuerregel.
+Sources: EStG § 23 Private Veräußerungsgeschäfte – gesetze-im-internet.de <https://www.gesetze-im-internet.de/estg/__23.html>; Vinted – Was ist die DAC7-Richtlinie? (DE) <https://www.vinted.de/help/1308>; Plattformen-Steuertransparenzgesetz (PStTG) – gesetze-im-internet.de <https://www.gesetze-im-internet.de/psttg/BJNR273010022.html>; Bundeszentralamt für Steuern – FAQ zum PStTG (PDF) <https://www.bzst.de/SharedDocs/Downloads/DE/Digitale_Plattformbetreiber/FAQ_PStTG.pdf>
+Free tool: DAC7-Schwellen-Check – Kostenlose Vorlage für Vinted, eBay & Kleinanzeigen <https://straightgate.gumroad.com/l/fpkhie> · Full version: DAC7-Verkaufstracker – Vinted, eBay & Kleinanzeigen Meldegrenze + Gewinn (Excel & Google Sheets) <https://straightgate.gumroad.com/l/ixtvy>
+
+
+---
+# ¿Hay que declarar en la renta las ventas de Wallapop o Vinted?
+URL: https://zcbm2373125333-hub.github.io/es/vender-wallapop-vinted-declarar-renta/
+Language: es · Updated: 2026-10-20
+
+Short answer: Si eres particular y vendes tus cosas usadas por menos de lo que te costaron, no hay ganancia patrimonial y no tienes que incluir esas ventas en la renta ; tampoco puedes restar la pérdida, porque Hacienda no computa las pérdidas debidas al uso de bienes de consumo duradero (art. 33.5.b LIRPF). Si vendes algo por más de su valor de adquisición , la diferencia es una ganancia patrimonial que se declara en la base del ahorro.
+
+
+Worked example (illustrative): Venta (ejemplo) Resultado Abrigo comprado por 120 €, vendido por 45 € Sin ganancia → nada que declarar; la pérdida de 75 € no se computa 40 prendas usadas, 380 € en total, todas por debajo de su precio Nada que declarar, aunque Vinted informe a Hacienda por llegar a 30 ventas Carta coleccionable comprada por 20 €, vendida por 90 € Ganancia patrimonial de 70 € → base del ahorro
+Qué dice cada fuente: AEAT, Manual IRPF ; Las pérdidas de valor de bienes de consumo duradero por su uso normal no se computan (art. 33.5.b) | Wallapop ; Vender por debajo del precio de compra no tributa; si hay ganancia, se declara en «Ganancias y pérdidas patrimoniales… otros elementos», desde la casilla 1624 | DGT V0011-22 ; Venta de objetos personales = ganancia o pérdida patrimonial; pérdida por uso de bienes de consumo duradero no computable | AEAT, DAC7 ; DAC7 no cambia las obligaciones tributarias de los vendedores
+FAQ:
+Q: ¿Tengo que guardar los tickets de compra?
+A: Conviene: si Hacienda pregunta, el valor de adquisición es lo que demuestra que no hubo ganancia.
+Q: ¿Y si compro para revender?
+A: Comprar para revender con beneficio de forma habitual puede ser actividad económica (IRPF e IVA). Consulta con un asesor.
+Q: ¿Que Wallapop informe a Hacienda significa que pago?
+A: No. DAC7 solo obliga a la plataforma a comunicar datos; la tributación depende de si hubo ganancia o actividad económica.
+Sources: Agencia Tributaria – Pérdidas patrimoniales que no se computan (IRPF 2025) <https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025/c11-ganancias-perdidas-patrimoniales/ganancias-perdidas-patrimoniales-que-no-bi/perdidas-patrimoniales-que-no-se-tales.html>; Wallapop – ¿Debo incluir las ventas de Wallapop en mi declaración de la renta? <https://ayuda.wallapop.com/hc/es-es/articles/23866694565393--Debo-incluir-las-ventas-de-Wallapop-en-mi-declaraci%C3%B3n-de-la-renta>; DGT consulta vinculante V0011-22 (venta de bienes usados, art. 33.5.b LIRPF) <https://www.iberley.es/resoluciones/resolucion-vinculante-dgt-v0011-22-04-01-2022-1537774>; Agencia Tributaria – DAC7, preguntas frecuentes para vendedores (modelo 238) <https://sede.agenciatributaria.gob.es/Sede/todas-gestiones/impuestos-tasas/declaraciones-informativas/modelo-238-decl_____informacion-parte-operadores-plataformas/preguntas-frecuentes/dac-7-informacion-vendedores.html>; Wallapop – ¿Qué es DAC7? <https://ayuda.wallapop.com/hc/es-es/articles/19093732048785>
+Free tool: Comprobador DAC7 gratis – ¿te informará Wallapop a Hacienda? <https://straightgate.gumroad.com/l/wkfckm> · Full version: Control de Ventas DAC7 – Límite de Hacienda en Wallapop, Vinted y eBay + beneficio (Excel y Google Sheets) <https://straightgate.gumroad.com/l/xunsm>
+
+
+---
+# ¿Qué datos le pasan Wallapop, Vinted o eBay a Hacienda con DAC7?
+URL: https://zcbm2373125333-hub.github.io/es/dac7-que-datos-comunica-wallapop-hacienda/
+Language: es · Updated: 2026-10-20
+
+Short answer: Si en una plataforma llegas a 30 ventas o superas 2.000 € en el año, la plataforma comunica a Hacienda (modelo 238) tu nombre, dirección, NIF, fecha de nacimiento, el identificador de tu cuenta de cobro, el importe total cobrado y el número de ventas por trimestre, y las comisiones retenidas . Según la Agencia Tributaria, esto no crea ningún impuesto nuevo.
+
+
+Worked example (illustrative): Lucía vende en 2026 en Vinted 34 artículos (510 €) y en Wallapop 12 (900 €). Vinted la comunica porque supera 30 ventas: datos personales, IBAN o cuenta del monedero, y por trimestre su número de ventas e importe cobrado, más las comisiones. Wallapop no la comunica: 12 ventas y 900 € están por debajo de ambos límites.
+Datos que se comunican (AEAT, FAQ DAC7): Identidad (persona física) ; Nombre y apellidos, dirección principal, NIF y país emisor, NIF-IVA si lo hay, fecha de nacimiento | Cobro ; Identificador de la cuenta financiera y su titular si es otra persona | Actividad ; Contraprestación total pagada y número de actividades por trimestre | Comisiones ; Comisiones, tarifas, tributos retenidos por la plataforma por trimestre | Excluidos ; Vendedores de bienes con menos de 30 ventas y que no superen 2.000 € en la plataforma
+FAQ:
+Q: ¿Puedo saber qué ha enviado la plataforma?
+A: Sí. La plataforma debe informarte antes de enviar los datos, y te facilita la información comunicada.
+Q: ¿Se suman todas las plataformas?
+A: No: cada plataforma aplica el límite por separado.
+Q: ¿Tengo que dar mi NIF a Wallapop?
+A: Si te lo pide por DAC7, sí: los vendedores deben facilitar la información para que la plataforma cumpla. Si no, puede limitar tu monedero.
+Sources: Agencia Tributaria – DAC7, preguntas frecuentes para vendedores (modelo 238) <https://sede.agenciatributaria.gob.es/Sede/todas-gestiones/impuestos-tasas/declaraciones-informativas/modelo-238-decl_____informacion-parte-operadores-plataformas/preguntas-frecuentes/dac-7-informacion-vendedores.html>; Wallapop – ¿Qué es DAC7? <https://ayuda.wallapop.com/hc/es-es/articles/19093732048785>; Directive (EU) 2021/514 (DAC7) – EUR-Lex <https://eur-lex.europa.eu/eli/dir/2021/514/oj>; European Commission – DAC7 <https://taxation-customs.ec.europa.eu/taxation/tax-transparency-cooperation/administrative-co-operation-and-mutual-assistance/dac7_en>
+Free tool: Comprobador DAC7 gratis – ¿te informará Wallapop a Hacienda? <https://straightgate.gumroad.com/l/wkfckm> · Full version: Control de Ventas DAC7 – Límite de Hacienda en Wallapop, Vinted y eBay + beneficio (Excel y Google Sheets) <https://straightgate.gumroad.com/l/xunsm>
+
+
+---
+# Dois-je payer des impôts sur mes ventes Vinted ou Leboncoin ?
+URL: https://zcbm2373125333-hub.github.io/fr/vinted-impots-vente-vetements-imposable/
+Language: fr · Updated: 2026-10-20
+
+Short answer: Selon impots.gouv.fr, vendre des biens qui vous appartiennent, que vous avez utilisés et ne voulez plus garder, n'est en général pas imposable (cas particuliers : bijoux, objets d'art ou de collection, biens de plus de 5 000 €). En revanche, les biens achetés ou fabriqués pour être revendus sont imposables et doivent être déclarés. Être signalé par la plateforme ne rend pas une vente imposable.
+
+
+Worked example (illustrative): Exemple repris d'impots.gouv.fr : un parent vend sur une plateforme 32 anciens vêtements de son enfant à 5 € pièce, soit 160 €. Ces sommes ne sont pas imposables , même si elles apparaissent dans la déclaration en ligne. Contre-exemple (illustratif) : acheter 20 paires de baskets en soldes pour les revendre avec marge → recettes imposables, et cotisations sociales possibles au-delà de certains seuils (voir URSSAF).
+Ce que dit l'administration: Biens personnels usagés ; En général non imposables ; impots.gouv.fr | Bijoux, objets d'art/collection, biens > 5 000 € ; Cas particuliers ; impots.gouv.fr | Biens achetés ou fabriqués pour la revente ; Imposables, à déclarer ; impots.gouv.fr | DAC7 ; Ne change rien à la fiscalité existante ; impots.gouv.fr
+À partir de quand la plateforme transmet-elle ? La page d'impots.gouv.fr indique une transmission si le nombre d'opérations est supérieur ou égal à 20 ou si les montants dépassent 3 000 €, tandis que la directive DAC7 et les pages d'aide de Vinted ou Leboncoin citent 30 ventes ou 2 000 € par plateforme ( notre guide DAC7 ). Dans tous les cas, ces seuils ne signifient pas que les sommes sont imposables.
+FAQ:
+Q: Les montants Vinted apparaîtront-ils dans ma déclaration pré-remplie ?
+A: Ils peuvent y apparaître sans être imposables, précise impots.gouv.fr. Vérifiez et corrigez si ce sont des ventes de biens personnels.
+Q: Et si je vends un objet plus cher que je l'ai acheté ?
+A: Pour des biens personnels courants, la règle générale reste la non-imposition ; les bijoux, objets d'art ou de collection et biens de plus de 5 000 € suivent des règles particulières.
+Q: Dois-je payer des cotisations sociales ?
+A: Seulement pour une activité professionnelle au-delà de certains seuils ; consultez l'URSSAF.
+Sources: impots.gouv.fr – Revenus issus de l'économie collaborative / DAC7 <https://www.impots.gouv.fr/particulier/questions/comment-declarer-mes-revenus-issus-de-leconomie-collaborative>; Service-Public.fr – Revenus d'une activité accessoire (plateformes) <https://www.service-public.gouv.fr/particuliers/vosdroits/F31725>; Vinted – DAC7 : ce qu'il faut savoir <https://www.vinted.fr/help/1149-dac7-reporting>; Directive (EU) 2021/514 (DAC7) – EUR-Lex <https://eur-lex.europa.eu/eli/dir/2021/514/oj>
+Free tool: Vérificateur de seuil DAC7 gratuit – Vinted va-t-il vous déclarer ? <https://straightgate.gumroad.com/l/rjvvvp> · Full version: Suivi des ventes DAC7 – Seuil fiscal Vinted, Leboncoin & eBay + bénéfice (Excel & Google Sheets) <https://straightgate.gumroad.com/l/umyrtk>
+
+
+---
+# Vinted ou Leboncoin me demandent mon numéro fiscal (DAC7) : dois-je répondre, et vais-je payer plus ?
+URL: https://zcbm2373125333-hub.github.io/fr/dac7-vinted-numero-fiscal-recapitulatif-janvier/
+Language: fr · Updated: 2026-10-20
+
+Short answer: Oui. Selon impots.gouv.fr, la plateforme est tenue par la loi de recueillir vos informations et peut demander une copie de votre pièce d'identité et votre numéro fiscal ; vous avez l'obligation de répondre, sinon elle peut prendre des mesures contraignantes (jusqu'à la fermeture du compte). DAC7 ne vous fait pas payer plus d'impôt et la plateforme doit vous envoyer en janvier un récapitulatif de l'année précédente.
+
+
+Worked example (illustrative): Illustratif : Inès atteint sa 30 e vente Vinted en novembre 2026. Vinted lui demande son numéro fiscal. Elle le trouve en première page de sa déclaration de revenus ou sur son avis d'imposition (rubrique « Vos références ») : 13 chiffres commençant par 0, 1, 2 ou 3 . En janvier 2027 elle reçoit le récapitulatif ; au printemps, les montants peuvent apparaître dans sa déclaration pré-remplie – ses ventes de vêtements personnels n'étant pas imposables, elle n'a rien à payer.
+Où trouver le numéro demandé: Particulier ; Numéro fiscal (NIF), 13 chiffres, commence par 0–3 ; Déclaration de revenus (1re page), avis d'imposition | Auto-entrepreneur / EI ; SIRET, 14 chiffres ; Attribué à la création de l'activité
+FAQ:
+Q: Que se passe-t-il si je refuse ?
+A: La plateforme peut prendre des mesures contraignantes ; si elle ferme le compte, vous ne pourrez vous réinscrire qu'après avoir fourni les informations.
+Q: DAC7 augmente-t-il mes impôts ?
+A: Non : impots.gouv.fr indique que DAC7 ne change rien à la fiscalité existante.
+Q: Qui reçoit les données ?
+A: L'administration fiscale, qui les échange avec les autres États de l'UE ; en France elles sont aussi transmises aux organismes sociaux.
+Sources: impots.gouv.fr – Revenus issus de l'économie collaborative / DAC7 <https://www.impots.gouv.fr/particulier/questions/comment-declarer-mes-revenus-issus-de-leconomie-collaborative>; Vinted – DAC7 : ce qu'il faut savoir <https://www.vinted.fr/help/1149-dac7-reporting>; Directive (EU) 2021/514 (DAC7) – EUR-Lex <https://eur-lex.europa.eu/eli/dir/2021/514/oj>; European Commission – DAC7 <https://taxation-customs.ec.europa.eu/taxation/tax-transparency-cooperation/administrative-co-operation-and-mutual-assistance/dac7_en>
+Free tool: Vérificateur de seuil DAC7 gratuit – Vinted va-t-il vous déclarer ? <https://straightgate.gumroad.com/l/rjvvvp> · Full version: Suivi des ventes DAC7 – Seuil fiscal Vinted, Leboncoin & eBay + bénéfice (Excel & Google Sheets) <https://straightgate.gumroad.com/l/umyrtk>
+
+
+---
+# Devo pagare le tasse su quello che vendo su Vinted o Subito?
+URL: https://zcbm2373125333-hub.github.io/it/vinted-tasse-vendita-usato-quando-si-paga/
+Language: it · Updated: 2026-10-20
+
+Short answer: Se vendi occasionalmente oggetti tuoi usati (vestiti, mobili, libri) non paghi tasse : non è un'attività commerciale, come ha confermato la Cassazione (n. 10117/2023) per la vendita di mobili usati. Se invece compri per rivendere con guadagno , anche saltuariamente, il guadagno può essere un reddito diverso (art. 67, c. 1, lett. i, TUIR); se lo fai in modo abituale diventa attività d'impresa, con IRPEF e IVA.
+
+
+Worked example (illustrative): Caso (illustrativo) Inquadramento Svuoti l'armadio: 40 vendite su Vinted, 600 € incassati Vendita di beni personali → non tassata (Vinted ti chiederà comunque i dati DAC7: ≥ 30 vendite) Compri 15 giacche vintage al mercatino e le rivendi con margine, una tantum Attività commerciale occasionale → margine da dichiarare come reddito diverso Compri e rivendi ogni settimana, tutto l'anno Probabile attività d'impresa abituale → partita IVA
+Cosa dicono le fonti: Vinted IT ; La vendita dei tuoi articoli personali non è tassata; la comunicazione DAC7 non crea obblighi fiscali nuovi | Cassazione 10117/2023 ; La vendita di mobili d'arredo personali non è attività commerciale senza intento speculativo | Agenzia delle Entrate ; Attività commerciali non abituali = redditi diversi (art. 67, c. 1, lett. i); nessuna soglia di importo o numero fissata dalla legge, valutazione caso per caso | AdE, FAQ DAC7 ; Le piattaforme comunicano importi al netto di commissioni
+FAQ:
+Q: Esiste una soglia sotto cui la rivendita è sempre esente?
+A: No. L'Agenzia delle Entrate ricorda che non esistono parametri normativi di importo o numero per definire l'occasionalità.
+Q: La segnalazione DAC7 significa che devo pagare?
+A: No: è solo una comunicazione dei dati; conta la natura delle vendite.
+Q: Conviene tenere traccia di acquisti e vendite?
+A: Sì: se rivendi, il margine (prezzo di vendita meno costo) è ciò che conta, e serve poterlo documentare.
+Sources: Vinted – DAC7: cosa c'è da sapere (IT) <https://www.vinted.it/help/1149>; Cassazione n. 10117/2023 – commento (vendita di beni usati) <https://www.osservatorio-giustiziatributaria.it/2023/04/28/vendita-di-beni-usati-e-attivita-commerciale-solo-con-intento-speculativo/>; Agenzia delle Entrate – consulenza giuridica su art. 67 TUIR (venditori occasionali) <https://www.regione.piemonte.it/web/sites/default/files/media/documenti/2018-10/nota_agenzia_delle_entrate_su_venditori_occasionali.pdf>; Agenzia delle Entrate – FAQ gestori di piattaforme (DAC7) <https://www.agenziaentrate.gov.it/portale/faq-gestori-di-piattaforme-imprese>; Subito – Normativa DAC7 <https://assistenza.subito.it/hc/it/articles/10473040694556-Normativa-DAC7>
+Free tool: Verifica soglie DAC7 gratis – Vinted ti segnalerà al fisco? <https://straightgate.gumroad.com/l/ipcqn> · Full version: Tracker Vendite DAC7 – Soglia fiscale Vinted, Subito ed eBay + guadagno (Excel e Google Sheets) <https://straightgate.gumroad.com/l/qxwkkg>
+
+
+---
+# Geeft Marktplaats of Vinted je verkopen door aan de Belastingdienst – en moet je dan belasting betalen?
+URL: https://zcbm2373125333-hub.github.io/nl/marktplaats-vinted-belastingdienst-dac7/
+Language: nl · Updated: 2026-10-20
+
+Short answer: Ja, maar alleen boven de grens: Marktplaats, Vinted en eBay geven je gegevens aan de Belastingdienst door als je op dat platform in een kalenderjaar 30 keer of meer verkoopt of voor meer dan € 2.000 verkoopt (DAC7). Volgens de Belastingdienst betekent dat niet meteen dat je belasting moet betalen: eigen spullen hobbymatig verkopen is meestal onbelast; spullen inkopen en met winst verkopen is wél belast, zonder minimumbedrag.
+
+
+Worked example (illustrative): Sanne uit Utrecht ruimt in 2026 op: Vinted: 34 verkopen van eigen kleding, € 610 ontvangen Marktplaats: 6 verkopen via het platform, € 480, plus 5 keer contant bij ophalen Vinted meldt haar (34 verkopen ≥ 30). Marktplaats niet: elk platform telt apart en contante verkopen buiten het platform tellen in de regel niet mee. Belasting? Ze verkoopt eigen gebruikte kleding, meestal onder de aankoopprijs – volgens de Belastingdienst hoeft ze daarover meestal geen inkomstenbelasting te betalen. Zou ze merkkleding inkopen om door te verkopen, dan is de winst belast.
+Gemeld worden vs. belasting betalen: Eigen kleding/boeken/meubels hobbymatig verkopen, ≥ 30 verkopen ; Ja ; Meestal niet ; Belastingdienst | Minder dan 30 verkopen en niet meer dan € 2.000 op één platform ; Nee ; Meestal niet ; Belastingdienst | Merkkleding of spullen inkopen en met winst verkopen ; Alleen boven de grens ; Ja, over de winst – geen minimumbedrag ; Belastingdienst
+Wat geeft het platform door? Onder meer je naam, adres, bsn, bankrekening, het aantal verkopen en de ontvangen bedragen per kwartaal en de ingehouden kosten. Het platform laat het je vooraf weten ( Belastingdienst ). Waarom bijhouden toch slim is Bij een vraag van de Belastingdienst wil je per verkoop kunnen laten zien wat je ervoor betaalde en wat je ontving. Een eenvoudige administratie per platform – aantal, bedrag, inkoopprijs, winst – is dan genoeg. Onze tracker is een hulpmiddel voor je administratie, geen belastingadvies .
+FAQ:
+Q: Tellen Vinted en Marktplaats samen?
+A: Nee. De grens van 30 verkopen of € 2.000 geldt per platform.
+Q: Moet ik belasting betalen als ik gemeld word?
+A: Niet meteen. Volgens de Belastingdienst betaal je meestal geen inkomstenbelasting als je hobbymatig of privé je eigen spullen verkoopt.
+Q: Wanneer is verkopen via Vinted wel belast?
+A: Als je spullen inkoopt en met winst verkoopt. Dan geldt de winst als bron van inkomen en er is geen minimumbedrag aan winst.
+Q: Tellen contante verkopen bij ophalen mee?
+A: Voor de DAC7-melding in de regel niet, omdat de betaling niet via het platform loopt. Voor je belasting kan het wel meetellen als je doorverkoopt.
+Q: Is dit belastingadvies?
+A: Nee. Dit is informatie en een hulpmiddel voor je administratie. Twijfel je, vraag het de Belastingdienst of een adviseur.
+Sources: Belastingdienst – Inkomstenbelasting betalen over internetverkopen <https://www.belastingdienst.nl/wps/wcm/connect/nl/werk-en-inkomen/content/inkomstenbelasting-betalen-over-internetverkopen>; Belastingdienst – Informatie voor verkopers (DAC7) <https://www.belastingdienst.nl/wps/wcm/connect/nl/ondernemers/content/informatie-voor-verkopers-DAC7>; Directive (EU) 2021/514 (DAC7) – EUR-Lex <https://eur-lex.europa.eu/eli/dir/2021/514/oj>; European Commission – DAC7 <https://taxation-customs.ec.europa.eu/taxation/tax-transparency-cooperation/administrative-co-operation-and-mutual-assistance/dac7_en>; European Commission proposal COM(2026) 308 (DAC recast), 24 June 2026 – EUR-Lex <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52026PC0308>
+Free tool: Gratis DAC7-Drempelcheck – Meldt Vinted of Marktplaats je aan de Belastingdienst? <https://straightgate.gumroad.com/l/ibvrla> · Full version: DAC7-Verkooptracker – Meldgrens Vinted, Marktplaats & eBay + winst (Excel & Google Sheets) <https://straightgate.gumroad.com/l/phapb>
+
+
+---
+# Muss ich für Verkäufe auf willhaben oder Vinted in Österreich Steuern zahlen?
+URL: https://zcbm2373125333-hub.github.io/de/willhaben-steuern-oesterreich-dac7/
+Language: de · Updated: 2026-10-20
+
+Short answer: Meistens nicht. Plattformen melden dich dem Finanzamt Österreich, wenn du auf einer Plattform im Kalenderjahr 30 Verkäufe oder mehr als 2.000 € erreichst (DPMG/DAC7) – bei willhaben zählen nur PayLivery-Verkäufe . Die Meldung ist keine Steuer. Steuerpflichtig wird es vor allem, wenn du etwas innerhalb eines Jahres nach dem Kauf mit Gewinn verkaufst und diese Gewinne im Jahr insgesamt 440 € übersteigen (§ 31 EStG), oder wenn du nachhaltig zum Weiterverkauf einkaufst (gewerblich).
+
+
+Worked example (illustrative): Jonas aus Graz verkauft 2026: willhaben: 22 Verkäufe über PayLivery (1.150 €) plus 12 Barverkäufe bei Abholung Vinted: 31 Verkäufe alter Kleidung (720 €) Eine im März gekaufte Konsole, im Oktober mit 180 € Gewinn verkauft Vinted meldet ihn (31 ≥ 30). willhaben nicht: nur 22 PayLivery-Verkäufe und unter 2.000 €; Barverkäufe zählen für die Meldung nicht. Steuer? Alte Kleidung, lange besessen: kein Spekulationsgeschäft. Die Konsole schon (Kauf und Verkauf binnen eines Jahres) – aber 180 € liegen unter der Freigrenze von 440 € , also steuerfrei. Hätte er insgesamt 500 € solcher Gewinne, wären alle 500 € steuerpflichtig (Freigrenze, kein Freibetrag).
+Österreich auf einen Blick: Meldegrenze pro Plattform und Kalenderjahr ; 30 Verkäufe oder mehr als 2.000 € ; DPMG | willhaben: was zählt ; Nur Verkäufe über PayLivery ; willhaben | Spekulationsgeschäft ; Verkauf von Privatvermögen binnen 1 Jahr nach Anschaffung ; § 31 Abs. 1 EStG | Freigrenze Spekulationsgewinne ; steuerfrei, wenn insgesamt ≤ 440 € im Kalenderjahr ; § 31 Abs. 3 EStG | Gewerblich oder privat? ; Vor allem Nachhaltigkeit: einmalig vs. wiederholt / Wiederholungsabsicht ; BMF
+Was meldet willhaben? Name, Hauptwohnsitz, Steuernummer (oder Geburtsort), Geburtsdatum sowie Anzahl und Summe der PayLivery-Verkäufe – jeweils bis 31. Jänner für das Vorjahr. Laut willhaben haben sich durch DAC7/DPMG die Steuergesetze nicht geändert ( willhaben ). Anders als in Deutschland In Deutschland liegt die Freigrenze für private Veräußerungsgeschäfte bei 1.000 €, in Österreich bei 440 €. Deutsche Vorlagen und Ratgeber passen daher nicht 1:1. Einfach mitschreiben Notiere pro Verkauf Kaufdatum, Kaufpreis und Verkaufspreis – dann siehst du sofort, ob ein Verkauf binnen eines Jahres mit Gewinn war. Unsere Vorlage ist eine Buchführungshilfe, keine Steuerberatung .
+FAQ:
+Q: Zählen willhaben-Barverkäufe für die Meldung?
+A: Nein. willhaben meldet nur Verkäufe, die über PayLivery abgewickelt werden.
+Q: Werden willhaben und Vinted zusammengezählt?
+A: Nein. Die Grenze von 30 Verkäufen oder 2.000 € gilt für jede Plattform getrennt.
+Q: Ist die 440-€-Grenze ein Freibetrag?
+A: Nein, eine Freigrenze: Übersteigen die Spekulationsgewinne im Jahr insgesamt 440 €, ist der gesamte Betrag steuerpflichtig.
+Q: Muss ich Steuern zahlen, wenn ich gemeldet werde?
+A: Nicht automatisch. Die Meldung ist nur ein Datenaustausch; entscheidend sind Spekulationsfrist, Gewinn und ob du gewerblich handelst.
+Q: Ist das Steuerberatung?
+A: Nein. Information und Buchführungshilfe. Im Zweifel Finanzamt oder Steuerberatung fragen.
+Sources: Digitale Plattformen-Meldepflichtgesetz (DPMG) – RIS Bundesrecht <https://ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20011970>; § 31 EStG 1988 – Spekulationsgeschäfte (Gesetzestext) <https://www.jusline.at/gesetz/estg/paragraf/31>; BMF – Broschüre „Verkauf über Online-Plattformen“ (PDF) <https://www.bmf.gv.at/dam/jcr:a0827db7-6546-459e-b220-4209a6dfb4fb/Brosch%C3%BCre_Verkauf_%C3%BCber_Online_Plattformen.pdf>; BMF – Häufig gestellte Fragen zum DPMG (PDF) <https://findok.bmf.gv.at/findok/iwg/82/82976/82976.1.pdf>; willhaben – Dateneingabe nach DAC7/DPMG <https://hilfe.willhaben.at/hc/de/articles/9000426701074-Gesetzlich-vorgegebene-Dateneingabe-nach-DAC7-DPMG>; Directive (EU) 2021/514 (DAC7) – EUR-Lex <https://eur-lex.europa.eu/eli/dir/2021/514/oj>; European Commission proposal COM(2026) 308 (DAC recast), 24 June 2026 – EUR-Lex <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52026PC0308>
+Free tool: Kostenloser DAC7-Schwellen-Check Österreich – Meldet willhaben oder Vinted dich ans Finanzamt? <https://straightgate.gumroad.com/l/vakyov> · Full version: DAC7-Verkaufstracker Österreich – willhaben PayLivery, Vinted & eBay Meldegrenze + 440-€-Grenze (Excel & Google Sheets) <https://straightgate.gumroad.com/l/cddxbq>
+
+
+---
+# 달러로 받은 해외수입, 종합소득세 신고 때 어느 날 환율로 원화 환산하나요?
+URL: https://zcbm2373125333-hub.github.io/ko/haeoe-suip-wonhwa-hwansan-suipsigi-hwanyul/
+Language: ko · Updated: 2026-10-21
+
+Short answer: 해외 클라이언트에게 인적용역(번역·디자인·개발 등)을 제공하고 외화로 받았다면, 먼저 수입시기 = 용역대가를 지급받기로 한 날과 용역의 제공을 완료한 날 중 빠른 날 을 정하고(소득세법 시행령 제48조 제8호), 그날의 「외국환거래법」에 따른 기준환율 또는 재정환율 로 원화 환산한 금액을 총수입금액으로 잡습니다(국세청 서면-2025-소득-0189, 2025.7.18.). 실제 입금일이나 환전일의 환율이 아닙니다. 그날이 공휴일이면 그 직전일의 환율을 씁니다(소득세법 기본통칙 39-97…1). 나중에 입금·환전하면서 생긴 차이는 매출을 고치는 것이 아니라 환차손익으로 따로 처리합니다(시행령 제97조 제1항).
+
+
+Worked example (illustrative): 가정: 국내에 사는 프리랜서 번역가(사업소득)가 미국 회사 두 곳과 일합니다. 환율은 설명을 위해 정한 가상의 값 입니다. 실제 신고 때는 그날 서울외국환중개가 고시한 값을 넣으세요. 건 날짜 수입시기 환율 적용일 계산 원화 수입금액 A. 번역 프로젝트 US$1,200 용역 완료 2026.10.9.(금), 대가 지급 약정일 10.23., 실제 입금 10.27. 10.9. (완료일이 더 빠름) 10.8.(목) – 10.9.은 한글날(공휴일)이라 직전일 1,200 × 1,400.50원(가정) 1,680,600원 B. 월 정액 US$800 대가 지급 약정일 2026.10.15.(목), 그달 용역 완료 10.30. 10.15. (약정일이 더 빠름) 10.15. 800 × 1,395.20원(가정) 1,116,160원 10월 총수입금액(두 건 합계) 2,796,760원 건 A의 US$1,200이 10.27.에 들어와 은행에서 1달러 1,398.00원(가정)에 원화로 바뀌어 1,677,600원이 입금됐다면, 처음 잡은 1,680,600원과의 차이 3,000원은 환차손 입니다. 10월 수입금액 1,680,600원은 그대로 두고, 3,000원은 상환받은 날(10.27.)이 속하는 과세기간의 필요경비로 따로 적습니다(차익이었다면 총수입금액에 산입). 이 사례에서 약정일(10.23.)이나 입금일(10.27.) 환율을 쓰면 신고할 수입금액이 달라집니다.
+어느 날짜가 무엇을 정하나: 용역 제공을 완료한 날 ; 대가 약정일보다 빠르면 수입시기 ; 시행령 제48조 제8호 | 용역대가를 지급받기로 한 날(계약·인보이스상 지급일) ; 완료일보다 빠르면 수입시기 ; 시행령 제48조 제8호 | 수입시기의 기준환율·재정환율 ; 총수입금액을 원화로 환산하는 환율 ; 서면-2025-소득-0189 | 수입시기가 공휴일인 경우 ; 그 직전일의 기준환율 또는 재정환율 ; 기본통칙 39-97…1 | 실제 입금일·환전일 ; 매출 환산일이 아님 – 처음 원화기장액과의 차이는 환차손익 ; 시행령 제97조 제1항
+환율은 어디서 확인하나요? 미국 달러의 기준환율(매매기준율)과 그 밖의 통화의 재정환율(재정된 매매기준율)은 외국환중개회사인 서울외국환중개가 고시합니다( 서울외국환중개 환율고시 ). 은행 앱에 나오는 송금 받을 때 환율이나 우대 환율은 이 값과 다를 수 있으니, 날짜별 고시값과 그 출처를 장부에 함께 남겨 두세요. 자주 하는 실수 입금일 환율로 매출을 잡는 것. 수입시기는 입금일이 아니라 약정일과 완료일 중 빠른 날입니다( 시행령 제48조 ). 연평균 환율 하나로 1년치를 환산하는 것. 국세청 해석은 총수입금액이 확정된 때의 기준환율 또는 재정환율로 환산하도록 합니다( 서면-2025-소득-0189 ). 환전 차이로 매출을 고치는 것. 차익·차손은 상환받은 날이 속하는 과세기간의 총수입금액 또는 필요경비입니다( 시행령 제97조 ). 귀속 연도를 헷갈리는 것. 2026년 12월에 완료하고 2027년 1월에 받은 대가는, 약정일이 완료일보다 늦다면 2026년 귀속입니다. 2026년 귀속 종합소득세는 2027년 5월 1일~31일에 신고·납부합니다(성실신고확인서 제출자는 6월 30일까지, 국세청 ). 무료판과 완전판 무료판 은 용역 완료일과 대가 약정일을 넣으면 수입시기와 환율 적용일(주말·공휴일이면 직전 영업일, 2026년 공휴일 포함)을 표시하고, 기준환율을 직접 넣으면 원화 수입금액과 월별 합계를 계산합니다(30행). 완전판 은 400행에 입금·환전 때의 환차손익(계좌·통화별 평균 장부환율), 외화 경비, 연간 요약을 더한 장부입니다. 두 파일 모두 환율을 미리 넣어 두지 않으므로, 고시값은 직접 조회해 넣습니다.
+FAQ:
+Q: 인보이스 발행일 환율을 쓰면 안 되나요?
+A: 인보이스 발행일 자체는 인적용역의 수입시기가 아닙니다. 수입시기는 대가를 지급받기로 한 날과 용역 제공을 완료한 날 중 빠른 날이므로, 인보이스상 지급기한이 완료일보다 빠를 때만 그 날짜가 기준이 됩니다.
+Q: 수입시기가 일요일이나 한글날 같은 공휴일이면?
+A: 소득세법 기본통칙 39-97…1에 따라 그 직전일의 기준환율 또는 재정환율로 환산합니다. 일요일과 국경일(3·1절, 제헌절, 광복절, 개천절, 한글날) 등은 관공서의 공휴일에 관한 규정 제2조의 공휴일입니다.
+Q: 토요일은 어떻게 하나요?
+A: 토요일은 관공서의 공휴일에 관한 규정상 공휴일이 아니고, 기본통칙은 공휴일만 언급합니다. 그날 고시된 환율이 있는지 서울외국환중개에서 확인하고, 어떤 날짜의 환율을 썼는지 장부에 남겨 두세요. 판단이 어려우면 국세청(126)에 문의하세요.
+Q: Upwork·PayPal 수수료가 빠진 금액으로 적어도 되나요?
+A: 이 글은 환산 날짜와 환율만 다룹니다. 수수료를 어떻게 처리할지는 본인의 장부 방식에 따라 다르므로, 계약 금액·수수료·실제 입금액을 각각 기록해 두고 세무사와 확인하는 것이 안전합니다.
+Q: 유로나 파운드로 받으면요?
+A: 미국 달러가 아닌 통화는 「외국환거래법」에 따른 재정환율(재정된 매매기준율)로 환산합니다. 날짜를 정하는 방법(수입시기)은 달러와 같습니다.
+Sources: 국가법령정보센터 – 소득세법 시행령 제48조(사업소득의 수입시기) 제8호 <http://www.law.go.kr/lsLawLinkInfo.do?chrClsCd=010202&lsJoLnkSeq=1001063397>; 국세청 서면-2025-소득-0189(소득세과-1503, 2025.7.18.) 회신 전문 게시본 – 원문은 국세법령정보시스템에서 문서번호로 조회 <https://albup.co.kr/page/interpretation_detail.php?com_idx=456>; 국세청 국세법령정보시스템 – 서면-2025-소득-0189, 소득세법 기본통칙 39-97…1 조회 <https://taxlaw.nts.go.kr/>; 국가법령정보센터 – 소득세법 시행령 제97조(외화자산·부채의 상환손익 등) <https://www.law.go.kr/법령/소득세법시행령/제97조>; 서울외국환중개 – 환율고시: 매매기준율(산출방법·고시시간) <http://www.smbs.biz/Company/Buss_3_1.jsp>; 인사혁신처 – 공휴일제도(관공서의 공휴일에 관한 규정 제2조·제3조) <https://www.mpm.go.kr/mpm/info/infoService/BizService02/>; 국세청 – 종합소득세 신고납부기한(다음해 5월 1일~31일, 소득세법 제70조) <https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7664&mi=2225>
+Free tool: 무료: 해외수입 원화 환산 장부 (무료판) | 수입시기·환율 적용일 자동 계산 <https://straightgate.gumroad.com/l/tvsote> · Full version: 해외수입 외화장부 2026 | 달러로 받는 프리랜서의 종합소득세 장부 (Upwork·Fiverr·PayPal·Wise) <https://straightgate.gumroad.com/l/zgsesb>
+
+
+---
+# Jaki kurs NBP wpisać do ewidencji przychodów na ryczałcie przy fakturze w EUR lub USD?
+URL: https://zcbm2373125333-hub.github.io/pl/kurs-nbp-dzien-przed-przychodem-ewidencja-ryczalt/
+Language: pl · Updated: 2026-10-21
+
+Short answer: Przychód w walucie przeliczasz na złote po kursie średnim NBP z ostatniego dnia roboczego poprzedzającego dzień uzyskania przychodu (art. 11a ust. 1 ustawy o PIT, stosowany także na ryczałcie). Dniem uzyskania przychodu jest zwykle dzień wykonania usługi , nie później niż dzień wystawienia faktury albo zapłaty (art. 14 ust. 1c), a przy usługach rozliczanych w okresach rozliczeniowych – ostatni dzień okresu (art. 14 ust. 1e). Gdy zapłata wpływa po innym kursie, nie poprawiasz wpisu, tylko ujmujesz różnicę kursową, która zwiększa albo zmniejsza przychód (art. 6 ust. 1c ustawy o ryczałcie w zw. z art. 24c ustawy o PIT).
+
+
+Worked example (illustrative): Założenia: programistka na ryczałcie, trzy przychody od klientów zagranicznych. Kursy to prawdziwe kursy średnie NBP z tabeli A (pobrane z API NBP 21.10.2026). Przychód Dzień uzyskania przychodu Dzień kursu Tabela NBP Kurs Kwota w zł Projekt jednorazowy 2 000,00 EUR (faktura 12.10.2026) 9.10.2026 (pt) – wykonanie usługi, wcześniej niż faktura 8.10.2026 (czw) 196/A/NBP/2026 4,3789 8 757,80 Abonament za wrzesień 1 500,00 USD (rozliczenie miesięczne) 30.09.2026 (śr) – ostatni dzień okresu rozliczeniowego 29.09.2026 (wt) 189/A/NBP/2026 3,8537 5 780,55 Poprawki 500,00 EUR 12.10.2026 (pon) 9.10.2026 (pt) – sobota i niedziela nie są dniami roboczymi 197/A/NBP/2026 4,3775 2 188,75 Razem przychód do ewidencji 16 727,10 Różnica kursowa: 2 000,00 EUR za pierwszy projekt wpływa 20.10.2026 na rachunek walutowy i nie jest wymieniane, więc nie ma faktycznie zastosowanego kursu. Wtedy art. 24c ust. 4 ustawy o PIT każe użyć kursu średniego NBP z ostatniego dnia roboczego przed dniem wpływu: 19.10.2026, tabela 203/A/NBP/2026, 4,3702 → 8 740,40 zł. To o 17,40 zł mniej niż 8 757,80 zł w ewidencji, czyli ujemna różnica kursowa, która zmniejsza przychody roku 2026. Gdyby klient zapłacił na rachunek złotowy, liczyłby się kurs faktycznie zastosowany przez bank w dniu wpływu (art. 24c ust. 2 pkt 1 i ust. 3 pkt 1).
+Która data decyduje o kursie: Usługa wykonana przed wystawieniem faktury i przed zapłatą ; dzień wykonania usługi ; ostatni dzień roboczy przed wykonaniem ; art. 14 ust. 1c i art. 11a ust. 1 PIT | Faktura albo zapłata wcześniej niż wykonanie usługi ; dzień faktury albo zapłaty (wcześniejszy) ; ostatni dzień roboczy przed tym dniem ; art. 14 ust. 1c PIT | Usługa rozliczana w okresach (np. miesięcznie) ; ostatni dzień okresu rozliczeniowego (nie rzadziej niż raz w roku) ; ostatni dzień roboczy przed końcem okresu ; art. 14 ust. 1e PIT | Zapłata wpływa później po innym kursie ; bez zmian ; różnica kursowa zwiększa albo zmniejsza przychód ; art. 6 ust. 1c ustawy o ryczałcie i art. 24c PIT
+Numer tabeli i ewidencja od 2026 roku Każdy kurs średni NBP ma numer tabeli, np. 196/A/NBP/2026 dla kursów z 8.10.2026 ( API NBP , tabela A na nbp.pl ). Przepisy o ewidencji nie wymagają wpisywania numeru tabeli, ale zapisanie go w kolumnie „Uwagi” albo w osobnym arkuszu ułatwia późniejsze udowodnienie kursu. Od 1.01.2026 ewidencję prowadzi się według wzoru z rozporządzenia Dz.U. 2025 poz. 1294: 17 kolumn, w kolumnie 3 wpisujesz datę uzyskania przychodu , a w kolumnach 7–15 przychód według stawek. Wpis robisz najpóźniej do 20. dnia następnego miesiąca (§ 6 rozporządzenia, ISAP ), a ryczałt za miesiąc płacisz do 20. dnia następnego miesiąca, za grudzień do 20 stycznia (art. 21 ust. 1 ustawy o ryczałcie). Najczęstsze błędy Kurs z dnia przed fakturą zamiast przed wykonaniem usługi. Liczy się dzień uzyskania przychodu z art. 14 ust. 1c, a faktura jest tylko granicą „nie później niż”. Kurs z dnia wykonania usługi. Ustawa wskazuje ostatni dzień roboczy poprzedzający ten dzień. Kurs z dnia zapłaty. Ewidencja przyjmuje przychód należny; zapłata po innym kursie daje różnicę kursową, a nie korektę wpisu. Pominięcie różnic kursowych. Na ryczałcie ujemne różnice zmniejszają przychody roku, w którym powstały, a dodatnie je zwiększają (art. 6 ust. 1c). Potwierdza to też interpretacja KIS z 3.06.2026 ( 0115-KDWT.4011.135.2026.2.JŁ ). Bezpłatny kalkulator i pełna ewidencja Bezpłatny kalkulator pokazuje dzień kursu, kurs średni NBP, numer tabeli i kwotę w złotych po wpisaniu daty uzyskania przychodu, waluty i kwoty. Pełna ewidencja to pomocniczy arkusz w układzie 17 kolumn z kursami tabeli A od 1.12.2025 do 16.10.2026 (nowsze dopisujesz), różnicami kursowymi przy wpływie zapłaty i zestawieniem miesięcznym. Arkusz nie tworzy pliku JPK_EWP.
+FAQ:
+Q: Czy kurs bierze się z dnia przed wystawieniem faktury?
+A: Nie zawsze. Bierze się kurs z ostatniego dnia roboczego przed dniem uzyskania przychodu. Faktura decyduje tylko wtedy, gdy zostanie wystawiona przed wykonaniem usługi (albo przed końcem okresu rozliczeniowego).
+Q: Usługę wykonałem w poniedziałek. Z którego dnia kurs?
+A: Z ostatniego dnia roboczego przed poniedziałkiem, zwykle z piątku. Przykład: przychód 12.10.2026 → kurs z 9.10.2026, tabela 197/A/NBP/2026 (EUR 4,3775).
+Q: Jak jest przy rozliczeniu miesięcznym z klientem B2B?
+A: Jeżeli strony ustaliły okresy rozliczeniowe, przychód powstaje ostatniego dnia okresu określonego w umowie lub na fakturze (art. 14 ust. 1e), więc kurs bierzesz z ostatniego dnia roboczego przed tym dniem.
+Q: Pieniądze wpłynęły na konto walutowe i ich nie wymieniłem. Jaki kurs do różnicy kursowej?
+A: Gdy nie da się uwzględnić faktycznie zastosowanego kursu, art. 24c ust. 4 ustawy o PIT każe przyjąć kurs średni NBP z ostatniego dnia roboczego poprzedzającego dzień wpływu.
+Q: Gdzie sprawdzić kurs i numer tabeli?
+A: Na stronie NBP (tabela A kursów średnich) albo w API NBP, które dla każdej daty podaje kurs i numer tabeli, np. 196/A/NBP/2026 dla 8.10.2026.
+Sources: Ustawa o podatku dochodowym od osób fizycznych, tekst jedn. Dz.U. 2026 poz. 592 (art. 11a, art. 14 ust. 1c i 1e, art. 24c) – ISAP <https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592>; Ustawa o zryczałtowanym podatku dochodowym, tekst jedn. Dz.U. 2025 poz. 843 (art. 6 ust. 1c, art. 15, art. 21) – ISAP <https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250000843>; Rozporządzenie MFiG z 6.09.2025 w sprawie prowadzenia ewidencji przychodów, Dz.U. 2025 poz. 1294 (od 1.01.2026) – ISAP <https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250001294>; Dyrektor KIS – interpretacja indywidualna 0115-KDWT.4011.135.2026.2.JŁ z 3.06.2026 (ryczałt, kurs NBP, różnice kursowe) – Eureka <https://eureka.mf.gov.pl/informacje/podglad/694671>; Narodowy Bank Polski – Kursy średnie walut obcych, tabela A <https://nbp.pl/statystyka-i-sprawozdawczosc/kursy/tabela-a/>; NBP Web API – tabela A z 8.10.2026 (nr 196/A/NBP/2026) <https://api.nbp.pl/api/exchangerates/tables/a/2026-10-08/>
+Free tool: BEZPŁATNY kalkulator kursu NBP do ewidencji ryczałtu | Dzień przed przychodem, nr tabeli, kursy 2026 <https://straightgate.gumroad.com/l/mtpcko> · Full version: Ewidencja przychodów ryczałt 2026 z walutami | Kurs NBP z dnia przed przychodem, 17 kolumn, różnice kursowe (Excel) <https://straightgate.gumroad.com/l/ymvdb>
+
+
+---
+# Kindle出版の印税と読み放題（KENP）、Amazon広告費は確定申告でどう書く？広告が黒字になるACOSの上限は？
+URL: https://zcbm2373125333-hub.github.io/ja/kindle-inzei-kenp-koukoku-kakutei-shinkoku-acos/
+Language: ja · Updated: 2026-10-21
+
+Short answer: Amazon.co.jpの電子書籍の印税（70%）は 0.7 ×（税込価格 − 消費税10% − 配信コスト1円/MB） で、税込500円・2MBなら1冊 317円 です。広告が赤字にならないACOSの上限（損益分岐ACOS）は 1冊の印税 ÷ 広告レポートに計上される1冊の売上 で、売上が税込500円で計上されるなら約63.4%です。確定申告では、印税（読み放題のKENP分も含む）は、国税庁が副業の所得（原稿料など）の例に挙げる 雑所得（業務） か、事業として行っていれば 事業所得 の収入になり、Amazon広告費などの経費を差し引いた 所得 で考えます。給与を1か所から受け、その全部が源泉徴収の対象になっている人は、給与・退職所得以外の所得の合計が 20万円を超えると 確定申告が必要です。
+
+
+Worked example (illustrative): 前提：会社員の副業作家。Amazon.co.jpで電子書籍1冊を税込500円、70%、KDPセレクト登録、ファイルサイズ2MBで販売。広告の数字・年間の金額は説明用の例です。 項目 計算 結果 1. 消費税を除いた価格 500円 ÷ 1.1 454.545…円 2. 配信コスト 2MB × 1円 2円 3. 1冊の印税（70%） 0.7 ×（454.545… − 2）= 316.78…円 → 0.46円以上は切り上げ 317円 （参考）35%を選んだ場合 0.35 × 454.545… = 159.09…円 → 切り捨て 159円 4. 損益分岐ACOS 317 ÷ 500（広告の売上が税込で計上される場合） 63.4% （参考）売上が税抜で計上される場合 317 ÷ 454.545… 69.7% 5. ある月の広告 広告費6,000円、広告経由の売上15,000円（30冊）→ ACOS 6,000 ÷ 15,000 40.0%（63.4%未満なので黒字） 6. その月の広告分の利益 30冊 × 317円 − 6,000円 3,510円 7. 1クリックの上限 クリックの10%が注文になる場合：317円 × 10% 31.7円 8. 年間の所得 印税（KENP分を含む）280,000円 − 広告費72,000円 − 表紙デザイン外注15,000円 193,000円 年間の印税は28万円でも、経費を引いた所得は19万3,000円で20万円以下です。給与を1か所から受け、その全部が源泉徴収の対象になっている場合は、この所得を理由とする所得税の確定申告は不要です（No.1900の2）。住民税の申告は別の扱いなので、お住まいの市区町村で確認してください。
+確定申告書 第一表のどこに書くか（令和7年分の様式）: 事業所得（営業等） ; ㋐ ; ① ; 国税庁 第一表 | 雑所得（業務） ; ㋖ ; ⑧ ; 国税庁 第一表 | 雑所得の考え方 ; 副業に係る所得のうち営利を目的とした継続的なもの＝業務に係る雑所得（総収入金額 − 必要経費） ; 雑所得の損失は他の所得と損益通算できない ; No.1500
+読み放題（KENP）の印税は1ページいくら？ Kindle Unlimitedの印税は、毎月見直されるKDPセレクト グローバル基金を、読まれたページ数（既読KENP）の割合で分ける仕組みで、1ページあたりの固定単価はありません。当月の既読KENPは翌月15日ごろに確定します（ KDPヘルプ ）。そのため損益分岐ACOSを読み放題込みで考えるときは、自分のレポートの「KENP印税 ÷ 既読ページ数」で実績の単価を出して使います。 70%の条件（Amazon.co.jp） 日本の読者への販売で70%を受け取るには、 KDPセレクトへの登録 と、 税込250〜1,650円 の価格が必要です。満たさないと35%になります（ Digital Book Pricing Page 、 日本向けの価格設定 ）。 配信コストはAmazon.co.jpで1MBあたり1円（最低1円）。日本での販売では10MB以上の本は配信コストが差し引かれません。 円の端数は、小数点以下が0.46円以上なら切り上げ、それ未満は切り捨てです。 70%を選ぶ場合、電子書籍の希望小売価格は紙の本のAmazonでの希望小売価格より少なくとも20%低くする必要があります。 ドルで入る印税の円換算 Amazon.comなど外貨で計算される印税は、外貨建取引として原則その取引日のTTM（電信売買相場の仲値）で円に換算します（ 所得税基本通達57の3-2 ）。 無料版と完全版 無料版 は税込価格・印税率・ファイルサイズを入れると、1冊の印税と損益分岐ACOS、上限クリック単価を計算します。 完全版 は印税（電子・紙・KENP、マーケットプレイス別）、Amazon広告の月次判定、経費、作品別収支、第一表の欄（㋐①／㋖⑧）との対応表と20万円の目安までをまとめた管理表です。
+FAQ:
+Q: Kindleの印税は雑所得ですか、事業所得ですか？
+A: 国税庁は副業に係る所得（原稿料など）を雑所得の例に挙げ、営利を目的とした継続的なものを「業務に係る雑所得」としています。事業として行っている場合は事業所得です。どちらになるかは規模や実態によるので、迷うときは税務署か税理士に確認してください。
+Q: 20万円以下なら申告しなくていいのは「印税の収入」ですか？
+A: いいえ、所得（収入 − 必要経費）です。給与を1か所から受けていて全額が源泉徴収の対象の人は、給与・退職所得以外の所得の合計が20万円を超えると確定申告が必要です（還付を受ける人を除く）。
+Q: 損益分岐ACOSの計算に使う価格は税込？税抜？
+A: 印税は消費税を除いた価格から計算しますが、ACOSは広告レポートの「売上」に対する広告費の割合です。広告レポートの売上 ÷ 注文数で1注文の金額を確かめ、その金額で印税を割ってください。税込500円で計上されるなら63.4%、税抜なら69.7%です。
+Q: 読み放題（KENP）の1ページ単価は？
+A: 固定の単価はありません。KDPセレクト グローバル基金の額は毎月見直され、既読ページ数の割合で分配されます。自分のレポートのKENP印税 ÷ 既読ページ数で実績を出してください。
+Q: 70%にするには何が必要ですか？
+A: Amazon.co.jpでは税込250〜1,650円の価格設定とKDPセレクトへの登録が必要です。満たさない場合や、プライスマッチで価格が要件を下回った場合は35%になります。
+Sources: KDPヘルプ – Digital Book Pricing Page（印税の計算式・配信コスト1円/MB・端数処理、2026年4月21日更新） <https://kdp.amazon.co.jp/ja_JP/help/topic/G200634500>; KDPヘルプ – 日本のマーケットプレイス (Amazon.co.jp) 向けの価格設定（消費税10%・70%は税込250〜1,650円） <https://kdp.amazon.co.jp/ja_JP/help/topic/G201849770>; KDPヘルプ – Kindle Unlimited のロイヤリティ（KDPセレクト グローバル基金・既読KENP） <https://kdp.amazon.co.jp/ja_JP/help/topic/G201541130>; 国税庁 タックスアンサー No.1500 雑所得（令和8年4月1日現在法令等） <https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1500.htm>; 国税庁 タックスアンサー No.1900 給与所得者で確定申告が必要な人（令和8年4月1日現在法令等） <https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1900.htm>; 国税庁 – 令和7年分 確定申告書 第一表（様式・PDF） <https://www.nta.go.jp/taxes/shiraberu/shinkoku/yoshiki/01/shinkokusho/pdf/r07/01.pdf>; 国税庁 – 所得税基本通達 法第57条の3（外貨建取引の換算）関係 57の3-2 <https://www.nta.go.jp/law/tsutatsu/kihon/shotoku/11a/01.htm>
+Free tool: 【無料】Kindle広告の損益分岐ACOS計算シート｜1冊の印税・読み放題・上限クリック単価（エクセル） <https://straightgate.gumroad.com/l/rjovvu> · Full version: Kindle出版 収益管理表｜印税・読み放題KENP・Amazon広告・経費を円で集計する確定申告用エクセル <https://straightgate.gumroad.com/l/pwdlyh>
+
+
+---
+# Autónomo en España con facturas en dólares o libras: ¿qué tipo de cambio uso y en qué casilla del 303 y clave del 349 van?
+URL: https://zcbm2373125333-hub.github.io/es/autonomos-facturas-divisas-tipo-cambio-bce-303-349/
+Language: es · Updated: 2026-10-21
+
+Short answer: La ley del IVA manda aplicar el tipo de cambio vendedor fijado por el Banco de España vigente en el momento del devengo (art. 79.Once LIVA), y el cambio oficial es el que publica el BCE , por sí o a través del Banco de España (art. 36 de la Ley 46/1998). En un servicio, el devengo se produce cuando se presta (art. 75.Uno.2.º), así que usas el tipo de ese día, no el del cobro ni el de tu banco. Si el cliente es una empresa de otro país de la UE y él es el sujeto pasivo, la base va en la casilla 59 del 303 y en el 349 con la clave S , y la factura lleva «inversión del sujeto pasivo»; si es una empresa de fuera de la UE, va en la casilla 120 y no va al 349.
+
+Guía para autónomos con domicilio fiscal en España (IVA y modelos de la Agencia Tributaria).
+Worked example (illustrative): Supuesto: diseñadora autónoma en España, dos facturas en octubre de 2026. Tipos: referencia del BCE del día (1 euro = X divisa), comprobados el 21/10/2026. Factura Devengo (servicio prestado) Tipo BCE Cálculo Base en euros Dónde va A. Empresa de EE. UU., 2.400,00 USD 09/10/2026 1,1206 USD 2.400 ÷ 1,1206 2.141,71 € 303, casilla 120 (no sujeta por reglas de localización). No va al 349. B. Empresa de Irlanda con NIF-IVA, 1.500,00 GBP 15/10/2026 0,84610 GBP 1.500 ÷ 0,84610 1.772,84 € 303, casilla 59; 349 con clave S; factura con «inversión del sujeto pasivo». Total bases del 4T (octubre) 3.914,55 € El cliente de EE. UU. paga el 20/10/2026. Ese día el tipo BCE era 1,1215, así que los mismos 2.400 USD equivaldrían a 2.139,99 €, 1,72 € menos. Eso no cambia la casilla 120: la base se fijó con el tipo del devengo. La diferencia entre lo facturado y lo cobrado es una cuestión aparte del IRPF.
+Qué tipo y qué casilla según el cliente: Empresa o profesional de otro Estado de la UE (sujeto pasivo el cliente) ; BCE del día del devengo ; Casilla 59 ; Clave S ; Instrucciones 303 , Manual IVA 2026 | Empresa o profesional fuera de la UE (p. ej. EE. UU., Reino Unido) ; BCE del día del devengo ; Casilla 120 (salvo las de la casilla 123) ; No ; Instrucciones 303 , art. 69 LIVA
+Dónde está el tipo y qué pasa los fines de semana El BCE publica los tipos de referencia del euro hacia las 16:00 (hora central europea) de cada día hábil, excepto los días de cierre de TARGET ( BCE ). Como la ley habla del tipo «vigente» en el devengo, si el servicio se termina en sábado o domingo, en la práctica se toma el último tipo publicado (el del viernes). Apunta en cada factura el tipo y la fecha que usaste. La factura en divisas Los importes de la factura pueden ir en cualquier moneda, pero la cuota de IVA, si la hay, se expresa en euros con el tipo del art. 79.Once (art. 12 del Reglamento de facturación). Cuando el sujeto pasivo es el cliente, la factura debe incluir la mención «inversión del sujeto pasivo» (art. 6.1.m del RD 1619/2012 ). Plazos del 349 El 349 es mensual, pero se presenta por trimestres si ni en el trimestre ni en ninguno de los cuatro anteriores las operaciones superan 50.000 € (sin IVA): del 1 al 20 del mes siguiente al trimestre, y el del cuarto trimestre del 1 al 30 de enero ( Manual IVA 2026 ). La factura B del ejemplo (octubre) va en el 349 del 4T 2026, que se presenta en enero de 2027. Plantilla gratis y libro completo El conversor gratis pasa cada factura a euros con el tipo del BCE del día y te indica la casilla del 303 y la mención de la factura. El libro completo añade la clave del 349, las diferencias de cambio del cobro y una estimación del modelo 130. Ninguno presenta modelos: los presentas tú en la sede de la Agencia Tributaria.
+FAQ:
+Q: ¿Uso el tipo del día de la factura o del cobro?
+A: El del devengo, que en un servicio es el día en que se presta (art. 75 LIVA). Si emites la factura ese mismo día coinciden; el tipo del cobro no se usa para la base del IVA.
+Q: ¿Vale el tipo que me aplica Wise, PayPal o mi banco?
+A: Para la base del IVA, no: la ley se remite al tipo fijado por el Banco de España, y el cambio oficial es el que publica el BCE (Ley 46/1998, art. 36).
+Q: Mi cliente está en EE. UU. ¿Va en el 349?
+A: No. El 349 recoge operaciones intracomunitarias. Un servicio a una empresa de fuera de la UE que no se entiende prestado en España va en la casilla 120 del 303.
+Q: ¿Qué hace falta para usar la clave S del 349?
+A: Que el servicio no se entienda prestado en España, que esté sujeto y no exento en otro Estado miembro, que el destinatario sea un empresario o profesional establecido allí (o una persona jurídica con NIF-IVA de ese Estado) y que el sujeto pasivo sea el destinatario.
+Sources: BOE – Ley 37/1992 del IVA, art. 79.Once (tipo de cambio vigente en el devengo) <https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740#a79>; BOE – Ley 46/1998 sobre introducción del euro, art. 36 (cambio oficial = el que publica el BCE) <https://www.boe.es/buscar/act.php?id=BOE-A-1998-29216#a36>; Agencia Tributaria – ¿Cómo calculo la base imponible? (operaciones en moneda extranjera) <https://sede.agenciatributaria.gob.es/Sede/iva/calculo-iva-repercutido-clientes/calculo-base-imponible.html>; BOE – Ley 37/1992 del IVA, art. 75 (devengo) <https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740#a75>; BOE – Ley 37/1992 del IVA, art. 69 (lugar de realización de los servicios) <https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740#a69>; Agencia Tributaria – Modelo 303, instrucciones 2026 (casillas 59, 120 y 123) <https://sede.agenciatributaria.gob.es/Sede/todas-gestiones/impuestos-tasas/iva/modelo-303-iva-autoliquidacion_/instrucciones-2026.html>; Agencia Tributaria – Manual práctico IVA 2026: modelo 349, contenido (clave S) <https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/manual-iva-2026/capitulo-09-declaraciones-informativas-iva-379/declaracion-recapitulativa-operac-intracomunitarias-modelo-349/contenido-modelo-349.html>; Agencia Tributaria – Manual práctico IVA 2026: modelo 349, plazo de presentación <https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/manual-iva-2026/capitulo-09-declaraciones-informativas-iva-379/declaracion-recapitulativa-operac-intracomunitarias-modelo-349/plazo-presentacion.html>; BOE – Real Decreto 1619/2012, Reglamento de facturación, arts. 6.1.m) y 12 <https://www.boe.es/buscar/act.php?id=BOE-A-2012-14696#a6>; Banco Central Europeo – Tipos de cambio de referencia del euro <https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html>
+Free tool: Conversor de Facturas en Divisas GRATIS — tipo del BCE, casilla del 303 y clave del 349 (Excel) <https://straightgate.gumroad.com/l/yvzbzx> · Full version: Libro de Facturas en Divisas para Autónomos — Excel y Google Sheets (tipo BCE, modelo 303, 349 y 130) <https://straightgate.gumroad.com/l/vmerzv>
+
+
+---
+# How much fostering income is tax-free in 2025-26 (qualifying care relief)?
+URL: https://zcbm2373125333-hub.github.io/en/uk-foster-carer-qualifying-care-relief-2025-26/
+Language: en · Updated: 2026-10-23
+
+Short answer: Under HMRC's qualifying care relief, your tax-free limit for 2025-26 is a fixed amount of £19,690 per household plus a weekly amount for each placement: £415 for a child under 11 and £495 for a child aged 11 or over (or an adult) . If your total care receipts are at or below that limit, there is no Income Tax or Class 4 NIC on your caring income; for 2026-27 the amounts rise to £20,440, £435 and £515.
+
+
+Worked example (illustrative): Illustrative example (all figures assumed): one approved carer for the whole of 2025-26, two placements during the year, total fostering receipts £27,000. Item Calculation Amount Fixed amount (1 carer, approved all year) £19,690 × 1 £19,690 Placement A, child aged 8, 20 weeks 20 × £415 £8,300 Placement B, respite Friday to Monday (counts as 2 weeks), child aged 13 2 × £495 £990 Qualifying amount £28,980 Care receipts £27,000 Result receipts ≤ qualifying amount Fully covered If the same household had two carers sharing the placements, each carer would take half of the fixed amount (£9,845) and the weekly amounts for the placements whose payments they receive.
+Qualifying care relief amounts by tax year: 2026-27 ; £20,440 ; £435 ; £515 ; SI 2026/39 | 2025-26 ; £19,690 ; £415 ; £495 ; HS236 (2026) | 2024-25 ; £19,360 ; £405 ; £485 ; BIM52765 | 2023-24 ; £18,140 ; £375 ; £450 ; BIM52765
+How the weeks are counted Weeks run Monday to Sunday , and a part-week counts as a full week. A stay from Friday to Monday spans two weeks, so it counts as 2 ( HS236 ). The rate changes in the week of the 11th birthday , so a placement that crosses a birthday is split between the two rates. The fixed amount is shared equally between carers in the household and is reduced pro rata if you were approved for only part of the year ( BIM52765 ). Respite and short breaks count as placements for the weeks they cover. If your receipts are above the limit You can choose the simplified method (taxable profit = receipts minus the qualifying amount) or the normal profit method (receipts minus actual expenses and capital allowances), whichever gives the lower figure. HS236 says to complete a Self Assessment return and claim the relief on the self-employment (short) pages, even when your receipts are under the limit ( GOV.UK ). Free calculator and full record book The free calculator works out your qualifying amount for up to 8 placements and compares it with your receipts. The full record book adds the Monday-to-Sunday weekly calendar, a 600-row receipts log, the profit-method comparison and tax years 2022-23 to 2026-27. Both are spreadsheets for Excel, Google Sheets and LibreOffice; neither files anything with HMRC.
+FAQ:
+Q: Does a part week count as a full week?
+A: Yes. HMRC counts weeks Monday to Sunday and a part-week counts in full, so a Friday-to-Monday stay counts as 2 weeks.
+Q: My partner and I both foster. Do we each get £19,690?
+A: No. The fixed amount is per household and is shared equally between the carers, so with two carers each gets £9,845 for 2025-26. Weekly amounts go to the carer who receives the payments for that placement.
+Q: I was only approved partway through the year. What changes?
+A: The fixed amount is reduced in proportion to the part of the tax year you were approved for. The weekly amounts still apply to every week you had a placement.
+Q: Do I need to file a tax return if I'm under the limit?
+A: HMRC's HS236 says to fill in a Self Assessment return and claim qualifying care relief on the self-employment (short) pages. The return for 2025-26 is due online by 31 January 2027.
+Q: What are the amounts for 2026-27?
+A: £20,440 fixed per household, £435 a week for a child under 11 and £515 for a child aged 11 or over or an adult, set by SI 2026/39.
+Sources: HMRC HS236 Qualifying care relief (2026) <https://www.gov.uk/government/publications/qualifying-care-relief-foster-carers-adult-placement-carers-kinship-carers-and-staying-put-carers-hs236-self-assessment-helpsheet/hs236-qualifying-care-relief-foster-carers-adult-placement-carers-kinship-carers-and-staying-put-carers-2026>; The Income Tax (Indexation of Qualifying Care Relief Amounts) Order 2026 (SI 2026/39) <https://www.legislation.gov.uk/uksi/2026/39/made>; HMRC Business Income Manual BIM52765 <https://www.gov.uk/hmrc-internal-manuals/business-income-manual/bim52765>; GOV.UK: Support for foster parents – tax arrangements <https://www.gov.uk/support-for-foster-parents/tax-arrangements>; LITRG: Qualifying care relief <https://www.litrg.org.uk/working/self-employment/foster-carers-and-shared-lives-carers/qualifying-care-relief>
+Free tool: Free UK Foster Carer QCR Calculator — Is Your Fostering Income Tax-Free? (Excel + Google Sheets) <https://straightgate.gumroad.com/l/xixsls> · Full version: UK Foster Carer Tax Relief Calculator & Record Book — HMRC Qualifying Care Relief (Excel + Google Sheets) <https://straightgate.gumroad.com/l/mlfjzk>
+
+
+---
+# Qual cotação do dólar usar no Carnê-Leão para rendimentos do exterior?
+URL: https://zcbm2373125333-hub.github.io/pt/carne-leao-cotacao-dolar-rendimentos-exterior/
+Language: pt · Updated: 2026-10-21
+
+Short answer: Converta cada recebimento pela cotação de compra do dólar fixada pelo Banco Central para o último dia útil da primeira quinzena do mês anterior ao do recebimento, e não pela cotação do dia em que o dinheiro chegou: para recebimentos em outubro de 2026 é R$ 5,1484 (PTAX de 15/09/2026) e em novembro de 2026 é R$ 5,0515 (PTAX de 15/10/2026). Se você recebeu em outra moeda (euro, libra etc.), primeiro converta para dólar pela cotação da autoridade monetária do país de origem na data do recebimento e só depois para reais; deduções pagas em moeda estrangeira usam a cotação de venda .
+
+
+Worked example (illustrative): Suposições: pessoa residente no Brasil que trabalha como autônoma (sem vínculo) para clientes no exterior. Em outubro de 2026 ela recebe US$ 750,00 em 06/10/2026 e € 300,00 em 15/10/2026 . Não tem nenhuma dedução (Livro Caixa, INSS, dependentes ou pensão), não pagou imposto no exterior e não teve outro rendimento sujeito ao carnê-leão no mês. Para o euro usamos a taxa de referência do Banco Central Europeu de 15/10/2026: 1 € = US$ 1,1208. Valores arredondados ao centavo. Passo Cálculo Resultado 1. Cotação do mês Recebimentos de outubro/2026 → último dia útil da 1ª quinzena de setembro = 15/09/2026 (terça-feira) → cotação de compra R$ 5,1484 2. Recebimento em dólar US$ 750,00 × 5,1484 R$ 3.861,30 3. Euro → dólar € 300,00 × 1,1208 (BCE, 15/10/2026) US$ 336,24 4. Dólar → real US$ 336,24 × 5,1484 = 1.731,098… R$ 1.731,10 5. Rendimentos do mês 3.861,30 + 1.731,10 R$ 5.592,40 6. Imposto pela tabela mensal de 2026 Base acima de R$ 4.664,68 → 5.592,40 × 27,5% − 908,73 R$ 629,18 7. Redução da Lei 15.270/2025 Rendimentos entre R$ 5.000,01 e R$ 7.350,00 → 978,62 − (0,133145 × 5.592,40) R$ 234,02 8. Imposto do mês 629,18 − 234,02 R$ 395,16 9. DARF Código 0190, vencimento no último dia útil do mês seguinte 30/11/2026 (segunda-feira) Se a pessoa tivesse convertido os US$ 750 pela cotação do dia em que o dinheiro caiu na conta, ou o euro direto para reais, o valor declarado seria outro. A regra da Receita não depende do câmbio que você conseguiu na Wise, no PayPal ou no banco: vale a cotação fixa do mês. O passo 7 aplica o texto da Lei 15.270/2025 (redução sobre rendimentos sujeitos à incidência mensal); confira no Meu Carnê-Leão se o imposto calculado pelo sistema bate com o seu.
+Cotações do dólar para o carnê-leão em 2026 (por mês do recebimento): Janeiro ; 15/12/2025 ; 5,3923 ; 5,3929 ; Receita Federal , PTAX/BCB | Fevereiro ; 15/01/2026 ; 5,3840 ; 5,3846 ; Receita Federal , PTAX/BCB | Março ; 13/02/2026 ; 5,2282 ; 5,2288 ; Receita Federal , PTAX/BCB | Abril ; 13/03/2026 ; 5,2535 ; 5,2541 ; Receita Federal , PTAX/BCB | Maio ; 15/04/2026 ; 4,9922 ; 4,9928 ; Receita Federal , PTAX/BCB | Junho ; 15/05/2026 ; 5,0648 ; 5,0654 ; Receita Federal , PTAX/BCB | Julho ; 15/06/2026 ; 5,0424 ; 5,0430 ; Receita Federal , PTAX/BCB | Agosto ; 15/07/2026 ; 5,0721 ; 5,0727 ; Receita Federal , PTAX/BCB | Setembro ; 14/08/2026 ; 5,2230 ; 5,2236 ; Receita Federal , PTAX/BCB | Outubro ; 15/09/2026 ; 5,1484 ; 5,1490 ; Receita Federal , PTAX/BCB | Novembro ; 15/10/2026 ; 5,0515 ; 5,0521 ; Receita Federal , PTAX/BCB | Dezembro ; 13/11/2026 (15/11 cai num domingo) ; ainda não publicada ; ainda não publicada ; Receita Federal
+Cada valor da tabela foi conferido em 21/10/2026 na tabela da Receita Federal (atualizada em 19/10/2026) e na PTAX de compra e venda do Banco Central da data de referência. Erros comuns na conversão Usar a cotação do dia do recebimento. A regra é a cotação do último dia útil da primeira quinzena do mês anterior , a mesma para todos os recebimentos do mês ( Receita Federal ). Usar a cotação de venda para rendimentos. Compra vale para os rendimentos e para o imposto pago no exterior; venda, só para as deduções ( Receita Federal ). Converter euro ou libra direto para reais. A conversão passa sempre pelo dólar: moeda → dólar na data do recebimento → reais pela cotação de compra do mês ( Lei 9.250/1995, art. 5º e Receita Federal ). Perder o prazo. O carnê-leão vence no último dia útil do mês seguinte ao do recebimento. Em atraso há multa de 0,33% por dia, até 20%, mais juros Selic ( Receita Federal ). O que as nossas planilhas fazem A calculadora grátis (planilha para Excel e Google Planilhas, mais uma página HTML que funciona offline) faz os passos 1 a 4: você digita a data, a moeda e o valor, e ela mostra a data de referência, a cotação de compra e o valor em reais. Ela já traz as cotações oficiais de janeiro a outubro de 2026; para os meses seguintes (a de novembro, R$ 5,0515, já saiu) você digita a cotação no campo indicado. A versão completa faz o resto do exemplo: tabela mensal de 2026, redução da Lei 15.270/2025 (opção que pode ser desligada), Livro Caixa, INSS, dependentes e pensão, compensação do imposto pago no exterior, valor do DARF (código 0190), vencimento e aviso de prazo. Nenhuma das duas emite o DARF: ele é gerado no Meu Carnê-Leão .
+FAQ:
+Q: Qual a cotação do dólar para o carnê-leão de novembro de 2026?
+A: R$ 5,0515 (compra) para rendimentos e imposto pago no exterior, e R$ 5,0521 (venda) para deduções. É a PTAX de 15/10/2026, já publicada na tabela da Receita Federal.
+Q: Uso a cotação de compra ou de venda?
+A: Compra para os rendimentos e para o imposto pago no exterior; venda para as deduções pagas em moeda estrangeira (Livro Caixa, por exemplo).
+Q: Recebi em euro (ou libra). Como converto?
+A: Em duas etapas: primeiro para dólar, pela cotação da autoridade monetária do país de origem na data do recebimento (para o euro usamos a taxa de referência do Banco Central Europeu); depois para reais, pela cotação de compra do dólar do mês do recebimento.
+Q: Até quando pago o DARF do carnê-leão e qual é o código?
+A: Até o último dia útil do mês seguinte ao do recebimento, com o código 0190. Se o imposto do mês for menor que R$ 10,00, o DARF não é gerado e o valor passa automaticamente para o mês seguinte.
+Q: Quem recebe até R$ 5.000 por mês do exterior paga carnê-leão em 2026?
+A: A Lei 15.270/2025 dá, desde janeiro de 2026, uma redução que zera o imposto sobre rendimentos tributáveis sujeitos à incidência mensal de até R$ 5.000,00 e reduz parcialmente até R$ 7.350,00. A página da Receita sobre o carnê-leão só dispensa a apuração quando o total do mês fica dentro do limite de isenção da tabela mensal (até R$ 2.428,80), por isso acima disso registre os rendimentos no Meu Carnê-Leão e confira o imposto calculado; esses registros podem depois ser importados na declaração anual.
+Q: Posso descontar o imposto que já foi retido lá fora?
+A: Só se houver acordo para evitar a dupla tributação ou reciprocidade de tratamento com o país de origem; para Alemanha, Estados Unidos e Reino Unido a Receita não exige prova de reciprocidade. A reciprocidade não alcança tributos pagos a estados-membros e municípios. O imposto pago também é convertido pela cotação de compra.
+Sources: Receita Federal – Tabelas para conversão de dólar em 2026 <https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/conversao/2026>; Receita Federal – Carnê-Leão: Rendimentos (inclui rendimentos do exterior e conversão) <https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/carne-leao/rendimentos>; Receita Federal – Carnê-Leão: Como pagar (cálculo, vencimento, DARF 0190) <https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/carne-leao/pagar>; Receita Federal – Tributação de 2026 (tabela mensal e tabela de redução) <https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/2026>; Receita Federal – Exemplos de aplicação da Lei 15.270/2025 <https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/tabelas/exemplos-de-aplicacao-da-lei-15-270-2025>; Lei nº 15.270, de 26 de novembro de 2025 – Planalto <https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/l15270.htm>; Lei nº 9.250/1995, art. 5º – Planalto <https://www.planalto.gov.br/ccivil_03/leis/l9250.htm>; gov.br – Apurar carnê-leão (Meu Carnê-Leão) <https://www.gov.br/pt-br/servicos/apurar-carne-leao>; Banco Central do Brasil – Cotações e boletins (PTAX) <https://www.bcb.gov.br/estabilidadefinanceira/historicocotacoes>; Banco Central Europeu – Taxas de referência do euro: dólar (USD) <https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html>
+Free tool: GRÁTIS: Qual cotação do dólar usar no Carnê-Leão? | Calculadora (planilha + versão offline) <https://straightgate.gumroad.com/l/vfjhc> · Full version: Controle Carnê-Leão Exterior 2026 | Planilha para quem recebe em dólar (Upwork, Deel, PayPal, Wise) <https://straightgate.gumroad.com/l/punoiq>
+
+
+---
+# Kleinanzeigen oder eBay meldet mich ans Finanzamt – muss ich jetzt Steuern zahlen?
+URL: https://zcbm2373125333-hub.github.io/de/kleinanzeigen-ebay-gemeldet-steuerpflichtig/
+Language: de · Updated: 2026-10-20
+
+Short answer: Nein, nicht automatisch: Die Meldung ans BZSt kommt, sobald du auf einer Plattform im Jahr 30 Verkäufe oder 2.000 € erreichst (PStTG) – Steuer fällt aber nur an, wenn du mit Nicht-Alltagsgegenständen innerhalb eines Jahres nach dem Kauf insgesamt mindestens 1.000 € Gewinn machst (§ 23 EStG, Freigrenze) oder gewerblich handelst. Das sind zwei getrennte Prüfungen mit zwei verschiedenen Zahlen.
+
+
+Worked example (illustrative): Beispiel (frei erfunden, Gebühren und Versand ignoriert): Tom verkauft 2026 Plattform / Artikel Meldung (PStTG)? Steuer (§ 23 EStG)? Kleinanzeigen „Sicher bezahlen“: 32 Teile gebrauchte Kinderkleidung, 900 € (unter Neupreis) Ja – 32 ≥ 30 Verkäufe Nein – Gegenstände des täglichen Gebrauchs Kleinanzeigen bar bei Abholung: 10 Teile, 300 € Zählt nicht (nicht über die Plattform bezahlt) Nein eBay: LEGO-Set im Februar 2026 für 200 € gekauft, im November für 520 € verkauft (+320 €); Sammelkarten im selben Jahr mit +500 € Gewinn Nein – 2 Verkäufe, 1.240 € < 2.000 € Gesamtgewinn 820 € < 1.000 € → steuerfrei Wie oben, aber Sammelkarten +680 € → Gesamtgewinn 1.000 € Nein Ja – die ganzen 1.000 € sind steuerpflichtig (Freigrenze, kein Freibetrag) Ergebnis: Tom wird von Kleinanzeigen gemeldet, schuldet dort aber nichts – und die eBay-Gewinne, die tatsächlich relevant sein können, löst gar keine Meldung aus.
+Zwei Grenzen, zwei Gesetze: Meldet mich die Plattform? ; 30 Verkäufe oder 2.000 € pro Plattform und Jahr (ausgenommen nur, wer unter beiden bleibt) ; Datenübermittlung ans BZSt bis 31.01. ; § 4 PStTG | Zählt Barverkauf? ; Nein, nur über die Plattform bezahlte Verkäufe (Kleinanzeigen: „Sicher bezahlen“) ; Zählung ; Kleinanzeigen | Ist der Verkauf steuerbar? ; Nicht-Alltagsgegenstand, Kauf → Verkauf ≤ 1 Jahr ; Private Veräußerungsgeschäfte ; § 23 Abs. 1 Nr. 2 EStG | Bleibt der Gewinn steuerfrei? ; Gesamtgewinn im Kalenderjahr weniger als 1.000 € (bis 2023: 600 €) ; Freigrenze ; § 23 Abs. 3 S. 5 EStG | Bin ich gewerblich? ; Keine feste Zahl – planmäßiger An- und Verkauf mit Gewinnabsicht ; Gewerbe / USt ; Finanzverwaltung NRW
+Was du aufbewahren solltest Für jeden Verkauf: Datum, Plattform, Zahlungsart (über Plattform oder bar), Erlös, Gebühren – und für Nicht-Alltagsgegenstände Kaufdatum und Kaufpreis. Damit kannst du dem Finanzamt zeigen, dass ein gemeldeter Umsatz kein Gewinn war. Mehr zu den Einzelregeln: DAC7-Meldegrenze und § 23 EStG bei Vinted & Kleinanzeigen . Hinweis: StraightGate erstellt Vorlagen zur Dokumentation, keine Steuerberatung. Im Zweifel Steuerberatung oder Finanzamt fragen.
+FAQ:
+Q: Ab wie vielen Verkäufen meldet Kleinanzeigen mich?
+A: Ab 30 über „Sicher bezahlen“ abgewickelten Verkäufen oder 2.000 € im Kalenderjahr. Wer unter beiden Werten bleibt, wird nicht gemeldet.
+Q: Werden Kleinanzeigen und eBay zusammengezählt?
+A: Für die Meldung nein, jede Plattform zählt getrennt. Für die 1.000-€-Freigrenze nach § 23 EStG dagegen zählen alle privaten Veräußerungsgewinne des Jahres zusammen.
+Q: Ist die 1.000-€-Grenze ein Freibetrag?
+A: Nein, eine Freigrenze: Bei 999 € Gewinn zahlst du nichts, bei 1.000 € ist der gesamte Gewinn steuerpflichtig.
+Q: Muss ich gebrauchte Kleidung versteuern, wenn ich gemeldet werde?
+A: In der Regel nein. Gegenstände des täglichen Gebrauchs sind von § 23 EStG ausgenommen; die Meldung ändert daran nichts.
+Q: Seit wann gilt 1.000 € statt 600 €?
+A: Die Freigrenze wurde durch das Wachstumschancengesetz ab dem Veranlagungszeitraum 2024 von unter 600 € auf unter 1.000 € angehoben.
+Sources: PStTG § 4 – Begriffsbestimmungen (ausgenommene Anbieter: weniger als 30 / weniger als 2.000 €) <https://www.gesetze-im-internet.de/psttg/__4.html>; Plattformen-Steuertransparenzgesetz (PStTG) – gesetze-im-internet.de <https://www.gesetze-im-internet.de/psttg/BJNR273010022.html>; Bundeszentralamt für Steuern – FAQ zum PStTG (PDF) <https://www.bzst.de/SharedDocs/Downloads/DE/Digitale_Plattformbetreiber/FAQ_PStTG.pdf>; EStG § 23 Private Veräußerungsgeschäfte – gesetze-im-internet.de <https://www.gesetze-im-internet.de/estg/__23.html>; Finanzverwaltung NRW – Plattformen-Steuertransparenzgesetz <https://www.finanzamt.nrw.de/steuerinfos/unternehmen/plattformen-steuertransparenzgesetz>; Kleinanzeigen – Informationen zum PStTG/DAC7 <https://hilfe.kleinanzeigen.de/hc/de/articles/17167379828252>; eBay – Directiva DAC7 <https://www.ebay.es/help/selling/selling/directiva-dac7-obligaciones-de-comunicacin-de-informacin-en-materia-de-ventas?id=5394>
+Free tool: Privatverkauf-Check 2026 – Kleinanzeigen, eBay & Vinted: gemeldet oder steuerpflichtig? (Kostenlose Excel-Vorlage) <https://straightgate.gumroad.com/l/pwhtdb> · Full version: DAC7-Verkaufstracker – Vinted, eBay & Kleinanzeigen Meldegrenze + Gewinn (Excel & Google Sheets) <https://straightgate.gumroad.com/l/ixtvy>
+
+
+---
+# Is the UK side-hustle tax limit £1,000 or £3,000?
+URL: https://zcbm2373125333-hub.github.io/en/uk-trading-allowance-1000-vs-3000-threshold/
+Language: en · Updated: 2026-10-20
+
+Short answer: It is still £1,000 : if your gross side-hustle (trading) income in a tax year is over £1,000 you must register for Self Assessment by 5 October after the tax year ends, and the £1,000 trading allowance is the only tax-free amount. The £3,000 figure is a reporting threshold the government announced in March 2025 for 'within this Parliament' with no start date set as of October 2026 – and even then income between £1,000 and £3,000 stays taxable, it would just be reported through a new online service instead of a tax return.
+
+
+Worked example (illustrative): Illustrative only. Priya, employed, sells handmade candles on Etsy and at markets in tax year 2025/26 (6 April 2025 – 5 April 2026): gross takings £2,400 , materials and fees £300 . Step Option A: trading allowance Option B: actual expenses Gross income £2,400 £2,400 Deduct £1,000 allowance £300 expenses Taxable profit £1,400 £2,100 She picks the allowance (lower profit). Because gross income is over £1,000 she must register for Self Assessment by 5 October 2026 and file by 31 January 2027. Assuming her salary already uses her personal allowance and she is a basic-rate (20%) taxpayer, that is £280 income tax on £1,400; the profit is below the Class 4 NIC threshold. If the £3,000 reporting threshold were already in force, she would skip the tax return – but still owe the same £280. Separately: if Priya made 30+ sales or more than €2,000 (about £1,700) on Etsy, Etsy reports her to HMRC under the digital platform rules. That report is information, not a bill.
+The three numbers people mix up: £1,000 ; Trading allowance: tax-free; also the gross level above which you register for Self Assessment ; In force (since 6 April 2017) ; GOV.UK | £3,000 ; Planned Self Assessment reporting threshold for gross trading income – not an allowance ; Announced 11 March 2025, confirmed 28 April 2025 'within this Parliament'; no start date ; HM Treasury , HCWS607 | 30 sales / €2,000 (≈£1,700) ; Platform reporting: below both, a platform need not report a goods seller ; In force (reports each January since 2025) ; HMRC
+What counts as trading income? Self-employment, casual services such as babysitting or gardening, and hiring out personal equipment ( GOV.UK ). Selling your own unwanted possessions, usually at a loss, is generally not trading – but buying to resell is. When you must register even under £1,000 To claim a loss, pay voluntary Class 2 NIC, or claim Tax-Free Childcare or Maternity Allowance based on self-employment ( GOV.UK ). StraightGate makes record-keeping tools, not tax advice. If in doubt, check with HMRC or an accountant.
+FAQ:
+Q: Is the first £3,000 of side-hustle income tax-free?
+A: No. Only £1,000 is tax-free via the trading allowance. The £3,000 is a planned reporting threshold; tax would still be due above £1,000.
+Q: When does the £3,000 threshold start?
+A: No date has been set. The government said 'within this Parliament' (11 March 2025 and 28 April 2025). Until it is legislated, the £1,000 rule applies.
+Q: Is the £1,000 per platform?
+A: No. It is per person, across all your trades combined, per tax year.
+Q: Will eBay or Vinted report me to HMRC?
+A: Platforms report sellers who make 30 or more sales of goods or receive more than about £1,700 (€2,000) in a year. A report does not mean you owe tax.
+Q: Can I use the allowance and deduct expenses?
+A: No – it is one or the other. Use the £1,000 allowance when your real expenses are lower than £1,000.
+Sources: GOV.UK – Tax-free allowances on property and trading income <https://www.gov.uk/guidance/tax-free-allowances-on-property-and-trading-income>; GOV.UK – Self Assessment: who must send a tax return <https://www.gov.uk/self-assessment-tax-returns/who-must-send-a-tax-return>; GOV.UK / HM Treasury – Boost for side-hustlers: reporting threshold to rise to £3,000 'within this parliament' (11 March 2025) <https://www.gov.uk/government/news/boost-for-side-hustlers-as-300000-people-to-be-taken-out-of-tax-returns-government-announces>; UK Parliament – Written statement HCWS607 (28 April 2025) <https://questions-statements.parliament.uk/written-statements/detail/2025-04-28/HCWS607>; GOV.UK / HMRC – Reporting rules for digital platforms <https://www.gov.uk/guidance/reporting-rules-for-digital-platforms>
+Free tool: UK Side Hustle Tax Tracker 2026/27 – £1,000 Trading Allowance vs £3,000 Threshold (Free Spreadsheet) <https://straightgate.gumroad.com/l/srhnk> · Full version: Global Freelancer Finance Tracker — Multi-Currency Income, Fees & Tax Spreadsheet (Excel + Google Sheets) <https://straightgate.gumroad.com/l/cqvhvv>
+
+
+---
+# Me ha llegado un aviso de Wallapop o Vinted por DAC7 (o una carta de Hacienda): ¿qué hago en 2026?
+URL: https://zcbm2373125333-hub.github.io/es/hacienda-carta-wallapop-vinted-2026-que-hacer/
+Language: es · Updated: 2026-10-20
+
+Short answer: Calma: el aviso significa que la plataforma va a comunicar tus ventas a la Agencia Tributaria (modelo 238) porque en ella llegaste a 30 ventas o superaste 2.000 € en el año; no es una sanción ni un impuesto . Solo pagas si vendiste algo por más de lo que te costó (ganancia patrimonial, base del ahorro) o si compras para revender de forma habitual; si Hacienda te pregunta, lo que te protege son los justificantes de compra.
+
+
+Worked example (illustrative): Ejemplo ilustrativo. Marta vende en Vinted en 2026 36 artículos por 1.150 € ; Vinted le pide NIF y la comunicará antes del 31/01/2027. Ventas Coste original Resultado fiscal 34 prendas usadas, 890 € ≈ 2.400 € Pérdida por uso → no se computa, 0 € a declarar 2 pares de zapatillas de edición limitada, 260 € 110 € Ganancia patrimonial 150 € → base del ahorro Marta solo declara 150 € de ganancia, no 1.150 €. Sin los tickets de las zapatillas no podría demostrar los 110 € de coste.
+Qué es oficial y qué es ruido (octubre 2026): «Hacienda controla a quien pasa 30 ventas / 2.000 €» ; La plataforma comunica a quien hace 30 ventas o más, o cobra más de 2.000 €, por plataforma y año ; AEAT DAC7 | «Tendrás que pagar impuestos» ; DAC7 no cambia tus obligaciones; tributa la ganancia, no la venta ; AEAT , Wallapop | «Las pérdidas no cuentan» ; Las pérdidas por el uso de bienes de consumo duradero no se computan ; AEAT, art. 33.5.b LIRPF | «Guarda los tickets 4 años» ; El derecho de Hacienda a liquidar prescribe a los 4 años ; LGT art. 66 | «Multa mínima de 300 € y bloqueo a los 60 días» ; Lo publica la prensa (merca2, 15/10/2026); no lo hemos encontrado como regla general en la AEAT. El bloqueo del monedero es una medida de la plataforma si no das tus datos ; merca2 , Wallapop
+Qué hacer, en orden Completa en la app los datos que pide la plataforma (NIF, dirección, fecha de nacimiento); si no, puede limitar tu cuenta o monedero. Haz una lista de tus ventas del año con fecha, precio de venta y, si lo sabes, precio y fecha de compra. Separa ventas con pérdida (nada que declarar) de ventas con ganancia (declarar en la renta). Si compras para revender con regularidad, consulta a un asesor: puede ser actividad económica (IRPF e IVA). Más detalle: el límite DAC7 , declarar en la renta y qué datos se comunican . StraightGate hace plantillas para llevar registros, no asesoramiento fiscal. Ante dudas, consulta a la AEAT o a un asesor.
+FAQ:
+Q: ¿El aviso de Wallapop es una carta de Hacienda?
+A: No. Es la plataforma avisándote de que va a comunicar tus datos (modelo 238). Una carta de la AEAT sería un requerimiento aparte, normalmente pidiendo justificantes.
+Q: ¿Tengo que pagar el 19 % de todo lo que vendí?
+A: No. Solo se grava la ganancia (precio de venta menos precio de compra) en la base del ahorro; las ventas con pérdida de cosas usadas no tributan.
+Q: ¿Qué pasa si no tengo los tickets de compra?
+A: Sirve cualquier prueba razonable del coste: correos de pedido, extractos bancarios, facturas. Empieza a guardarlos ya para lo que vendas a partir de ahora.
+Q: ¿Se suman Wallapop, Vinted y eBay para los 30 / 2.000 €?
+A: No, cada plataforma cuenta por separado. Para la renta, en cambio, se suman todas tus ganancias.
+Q: ¿Va a cambiar el límite?
+A: La Comisión Europea propuso en junio de 2026 quitar el límite de 30 ventas y subir el importe a 3.000 € desde 2028. Es solo una propuesta.
+Sources: Agencia Tributaria – DAC7, preguntas frecuentes para vendedores (modelo 238) <https://sede.agenciatributaria.gob.es/Sede/todas-gestiones/impuestos-tasas/declaraciones-informativas/modelo-238-decl_____informacion-parte-operadores-plataformas/preguntas-frecuentes/dac-7-informacion-vendedores.html>; Agencia Tributaria – Pérdidas patrimoniales que no se computan (IRPF 2025) <https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025/c11-ganancias-perdidas-patrimoniales/ganancias-perdidas-patrimoniales-que-no-bi/perdidas-patrimoniales-que-no-se-tales.html>; Wallapop – ¿Debo incluir las ventas de Wallapop en mi declaración de la renta? <https://ayuda.wallapop.com/hc/es-es/articles/23866694565393--Debo-incluir-las-ventas-de-Wallapop-en-mi-declaraci%C3%B3n-de-la-renta>; Wallapop – ¿Qué es DAC7? <https://ayuda.wallapop.com/hc/es-es/articles/19093732048785>; BOE – Ley 58/2003 General Tributaria, art. 66 (prescripción, 4 años) <https://www.boe.es/buscar/act.php?id=BOE-A-2003-23186#a66>; Directive (EU) 2021/514 (DAC7) – EUR-Lex <https://eur-lex.europa.eu/eli/dir/2021/514/oj>; European Commission proposal COM(2026) 308 (DAC recast), 24 June 2026 – EUR-Lex <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52026PC0308>; merca2.es – «Hacienda activa el control masivo sobre Wallapop y Vinted» (15/10/2026, prensa, no fuente oficial) <https://www.merca2.es/2026/10/15/hacienda-directiva-dac7-wallapop>
+Free tool: Comprobador DAC7 gratis – ¿te informará Wallapop a Hacienda? <https://straightgate.gumroad.com/l/wkfckm> · Full version: Control de Ventas DAC7 – Límite de Hacienda en Wallapop, Vinted y eBay + beneficio (Excel y Google Sheets) <https://straightgate.gumroad.com/l/xunsm>
