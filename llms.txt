@@ -1,7 +1,7 @@
 # StraightGate Finance
 > Independent, source-cited answers about what freelancers, online tutors, self-published authors and EU marketplace sellers actually keep after platform fees, currency conversion and tax reporting rules (EU DAC7). Every page cites official sources and links a free spreadsheet tool (Excel + Google Sheets).
 Publisher: StraightGate Finance (StraightGate). Store: https://straightgate.gumroad.com · https://payhip.com/StraightGate · Creem Direct Checkout (Card & Apple Pay) · X: https://x.com/StraightGateFin
-Languages: English, Deutsch, Español, Français, Italiano. Last updated: 2026-10-26.
+Languages: English, Deutsch, Español, Français, Italiano. Last updated: 2026-10-29.
 
 ## English
 - [How do I calculate a translation quote from a Trados or memoQ analysis with fuzzy-match discounts?](https://zcbm2373125333-hub.github.io/en/translation-quote-fuzzy-match-cat-analysis/): Multiply each match band's words by the client's pay %, add them up (weighted words) and multiply by your rate. Worked 5,000-word example + free calculator.
@@ -16,7 +16,7 @@ Languages: English, Deutsch, Español, Français, Italiano. Last updated: 2026-1
 - [Why is my Upwork fee 15% – and who pays less?](https://zcbm2373125333-hub.github.io/en/upwork-fee-15-percent-why/): Since 1 May 2025 Upwork's Freelancer Service Fee is variable, 0–15% per new contract. Exceptions (Any Hire, Direct Contracts, Payroll), gross-up formula and worked examples.
 - [Vinted asked me to fill in the DAC7 form – what is the deadline and what if I don't?](https://zcbm2373125333-hub.github.io/en/vinted-dac7-form-deadline/): Vinted contacts you after 30 sales or €2,000+ in a year. The form is due by early January or within 60 days, whichever is later; otherwise wallet and selling are blocked.
 - [How much fostering income is tax-free in 2025-26 (qualifying care relief)?](https://zcbm2373125333-hub.github.io/en/uk-foster-carer-qualifying-care-relief-2025-26/): 2025-26 limit: £19,690 per household plus £415 a week per child under 11 and £495 for 11 or over. 2026-27: £20,440, £435, £515. Worked example.
-- [Is the UK side-hustle tax limit £1,000 or £3,000?](https://zcbm2373125333-hub.github.io/en/uk-trading-allowance-1000-vs-3000-threshold/): Still £1,000. Gross trading income over £1,000 means registering for Self Assessment. The £3,000 figure is a planned reporting threshold with no start date – and it is not tax-free.
+- [Is the UK side-hustle tax limit £1,000 or £3,000?](https://zcbm2373125333-hub.github.io/en/uk-trading-allowance-1000-vs-3000-threshold/): £1,000 until 5 April 2027. Budget 2026 (28 Oct 2026) raises the tax-free trading allowance and the Self Assessment reporting threshold to £3,000 from 6 April 2027 (tax year 2027/28).
 
 ## Deutsch
 - [Meldet mich Vinted, eBay oder Kleinanzeigen ans Finanzamt? Die DAC7-Grenze von 30 Verkäufen / 2.000 € erklärt](https://zcbm2373125333-hub.github.io/de/dac7-meldegrenze-vinted-ebay-kleinanzeigen/): Nach PStTG/DAC7 meldet eine Plattform dich ans BZSt, wenn du dort im Jahr 30 Verkäufe oder 2.000 € erreichst. Pro Plattform gezählt, Rechenbeispiel, was gemeldet wird, kostenloser Check.
